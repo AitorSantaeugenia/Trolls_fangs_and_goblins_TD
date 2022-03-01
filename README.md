@@ -14,12 +14,23 @@
 [Try it](https://aitorsantaeugenia.github.io/TD_Project1/) || https://aitorsantaeugenia.github.io/TD_Project1/
 
 # TO-DO
-- Let the player chose number of enemies and waves
-- Chose at least 3 different maps (with different paths)
+- Chose levels (4 levels), if you start with first level > 2º > 3º > 4º.
+  - Lvl 1 - Easy - 5 waves
+  - Lvl 2 - Easy with con. - 10 waves
+    - New path, new map, new tema, new enemies with boss.
+  - Lvl 3 - Hard - 15 waves
+    - New path, new map, new tema, new enemies with boss.
+  - Lvl 4 - Nightmare - 50 waves
+    - New path, new map, new tema, new enemies with boss.
 - Centered vw & vh canvas
-- Boss round and enemies with different stats
+- Boss round and enemies with different stats (class enemy)
+  - Better game balance
 - Refractor code (and clear functions, classes, comments)
-- Better game balance
+- Drops of coins
+- 2 more towers 
+  - AOE
+  - POISON
+
 
 ```
 If you have any suggesitons, plz don't be shy and tell me here on github |or| aitorsantaeugenia@gmail.com
