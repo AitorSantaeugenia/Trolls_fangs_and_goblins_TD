@@ -144,7 +144,7 @@ canvas {
 }
 
 .startingMenu {
-  background: url("https://aitorsantaeugenia.github.io/TD_Project1/images/loadingScreen2.png");
+  background: url("https://aitorsantaeugenia.github.io/TD_Project1/images/loadingScreen.png");
   background-size: 100%;
   height: 100vh !important;
   display: flex;
@@ -290,3 +290,32 @@ font-family: Play;
   display: none;
 }
 /* ------------------------------------------------------------------------------------------ */
+/* Trolls fangs and goblins / AKA v.2.0 */
+.titleSubtitle{
+ flex-direction: column;
+ text-align: center;
+  /* margin-left:40%; */
+  /* height:100%; */
+  margin-top:50px;
+  margin-bottom:30px;
+}
+
+.selectionLevel{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+
+}
+
+.levelSelection{
+  width:400px;
+  margin-bottom:10px;
+  margin-right:10px;
+  flex:2;
+}
+
+.levelSelection:hover{
+  border:2px solid rgba(243, 219, 1, 0.979);
+}
+
