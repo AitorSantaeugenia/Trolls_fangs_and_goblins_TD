@@ -10,7 +10,7 @@ class Canvas {
 
 	//Methods
 	draw() {
-		// Pintamos floor pattern
+		// Floor pattern
 		this.context.fillStyle = this.context.createPattern(this.img, 'repeat');
 	}
 }

@@ -22,7 +22,6 @@ class StartGame {
 		this.loser.src = 'https://aitorsantaeugenia.github.io/TD_Project1/images/defeat.png';
 		this.winner = new Image();
 		this.winner.src = 'https://aitorsantaeugenia.github.io/TD_Project1/images/victory.png';
-		//this.htmlBG = document.getElementById('htmlID');
 		this.restartButton = document.getElementById('restarButtonDiv');
 		this.restartTextCd = document.getElementById('restartingTimerText');
 		this.soundOn = document.getElementById('yesSound');
@@ -35,7 +34,6 @@ class StartGame {
 	}
 
 	run() {
-		//this.htmlBG.src = 'https://aitorsantaeugenia.github.io/TD_Project1/images/loadingScreen1.png';
 		this.intervalId = requestAnimationFrame(() => this.run());
 		this.checkSound();
 		this.context.clearRect(0, 0, this.context.canvas.width, this.context.canvas.height);
@@ -51,7 +49,6 @@ class StartGame {
 	}
 
 	draw() {
-		//console.log(this.checkGameContinue());
 		if (this.checkGameContinue()) {
 			this.board.draw();
 			this.move();
@@ -59,7 +56,7 @@ class StartGame {
 			this.enemies.forEach((enemy) => enemy.draw());
 			this.towers.forEach((turret) => turret.draw());
 			this.framesCounter++;
-			//console.log(this.checkGameContinue());
+
 			if (this.framesCounter % 50 === 0) {
 				this.framesCounter = 0;
 				this.addEnemy();
@@ -75,27 +72,24 @@ class StartGame {
 	}
 
 	addEnemy() {
-		//Pintamos enemigos mientras sea más pequeño que el array de enemigos (20)
-		//console.log(this.waveIndex);
+		//We add enemies while it's small than the enemy array (20)
 		if (this.waveEnemies < this.waves.wave[this.waveIndex].length) {
-			//console.log(this.waves.wave[this.waveIndex].length);
 			this.enemies.push(this.waves.wave[this.waveIndex][this.waveEnemies]);
 			this.waveEnemies += 1;
 		} else {
-			//Si hay siguiente wave
+			//if there is a new wave...
 			if (this.waveIndex < this.waves.wave.length - 1 && this.enemies.length === 0) {
-				//5 segundos, next
+				//5 secs, next
 				setTimeout((this.enemies = []), (this.waveEnemies = 0), (this.waveIndex += 1), 5000);
-				//Sinó acabamos
+				//else we finish
 			} else if (this.waveIndex === this.waves.wave.length - 1 && this.enemies.length === 0) {
-				// Has ganado
+				//You win
 				this.gameWin();
 			}
 		}
 	}
 
 	enemyInfo() {
-		//console.log(this.context);
 		let numberWave = this.waveIndex + 1;
 		let wavesOf = this.waves.wave.length;
 		let numberEnemiesInWave = this.enemies.length;
@@ -104,9 +98,6 @@ class StartGame {
 		this.context.fillText(`Wave ${numberWave} of ${wavesOf}`, 50, 50);
 		this.context.fillText(`Enemies: ${numberEnemiesInWave}`, 995, 50);
 	}
-	// removeEnemyFromArray() {
-	// 	return this.enemies.;
-	// }
 
 	goldFromEnemy() {
 		this.enemies.forEach((enemy) => {
@@ -251,7 +242,7 @@ class StartGame {
 		const HP = document.getElementById('hpPlayer');
 		HP.innerText = this.userHP;
 		if (this.userHP === 0) {
-			//Paramos juego
+			// Stop the game
 			this.gameLost();
 		}
 	}
@@ -265,7 +256,6 @@ class StartGame {
 	checkTurretSelected(turret) {
 		let turretSelected = turret;
 
-		//console.log(turretSelected);
 		const sandTurret = document.getElementById('sandTurret');
 		const cataTurret = document.getElementById('cataTurret');
 		const slowTurret = document.getElementById('slowTurret');
@@ -293,11 +283,10 @@ class StartGame {
 		}
 	}
 	gameWin() {
-		//Paramos juego
+		//We stop the game
 		window.cancelAnimationFrame(this.intervalId);
 		this.restartTextCd.innerText = 'Restarting in 10 seconds';
 		this.restartButton.classList.remove('hidden');
-		//alert('Estamos aqui');
 		this.audio1.pause();
 
 		if (this.soundOn.classList.contains('buttonSelectedBorder')) {
@@ -307,9 +296,9 @@ class StartGame {
 			this.audio2.volume = 0;
 			this.audio2.pause();
 		}
-		//Limpiamos mapa
+		//We clear the map
 		this.context.clearRect(0, 0, 1200, 800);
-		//Pintamos logo
+		//We show the winer/loser logo
 		this.context.drawImage(this.winner, 150, -55, 950, 420);
 
 		//10 seconds, refresh or click
@@ -329,9 +318,9 @@ class StartGame {
 		this.restartTextCd.innerText = 'Restarting in 10 seconds';
 		this.restartButton.classList.remove('hidden');
 
-		//Limpiamos mapa
+		//We clear the map
 		this.context.clearRect(0, 0, 1200, 800);
-		//Pintamos logo
+		//We show the winer/loser logo
 		this.context.drawImage(this.loser, 325, 30, 600, 300);
 		this.audio1.pause();
 

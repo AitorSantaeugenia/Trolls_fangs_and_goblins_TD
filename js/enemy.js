@@ -31,21 +31,20 @@ class SmallDemon extends Enemy {
 		this.wHPBar = 35;
 		this.pathIndex = 0;
 		this.slow = false;
-		// Stats enemigo
+		//Enemy stats
 		this.gold = 15;
 		this.minionHp = 300;
 		this.speed = 1.4;
-		// Imagen enemigo red.png
+		// Image red enemy.png
 		this.randomImage = Math.trunc(Math.random() * 8);
 		this.img = new Image();
-		//this.img.src = `https://aitorsantaeugenia.github.io/TD_Project1/images/enemies/enemy${this.randomImage}.png`;
 		this.img.src = `https://aitorsantaeugenia.github.io/TD_Project1//images/enemies/sprites/${this
 			.randomImage}.png`;
 
 		//tring out spritesheets
 		this.canvas = document.querySelector('canvas');
-		//let canvas = document.querySelector('canvas');
 
+		//Own testing with sprites
 		//https://dev.to/martyhimmel/animating-sprite-sheets-with-javascript-ag3
 		//Work in progress
 		//1- pillar posicion imagen
@@ -61,7 +60,7 @@ class SmallDemon extends Enemy {
 		this.swidth = 0;
 		this.sheight = 0;
 
-		//tamaño diferente de los sprites
+		//different size of the sprites
 		if (this.randomImage === 1) {
 			this.swidth = 170;
 			this.sheight = 240;
@@ -87,15 +86,6 @@ class SmallDemon extends Enemy {
 			this.swidth = 170;
 			this.sheight = 240;
 		}
-		//5
-		//155
-
-		//6
-		//138
-
-		//7
-		//	160,
-		//280,
 	}
 
 	draw() {

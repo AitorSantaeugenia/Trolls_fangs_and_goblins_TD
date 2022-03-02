@@ -39,11 +39,9 @@ window.onload = function() {
 				start.cheatCodeGold();
 				document.getElementById('inputCheatCode').value = textDefault;
 			} else if (textToUpper === 'ezwin') {
-				// restartButton.classList.remove('hidden');
 				start.gameWin();
 				document.getElementById('inputCheatCode').value = textDefault;
 			} else if (textToUpper === '4lose') {
-				// restartButton.classList.remove('hidden');
 				start.gameLost();
 				document.getElementById('inputCheatCode').value = textDefault;
 			} else if (textToUpper === 'hollymolly') {
@@ -78,7 +76,6 @@ window.onload = function() {
 	cheatCodeInput.addEventListener('click', function() {
 		let checkLength = goldCheat.value;
 		checkLength = checkLength.length;
-		//console.log(goldCheat);
 		goldCheat.setSelectionRange(0, checkLength);
 	});
 
@@ -121,13 +118,11 @@ window.onload = function() {
 	});
 
 	soundOn.addEventListener('click', function() {
-		// alert('clicked green');
 		soundOn.classList.add('buttonSelectedBorder');
 		soundOff.classList.remove('buttonSelectedBorder');
 	});
 
 	soundOff.addEventListener('click', function() {
-		// alert('clicked red');
 		soundOff.classList.add('buttonSelectedBorder');
 		soundOn.classList.remove('buttonSelectedBorder');
 	});
