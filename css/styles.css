@@ -319,3 +319,17 @@ font-family: Play;
   border:2px solid rgba(243, 219, 1, 0.979);
 }
 
+#modalBtn{
+  color:yellow;
+  background-color: rgb(7, 7, 110);
+  padding:15px 140px;
+  font-size:30px;
+  border-radius: 10px;
+  box-shadow: 5px 10px #000000;
+  border:2px solid rgba(243, 219, 1, 0.979);
+  cursor: pointer;
+}
+
+#modalBtn:hover {
+  background-color: rgb(7, 7, 155);
+}
