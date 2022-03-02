@@ -20,7 +20,7 @@
     - New path, new map, new tema, new enemies with boss.
   - Lvl 3 - Hard - 15 waves
     - New path, new map, new tema, new enemies with boss.
-  - Lvl 4 - Nightmare - 50 waves
+  - Lvl 4 - Nightmare - 50 waves (or change this to Lvl3 and make a DIY lvl)
     - New path, new map, new tema, new enemies with boss.
 - Centered vw & vh canvas
 - Boss round and enemies with different stats (class enemy)
@@ -30,6 +30,13 @@
 - 2 more towers 
   - AOE
   - POISON
+- Background transitions for menu
+- Better buttons / better sound on || off button
+- Better bottom UI
+- Restart button (lvl restart)
+- Cheat button explanation
+- If ESC, pause game and show menu
+- Modal as instructions
 
 
 ```
