@@ -324,9 +324,9 @@ font-family: Play;
   flex:2;
 }
 
-.levelSelection:hover{
+/* .levelSelection:hover{
   border:2px solid rgba(243, 219, 1, 0.979);
-}
+} */
 
 #modalBtn{
   color:yellow;
