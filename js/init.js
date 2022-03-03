@@ -94,6 +94,7 @@ window.onload = function() {
 	});
 
 	sandTurret.addEventListener('click', function() {
+		console.log('hello');
 		turretSelected = 'sand';
 		priceTurret.innerHTML = '$70';
 		start.checkTurretSelected(turretSelected);
