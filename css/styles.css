@@ -23,23 +23,9 @@ html{
 canvas {
   background: url("https://aitorsantaeugenia.github.io/TD_Project1/images/background.png");
   background-repeat: no-repeat;
-  /* padding: 0;
-  margin: auto;
-  display: block;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0; */
-  /* border:1px solid red; */
+
 }
-
-/* .flexForCanvas{
-  text-align: center;
-  height:100%;
-  border:1px solid red; 
-}  */    
-
+ 
 #startGame{
   color:yellow;
   background-color: rgb(7, 7, 110);
@@ -56,11 +42,11 @@ canvas {
 }
 
 .turretSelector{
-  position:relative;
+  /* position:relative; */
   display: flex;
   flex-direction: row;
 
-  height:700px;
+  height:224px;
   width: 1200px;
   align-items: self-end;
 
@@ -168,18 +154,18 @@ canvas {
 
 .lowerMenuTowers{
   text-align: center;
-  width: 1200px;
-  height: 700px;
+  /* width: 1200px;
+  height: 700px; */
   /* border:1px solid red; */
   position: absolute;
-  z-index: 1;
+  /* z-index: 1; */
   /* justify-content: center; */
   /* border: 1px solid red; */
   margin: 0 auto !important;
   background-image: url("../images/lowerMenu.png") !important;
   background-repeat: no-repeat;
   background-position: bottom;
-
+  margin-top: -228px !important;
 }
 
 #idGoldTurretCost{
