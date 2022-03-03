@@ -20,6 +20,7 @@
 </head>
 
 <body>
+  <!-- STARTING MENU -->
   <div id="startingMenu" class="startingMenu">
     <!-- <p></p> -->
     <!-- Saving this here, change whnen upload
@@ -60,24 +61,70 @@
     <!-- <img id="loadingImage" src="./images/loadingBar.png"> -->
   </div>
 
+  <!-- INGAME SETTINGS FOR CANVAS, OTHER MODALS, RESTART BUTTONS AND UI -->
   <div id="canvasContainer" class="hidden">
-    <div>
+    <div class="canvasContainerAll">
       <div class="flexForCanvas flex-row">
         <canvas id="canvas" width="1200" height="700"></canvas>
-      </div>
-      <div id="cheatCodes" class="hidden">
-        <div class="inputContainer" id="inputContainerId">
-          >> <input type="text" value="Insert cheatcode..." id="inputCheatCode">
+        <div id="gameMenu" class="gameMenu">
+
+          <div class="flexForCanvas">
+            <div class="lowerMenuTowers">
+              <img src="https://aitorsantaeugenia.github.io/TD_Project1/images/lowerMenu.png" alt="Turrets menu"
+                id="preventDrag">
+              <div class="turretSelector">
+                <img src="https://aitorsantaeugenia.github.io/TD_Project1/images/soundgreen.png" alt="Sound on"
+                  id="yesSound" class="logoSoundSound buttonSelectedBorder">
+                <img src="https://aitorsantaeugenia.github.io/TD_Project1/images/nosoundred.png" alt="Sound off"
+                  id="noSound" class="logoSoundNoSound">
+                <div class="costGold margin-leftDiv">
+                  <img src="https://aitorsantaeugenia.github.io/TD_Project1/images/vida.png"
+                    style="width: 30px !important; margin-top:10px !important"><span id="hpPlayer" class="costTurrets"
+                    style="margin-top:10px !important">20</span>
+                </div>
+
+                <div class="costGold" style="margin-left:11px;">
+                  <img src="https://aitorsantaeugenia.github.io/TD_Project1/images/coin.png"
+                    style="width: 50px !important"><span id="goldPlayer" class="costTurrets"
+                    style="margin-top:-5px !important">$0</span>
+                </div>
+                <div class="imageGif">
+                  <img src="https://aitorsantaeugenia.github.io/TD_Project1/images/gif.gif">
+                </div>
+                <div class="costGold" style="margin-left:60px">
+                  <img src="https://aitorsantaeugenia.github.io/TD_Project1/images/gold.png"><span class="costTurrets"
+                    id="idGoldTurretCost">$100 </span>
+                </div>
+                <div class="turretsMenuToPick" style="margin-left:284px; margin-top:18px">
+                  <img id="sandTurret" class="turretToSelect"
+                    src="https://aitorsantaeugenia.github.io/TD_Project1/images/towers/sandTurret.png">
+                  <img id="cataTurret" class="turretToSelect"
+                    src="https://aitorsantaeugenia.github.io/TD_Project1/images/towers/stoneTurret.png">
+                  <img id="slowTurret" class="turretToSelect"
+                    src="https://aitorsantaeugenia.github.io/TD_Project1/images/towers/freezeTurret.png">
+                  <img id="flameTurret" class="turretToSelect hidden"
+                    src="https://aitorsantaeugenia.github.io/TD_Project1/images/towers/flameTurret.png">
+
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-      <div id="restarButtonDiv" class="hidden">
-        <p id="restartingTimerText"></p><br><br>
-        <button id="restartButtonGame" class="btn noDrag"><img
-            src="https://aitorsantaeugenia.github.io/TD_Project1/images/restart.png" alt="Restart button"></button>
+        <div id="cheatCodes" class="hidden">
+          <div class="inputContainer" id="inputContainerId">
+            >> <input type="text" value="Insert cheatcode..." id="inputCheatCode">
+          </div>
+        </div>
+        <div id="restarButtonDiv" class="hidden">
+          <p id="restartingTimerText"></p><br><br>
+          <button id="restartButtonGame" class="btn noDrag"><img
+              src="https://aitorsantaeugenia.github.io/TD_Project1/images/restart.png" alt="Restart button"></button>
+        </div>
+
       </div>
     </div>
 
-    <div id="gameMenu" class="gameMenu">
+    <!-- <div id="gameMenu" class="gameMenu">
 
       <div class="flexForCanvas">
         <div class="lowerMenuTowers">
@@ -120,7 +167,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
 
   </div>
   </div>
