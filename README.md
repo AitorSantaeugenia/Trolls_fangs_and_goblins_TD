@@ -22,7 +22,7 @@
     - New path, new map, new tema, new enemies with boss.
   - Lvl 4 - Nightmare - 50 waves (or change this to Lvl3 and make a DIY lvl)
     - New path, new map, new tema, new enemies with boss.
-- Centered vw & vh canvas
+- --Centered vw & vh canvas--
 - Boss round and enemies with different stats (class enemy)
   - Better game balance
 - Refractor code (and clear functions, classes, comments)
