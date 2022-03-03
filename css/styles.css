@@ -333,3 +333,10 @@ font-family: Play;
 #modalBtn:hover {
   background-color: rgb(7, 7, 155);
 }
+
+#canvasContainer{
+  height:100vh;
+}
+.canvasContainerAll{
+  height:100%;
+}
