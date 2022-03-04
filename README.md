@@ -35,8 +35,8 @@
 - 2 more towers 
   - AOE
   - POISON
-- Background transitions for menu ??
-- Better bottom UI
+- ~~Background transitions for menu ??~~ || Nope
+- ~~Better bottom UI~~
 - Restart button (lvl restart)
 - Cheat button explanation
 - how do you turn this on
