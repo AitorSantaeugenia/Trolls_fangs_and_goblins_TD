@@ -125,6 +125,7 @@ canvas {
 
 .imageGif img{
   width: 179px !important;
+  border-radius: 15px;
 
 }
 
@@ -278,13 +279,15 @@ font-family: Play;
   position: absolute;
   margin-top:-40px;
   margin-left:14px;
+  cursor:pointer;
 }
 .logoSoundNoSound{
   width: 22px !important;
   height: 22px !important;
   position: absolute;
   margin-top:-15px;
-  margin-left:13px
+  margin-left:13px;
+  cursor:pointer;
 }
 .hidden {
   display: none;
@@ -416,3 +419,9 @@ font-family: Play;
   line-height: 1;
   margin-bottom: 5px;
 }
+
+.soundOffOn{
+  position:absolute;
+  top:-410px;
+}
+
