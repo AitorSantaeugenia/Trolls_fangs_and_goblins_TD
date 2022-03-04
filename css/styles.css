@@ -54,8 +54,8 @@ canvas {
 }
 
 .turretsMenuToPick{
-  margin-left: 273px;
   margin-bottom: 95px;
+  margin-left: 84px;
 }
 
 .turretsMenuToPick img{
@@ -120,7 +120,7 @@ canvas {
 
 .imageGif{
   margin-bottom: -4px;
-  margin-left: 79px;
+  margin-left: 231px;
 }
 
 .imageGif img{
@@ -162,7 +162,7 @@ canvas {
   /* justify-content: center; */
   /* border: 1px solid red; */
   margin: 0 auto !important;
-  background-image: url("../images/lowerMenu.png") !important;
+  background-image: url("../images/lowerMenuv2.png") !important;
   background-repeat: no-repeat;
   background-position: bottom;
   margin-top: -228px !important;
@@ -405,5 +405,14 @@ font-family: Play;
 }
 
 .goldTurretCost{
-  margin-left: 52px;
+  margin-left: 85px;
+  margin-bottom: 1px !important;
+}
+
+.uiMenuText{
+  color:red;
+  font-size:20px;
+  font-family: 'Permanent Marker',normal;
+  line-height: 1;
+  margin-bottom: 5px;
 }
