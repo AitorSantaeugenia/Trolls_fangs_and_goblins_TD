@@ -22,6 +22,11 @@
     - New path, new map, new tema, new enemies with boss.
   - Lvl 4 - Nightmare - 50 waves (or change this to Lvl3 and make a DIY lvl)
     - New path, new map, new tema, new enemies with boss.
+- ~~Modal for menu selection~~
+- Modal as instructions at the start of the game, clicking a button
+- Better menu for sound on/off
+- Better buttons / better sound on || off button
+- If ESC, pause game and show menu"options"
 - ~~Centered vw & vh canvas~~
 - Boss round and enemies with different stats (class enemy)
   - Better game balance
@@ -30,14 +35,10 @@
 - 2 more towers 
   - AOE
   - POISON
-- Background transitions for menu
-- Better buttons / better sound on || off button
+- Background transitions for menu ??
 - Better bottom UI
 - Restart button (lvl restart)
 - Cheat button explanation
-- If ESC, pause game and show menu
-- Modal as instructions
-
 
 ```
 If you have any suggesitons, plz don't be shy and tell me here on github |or| aitorsantaeugenia@gmail.com
