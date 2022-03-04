@@ -39,6 +39,7 @@
 - Better bottom UI
 - Restart button (lvl restart)
 - Cheat button explanation
+- how do you turn this on
 
 ```
 If you have any suggesitons, plz don't be shy and tell me here on github |or| aitorsantaeugenia@gmail.com
