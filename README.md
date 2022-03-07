@@ -40,6 +40,7 @@
 - Restart button (lvl restart)
 - Cheat button explanation
 - how do you turn this on
+- MSG when introducing a cheatcode
 
 ```
 If you have any suggesitons, plz don't be shy and tell me here on github |or| aitorsantaeugenia@gmail.com
