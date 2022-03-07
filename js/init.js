@@ -76,8 +76,13 @@ window.onload = function() {
 			selectedTrueEasy.style.visibility = 'visible';
 			selectedTrueHard.style.visibility = 'hidden';
 			selectedTrueHell.style.visibility = 'hidden';
+			selectedTrueEasy.setAttribute('activationLvl', 'true');
+			selectedTrueNormal.setAttribute('activationLvl', 'false');
+			selectedTrueHard.setAttribute('activationLvl', 'false');
+			selectedTrueHell.setAttribute('activationLvl', 'false');
 		} else if ((selectedTrueEasy.style.visibility = 'visible')) {
 			selectedTrueEasy.style.visibility = 'hidden';
+			selectedTrueEasy.setAttribute('activationLvl', 'false');
 		}
 	});
 	// Level NORMAL
@@ -87,8 +92,13 @@ window.onload = function() {
 			selectedTrueEasy.style.visibility = 'hidden';
 			selectedTrueHard.style.visibility = 'hidden';
 			selectedTrueHell.style.visibility = 'hidden';
+			selectedTrueEasy.setAttribute('activationLvl', 'false');
+			selectedTrueNormal.setAttribute('activationLvl', 'true');
+			selectedTrueHard.setAttribute('activationLvl', 'false');
+			selectedTrueHell.setAttribute('activationLvl', 'false');
 		} else if ((selectedTrueNormal.style.visibility = 'visible')) {
 			selectedTrueNormal.style.visibility = 'hidden';
+			selectedTrueNormal.setAttribute('activationLvl', 'false');
 		}
 	});
 	// Level HARD
@@ -98,8 +108,13 @@ window.onload = function() {
 			selectedTrueEasy.style.visibility = 'hidden';
 			selectedTrueHard.style.visibility = 'visible';
 			selectedTrueHell.style.visibility = 'hidden';
+			selectedTrueEasy.setAttribute('activationLvl', 'false');
+			selectedTrueNormal.setAttribute('activationLvl', 'false');
+			selectedTrueHard.setAttribute('activationLvl', 'true');
+			selectedTrueHell.setAttribute('activationLvl', 'false');
 		} else if ((selectedTrueHard.style.visibility = 'visible')) {
 			selectedTrueHard.style.visibility = 'hidden';
+			selectedTrueHard.setAttribute('activationLvl', 'false');
 		}
 	});
 	// Level HELL
@@ -109,8 +124,13 @@ window.onload = function() {
 			selectedTrueEasy.style.visibility = 'hidden';
 			selectedTrueHard.style.visibility = 'hidden';
 			selectedTrueHell.style.visibility = 'visible';
+			selectedTrueEasy.setAttribute('activationLvl', 'false');
+			selectedTrueNormal.setAttribute('activationLvl', 'false');
+			selectedTrueHard.setAttribute('activationLvl', 'false');
+			selectedTrueHell.setAttribute('activationLvl', 'true');
 		} else if ((selectedTrueHell.style.visibility = 'visible')) {
 			selectedTrueHell.style.visibility = 'hidden';
+			selectedTrueHell.setAttribute('activationLvl', 'false');
 		}
 	});
 
