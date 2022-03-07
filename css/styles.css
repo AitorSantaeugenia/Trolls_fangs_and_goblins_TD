@@ -424,3 +424,6 @@ font-family: Play;
   top:-410px;
 }
 
+.noPointerEvents{
+  pointer-events: none;
+}
