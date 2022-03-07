@@ -134,6 +134,13 @@ window.onload = function() {
 		}
 	});
 
+	// PAUSE GAME
+	document.addEventListener('keydown', (e) => {
+		if (e.code === 'Escape') {
+			start.pauseGame();
+		}
+	});
+
 	//Other functions
 	function getCursorPosition(canvas, event) {
 		const range = canvas.getBoundingClientRect();
@@ -171,7 +178,6 @@ window.onload = function() {
 	});
 
 	sandTurret.addEventListener('click', function() {
-		console.log('hello');
 		turretSelected = 'sand';
 		priceTurret.innerHTML = '$70';
 		start.checkTurretSelected(turretSelected);

@@ -27,6 +27,8 @@ class StartGame {
 		this.soundOn = document.getElementById('yesSound');
 		this.soundOff = document.getElementById('noSound');
 
+		this.gameStatus = 'normal';
+
 		this.towerCosts = {
 			sand: 70,
 			slow: 200
@@ -371,6 +373,15 @@ class StartGame {
 		} else if (this.soundOff.classList.contains('buttonSelectedBorder')) {
 			this.audio1.volume = 0;
 			this.audio1.pause();
+		}
+	}
+	pauseGame() {
+		if (this.gameStatus === 'normal') {
+			this.gameStatus = 'pause';
+			console.log(this.gameStatus);
+		} else if (this.gameStatus === 'pause') {
+			this.gameStatus = 'normal';
+			console.log(this.gameStatus);
 		}
 	}
 }
