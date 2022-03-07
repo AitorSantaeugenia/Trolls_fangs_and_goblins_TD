@@ -27,7 +27,9 @@ class StartGame {
 		this.soundOn = document.getElementById('yesSound');
 		this.soundOff = document.getElementById('noSound');
 
-		this.gameStatus = 'normal';
+		//v.02
+		this.gameStatus = 'true';
+		this.canvasBoard = document.getElementById('canvas');
 
 		this.towerCosts = {
 			sand: 70,
@@ -36,18 +38,20 @@ class StartGame {
 	}
 
 	run() {
-		this.intervalId = requestAnimationFrame(() => this.run());
-		this.checkSound();
-		this.context.clearRect(0, 0, this.context.canvas.width, this.context.canvas.height);
-		this.waves = new Wave(this.context, this.path);
-		this.enemyInfo();
-		this.playerHP();
-		this.draw();
-		this.enemyInRange();
-		this.enemyEnding();
-		this.playerGold();
-		this.clearEnemyEnding();
-		this.removeEnemy();
+		if (this.gameStatus === 'true') {
+			this.context.clearRect(0, 0, this.context.canvas.width, this.context.canvas.height);
+			this.intervalId = requestAnimationFrame(() => this.run());
+			this.checkSound();
+			this.waves = new Wave(this.context, this.path);
+			this.enemyInfo();
+			this.playerHP();
+			this.draw();
+			this.enemyInRange();
+			this.enemyEnding();
+			this.playerGold();
+			this.clearEnemyEnding();
+			this.removeEnemy();
+		}
 	}
 
 	draw() {
@@ -97,8 +101,8 @@ class StartGame {
 		let numberEnemiesInWave = this.enemies.length;
 		this.context.font = '30px Play';
 		this.context.fillStyle = 'red';
-		this.context.fillText(`Wave ${numberWave} of ${wavesOf}`, 50, 50);
-		this.context.fillText(`Enemies: ${numberEnemiesInWave}`, 995, 50);
+		this.context.fillText(`Wave ${numberWave} of ${wavesOf}`, 50, 50, 300);
+		this.context.fillText(`Enemies: ${numberEnemiesInWave}`, 995, 50, 300);
 	}
 
 	goldFromEnemy() {
@@ -360,11 +364,11 @@ class StartGame {
 		this.userGold += 1000;
 		this.playerGold();
 	}
-	cheatUnlockedTurret() {
-		this.context.font = '30px Play';
-		this.context.fillStyle = 'red';
-		this.context.fillText('You have unlocked the OP turret', 500, 500);
-	}
+	// cheatUnlockedTurret() {
+	// 	this.context.font = '30px Play';
+	// 	this.context.fillStyle = 'red';
+	// 	this.context.fillText('You have unlocked the OP turret', 500, 500);
+	// }
 	checkSound() {
 		if (this.soundOn.classList.contains('buttonSelectedBorder')) {
 			this.audio1.volume = 0.1;
@@ -376,12 +380,43 @@ class StartGame {
 		}
 	}
 	pauseGame() {
-		if (this.gameStatus === 'normal') {
-			this.gameStatus = 'pause';
-			console.log(this.gameStatus);
-		} else if (this.gameStatus === 'pause') {
-			this.gameStatus = 'normal';
-			console.log(this.gameStatus);
+		if (this.gameStatus === 'true') {
+			this.gameStatus = 'false';
+			// clearInterval(this.intervalId);
+			//we stop all the audios to prevent bugs
+			this.audio1.volume = 0;
+			this.audio1.pause();
+			this.audio2.volume = 0;
+			this.audio2.pause();
+			this.audio3.volume = 0;
+			this.audio3.pause();
+			this.audio4.volume = 0;
+			this.audio4.pause();
+			this.audio5.volume = 0;
+			this.audio5.pause();
+			//add or remove a border in the soundon soundoff icon
+			this.soundOff.classList.add('buttonSelectedBorder');
+			this.soundOn.classList.remove('buttonSelectedBorder');
+			//add pointer events class to prevent building in pause time
+			this.canvasBoard.classList.add('noPointerEvents');
+			// we paint the pause text or images
+			// if we use filltext, we have a problem with all the developed text moving to the left
+			// this.context.font = '80px Permanent Marker';
+			// this.context.textAlign = 'center';
+			// this.context.fillStyle = 'red';
+			// this.context.fillText('GAME PAUSED', this.context.canvas.width / 2, this.context.canvas.height / 2, 500);
+		} else if (this.gameStatus === 'false') {
+			this.gameStatus = 'true';
+			this.run();
+			this.audio1.volume = 0.1;
+			this.audio1.play();
+			//add or remove a border in the soundon soundoff icon
+			this.soundOn.classList.add('buttonSelectedBorder');
+			this.soundOff.classList.remove('buttonSelectedBorder');
+			//remove pointer events class to build again after pause
+			this.canvasBoard.classList.remove('noPointerEvents');
+
+			//this.context.restore();
 		}
 	}
 }
