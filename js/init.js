@@ -23,6 +23,16 @@ window.onload = function() {
 	let restartButton = document.getElementById('restarButtonDiv');
 	let soundOn = document.getElementById('yesSound');
 	let soundOff = document.getElementById('noSound');
+	//Starting v.02
+	const selectedEasy = document.getElementById('selectedEasy');
+	const selectedNormal = document.getElementById('selectedNormal');
+	const selectedHard = document.getElementById('selectedHard');
+	const selectedHell = document.getElementById('selectedHell');
+
+	const selectedTrueEasy = document.getElementById('selectedTrueEasy');
+	const selectedTrueNormal = document.getElementById('selectedTrueNormal');
+	const selectedTrueHard = document.getElementById('selectedTrueHard');
+	const selectedTrueHell = document.getElementById('selectedTrueHell');
 
 	// Events
 	document.addEventListener('keydown', (event) => {
@@ -58,6 +68,53 @@ window.onload = function() {
 		}
 	});
 
+	// Selecting lvl in menu
+	// Level EASY
+	selectedEasy.addEventListener('click', function() {
+		if (selectedTrueEasy.style.visibility === 'hidden') {
+			selectedTrueNormal.style.visibility = 'hidden';
+			selectedTrueEasy.style.visibility = 'visible';
+			selectedTrueHard.style.visibility = 'hidden';
+			selectedTrueHell.style.visibility = 'hidden';
+		} else if ((selectedTrueEasy.style.visibility = 'visible')) {
+			selectedTrueEasy.style.visibility = 'hidden';
+		}
+	});
+	// Level NORMAL
+	selectedNormal.addEventListener('click', function() {
+		if (selectedTrueNormal.style.visibility === 'hidden') {
+			selectedTrueNormal.style.visibility = 'visible';
+			selectedTrueEasy.style.visibility = 'hidden';
+			selectedTrueHard.style.visibility = 'hidden';
+			selectedTrueHell.style.visibility = 'hidden';
+		} else if ((selectedTrueNormal.style.visibility = 'visible')) {
+			selectedTrueNormal.style.visibility = 'hidden';
+		}
+	});
+	// Level HARD
+	selectedHard.addEventListener('click', function() {
+		if (selectedTrueHard.style.visibility === 'hidden') {
+			selectedTrueNormal.style.visibility = 'hidden';
+			selectedTrueEasy.style.visibility = 'hidden';
+			selectedTrueHard.style.visibility = 'visible';
+			selectedTrueHell.style.visibility = 'hidden';
+		} else if ((selectedTrueHard.style.visibility = 'visible')) {
+			selectedTrueHard.style.visibility = 'hidden';
+		}
+	});
+	// Level HELL
+	selectedHell.addEventListener('click', function() {
+		if (selectedTrueHell.style.visibility === 'hidden') {
+			selectedTrueNormal.style.visibility = 'hidden';
+			selectedTrueEasy.style.visibility = 'hidden';
+			selectedTrueHard.style.visibility = 'hidden';
+			selectedTrueHell.style.visibility = 'visible';
+		} else if ((selectedTrueHell.style.visibility = 'visible')) {
+			selectedTrueHell.style.visibility = 'hidden';
+		}
+	});
+
+	//Other functions
 	function getCursorPosition(canvas, event) {
 		const range = canvas.getBoundingClientRect();
 		const x = event.clientX - range.left;
