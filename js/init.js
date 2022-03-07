@@ -58,7 +58,7 @@ window.onload = function() {
 				start.cheatCodeGoldToTheMoon();
 				document.getElementById('inputCheatCode').value = textDefault;
 			} else if (textToUpper === 'whosyourdaddy') {
-				start.cheatUnlockedTurret();
+				// start.cheatUnlockedTurret();
 				flameTurret.classList.remove('hidden');
 				document.getElementById('inputCheatCode').value = textDefault;
 			} else {
