@@ -35,7 +35,9 @@ window.onload = function() {
 	const selectedTrueHell = document.getElementById('selectedTrueHell');
 
 	//continue button
-	const continueButton = document.getElementById('continuePauseBtn');
+	const continueButtonFromPause = document.getElementById('continuePauseBtn');
+	//restart button
+	const restartButtonFromPause = document.getElementById('restartPauseBtn');
 
 	// Events
 	document.addEventListener('keydown', (event) => {
@@ -143,10 +145,16 @@ window.onload = function() {
 			start.pauseGame();
 		}
 	});
+
 	// if we click continue (only showed at paused menu) we call start.pauseGame
 	// with status false, and change to true to continue (same as clicking ESC again)
-	continueButton.addEventListener('click', function() {
+	continueButtonFromPause.addEventListener('click', function() {
 		start.pauseGame();
+	});
+
+	// restart lvl from paused menu
+	restartButtonFromPause.addEventListener('click', function() {
+		start.restartLvl();
 	});
 
 	//Other functions
