@@ -34,6 +34,9 @@ window.onload = function() {
 	const selectedTrueHard = document.getElementById('selectedTrueHard');
 	const selectedTrueHell = document.getElementById('selectedTrueHell');
 
+	//continue button
+	const continueButton = document.getElementById('continuePauseBtn');
+
 	// Events
 	document.addEventListener('keydown', (event) => {
 		let test = cheatCodeInput.classList;
@@ -139,6 +142,11 @@ window.onload = function() {
 		if (e.code === 'Escape') {
 			start.pauseGame();
 		}
+	});
+	// if we click continue (only showed at paused menu) we call start.pauseGame
+	// with status false, and change to true to continue (same as clicking ESC again)
+	continueButton.addEventListener('click', function() {
+		start.pauseGame();
 	});
 
 	//Other functions
