@@ -30,6 +30,7 @@ class StartGame {
 		//v.02
 		this.gameStatus = 'true';
 		this.canvasBoard = document.getElementById('canvas');
+		this.pauseMenu = document.getElementById('overCanvas');
 
 		this.towerCosts = {
 			sand: 70,
@@ -405,6 +406,8 @@ class StartGame {
 			// this.context.textAlign = 'center';
 			// this.context.fillStyle = 'red';
 			// this.context.fillText('GAME PAUSED', this.context.canvas.width / 2, this.context.canvas.height / 2, 500);
+			// we show the over canvas div to make a pause menu
+			this.pauseMenu.style.visibility = 'visible';
 		} else if (this.gameStatus === 'false') {
 			this.gameStatus = 'true';
 			this.run();
@@ -415,8 +418,8 @@ class StartGame {
 			this.soundOff.classList.remove('buttonSelectedBorder');
 			//remove pointer events class to build again after pause
 			this.canvasBoard.classList.remove('noPointerEvents');
-
-			//this.context.restore();
+			// we hide the pause menu
+			this.pauseMenu.style.visibility = 'hidden';
 		}
 	}
 }
