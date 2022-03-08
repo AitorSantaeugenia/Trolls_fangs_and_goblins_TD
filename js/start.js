@@ -30,6 +30,7 @@ class StartGame {
 		//v.02
 		this.gameStatus = 'true';
 		this.canvasBoard = document.getElementById('canvas');
+		//div pause
 		this.pauseMenu = document.getElementById('overCanvas');
 
 		this.towerCosts = {
@@ -400,13 +401,7 @@ class StartGame {
 			this.soundOn.classList.remove('buttonSelectedBorder');
 			//add pointer events class to prevent building in pause time
 			this.canvasBoard.classList.add('noPointerEvents');
-			// we paint the pause text or images
-			// if we use filltext, we have a problem with all the developed text moving to the left
-			// this.context.font = '80px Permanent Marker';
-			// this.context.textAlign = 'center';
-			// this.context.fillStyle = 'red';
-			// this.context.fillText('GAME PAUSED', this.context.canvas.width / 2, this.context.canvas.height / 2, 500);
-			// we show the over canvas div to make a pause menu
+			//DIV pause show up
 			this.pauseMenu.style.visibility = 'visible';
 		} else if (this.gameStatus === 'false') {
 			this.gameStatus = 'true';
