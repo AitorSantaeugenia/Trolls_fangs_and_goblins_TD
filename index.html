@@ -68,11 +68,15 @@
 
     </div>
     </br></br>
-    <button id="startGame" class="btn noDrag"><img
-        src="https://aitorsantaeugenia.github.io/TD_Project1/images/start.png" alt="Start button"></button><br>
-    <button id="modalBtn" class="btn noDrag">Custom game</button><br>
-    <button id="modalBtn" class="btn noDrag">Options</button>
-    <!-- <img id="previewImage" src="./images/road.png"> -->
+    <button id="startGame" class="btn noDrag modalBtn"><img src="./images/loadScreen/otherText/start.png"
+        alt="Start button" class="smallerImg"></button><br>
+    <button id="instructionsBtn" class="btn noDrag modalBtn"><img src="./images/loadScreen/otherText/instructions.png"
+        alt="Instructions button" class="smallerImg" style="width: 123px;"></button><br>
+    <button id="customGameBtn" class="btn noDrag modalBtn"><img src="./images/loadScreen/otherText/customgame.png"
+        alt="Custom game button" class="smallerImg" style="width: 123px;"></button><br>
+    <!-- <button id="optionsBtn" class="btn noDrag modalBtn"><img src="./images/loadScreen/otherText/options.png"
+        alt="Options button" class="smallerImg"></button> -->
+    <!-- <img id=" previewImage" src="./images/road.png"> -->
     <!-- <img id="loadingImage" src="./images/loadingBar.png"> -->
   </div>
 
@@ -92,18 +96,22 @@
           <canvas id="canvas" width="1200" height="700"></canvas>
           <div id="overCanvas">
             <p class="pauseFont">Game paused</p>
-            <button class="btn noDrag pauseBtn"><img
-                src="https://aitorsantaeugenia.github.io/TD_Project1/images/start.png" alt="Start button"></button>
-            <button class="btn noDrag pauseBtn"><img
-                src="https://aitorsantaeugenia.github.io/TD_Project1/images/start.png" alt="Start button"></button>
-            <button class="btn noDrag pauseBtn"><img
-                src="https://aitorsantaeugenia.github.io/TD_Project1/images/start.png" alt="Start button"></button>
+            <button id="continuePauseBtn" class="btn noDrag pauseBtn"><img
+                src="./images/loadScreen/otherText/continue.png" alt="Continue button" class="smallerImg"
+                style="width: 150px;"></button>
+            <button id="restartPauseBtn" class="btn noDrag pauseBtn"><img
+                src="./images/loadScreen/otherText/restart.png" alt="Restart button" class="smallerImg"
+                style="width: 89px;"></button>
+            <button id="instructionsPauseBtn" class="btn noDrag pauseBtn"><img
+                src="./images/loadScreen/otherText/instructions.png" alt="Instructions button" class="smallerImg"
+                style="width: 139px"></button>
+            <button id="optionsPauseBtn" class="btn noDrag pauseBtn"><img
+                src="./images/loadScreen/otherText/options.png" alt="Options button" class="smallerImg"
+                style="width: 85px;"></button>
           </div>
         </div>
         <!-- UI CONTAINER -->
         <div class="lowerMenuTowers" id="gameMenu">
-          <!-- <img src="https://aitorsantaeugenia.github.io/TD_Project1/images/lowerMenu.png" alt="Turrets menu"
-          id="preventDrag"> -->
           <div class="soundOffOn">
             <img src="https://aitorsantaeugenia.github.io/TD_Project1/images/soundgreen.png" alt="Sound on"
               id="yesSound" class="logoSoundSound buttonSelectedBorder">
