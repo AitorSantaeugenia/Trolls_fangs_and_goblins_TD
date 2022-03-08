@@ -41,7 +41,7 @@ class StartGame {
 
 	run() {
 		if (this.gameStatus === 'true') {
-			this.context.clearRect(0, 0, this.context.canvas.width, this.context.canvas.height);
+			this.clearCanvas();
 			this.intervalId = requestAnimationFrame(() => this.run());
 			this.checkSound();
 			this.waves = new Wave(this.context, this.path);
@@ -305,7 +305,7 @@ class StartGame {
 			this.audio2.pause();
 		}
 		//We clear the map
-		this.context.clearRect(0, 0, 1200, 800);
+		this.clearCanvas();
 		//We show the winer/loser logo
 		this.context.drawImage(this.winner, 150, -55, 950, 420);
 
@@ -327,7 +327,7 @@ class StartGame {
 		this.restartButton.classList.remove('hidden');
 
 		//We clear the map
-		this.context.clearRect(0, 0, 1200, 800);
+		this.clearCanvas();
 		//We show the winer/loser logo
 		this.context.drawImage(this.loser, 325, 30, 600, 300);
 		this.audio1.pause();
@@ -371,6 +371,7 @@ class StartGame {
 	// 	this.context.fillStyle = 'red';
 	// 	this.context.fillText('You have unlocked the OP turret', 500, 500);
 	// }
+	//soundOFF soundON UI and change the border
 	checkSound() {
 		if (this.soundOn.classList.contains('buttonSelectedBorder')) {
 			this.audio1.volume = 0.1;
@@ -381,10 +382,10 @@ class StartGame {
 			this.audio1.pause();
 		}
 	}
+	// paused game menu
 	pauseGame() {
 		if (this.gameStatus === 'true') {
 			this.gameStatus = 'false';
-			// clearInterval(this.intervalId);
 			//we stop all the audios to prevent bugs
 			this.audio1.volume = 0;
 			this.audio1.pause();
@@ -416,5 +417,37 @@ class StartGame {
 			// we hide the pause menu
 			this.pauseMenu.style.visibility = 'hidden';
 		}
+	}
+
+	// restart level selected
+	restartLvl() {
+		this.gameStatus = 'true';
+		clearInterval(this.intervalId);
+		//we hide the pause menu to instant restart of the lvl
+		this.pauseMenu.style.visibility = 'hidden';
+		//we remove pointer events to select turrets again (after paused menu, where it's disabled to prevent it)
+		this.canvasBoard.classList.remove('noPointerEvents');
+		//we play audio again
+		this.audio1.volume = 0.1;
+		//we reset the audio time to start it from 0
+		this.audio1.currentTime = 0;
+		this.audio1.play();
+		//add or remove a border in the soundon soundoff icon
+		this.soundOn.classList.add('buttonSelectedBorder');
+		this.soundOff.classList.remove('buttonSelectedBorder');
+		this.intervalId = null;
+		this.clearCanvas();
+		this.waves = [];
+		this.waveIndex = 0;
+		this.waveEnemies = 0;
+		this.enemies = [];
+		this.towers = [];
+		this.userHP = 35;
+		this.userGold = 500;
+		this.run();
+	}
+	//clear the canvas for a reset or game win/ game end
+	clearCanvas() {
+		this.context.clearRect(0, 0, this.context.canvas.width, this.context.canvas.height);
 	}
 }
