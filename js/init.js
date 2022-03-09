@@ -38,6 +38,8 @@ window.onload = function() {
 	const continueButtonFromPause = document.getElementById('continuePauseBtn');
 	//restart button
 	const restartButtonFromPause = document.getElementById('restartPauseBtn');
+	//exit button
+	const exitButtonFromPause = document.getElementById('toMenuPauseBtn');
 
 	// Events
 	document.addEventListener('keydown', (event) => {
@@ -155,6 +157,11 @@ window.onload = function() {
 	// restart lvl from paused menu
 	restartButtonFromPause.addEventListener('click', function() {
 		start.restartLvl();
+	});
+
+	// refresh webpage as exit the game
+	exitButtonFromPause.addEventListener('click', function() {
+		location.reload();
 	});
 
 	//Other functions
