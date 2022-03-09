@@ -420,7 +420,7 @@ font-family: Play;
   pointer-events: none;
 }
 
-#overCanvas{
+#overCanvasPauseMenu{
   border:2px solid red;
   width: 1200px;
   height:700px;
