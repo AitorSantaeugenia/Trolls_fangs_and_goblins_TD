@@ -20,10 +20,21 @@ html{
   font-weight: 900;
 }
 
-canvas {
+#canvas {
   background: url("https://aitorsantaeugenia.github.io/TD_Project1/images/background.png");
   background-repeat: no-repeat;
-
+}
+#canvasNormal {
+  background: url("https://aitorsantaeugenia.github.io/TD_Project1/images/loadingScreen1.png");
+  background-repeat: no-repeat;
+}
+#canvasHard {
+  background: url("https://aitorsantaeugenia.github.io/TD_Project1/images/loadingScreen2.png");
+  background-repeat: no-repeat;
+}
+#canvasHell {
+  background: url("https://aitorsantaeugenia.github.io/TD_Project1/images/td.png");
+  background-repeat: no-repeat;
 }
  
 /* #startGame{
