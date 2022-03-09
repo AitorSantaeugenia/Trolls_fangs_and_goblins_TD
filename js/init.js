@@ -1,11 +1,13 @@
 window.onload = function() {
 	const canvas = document.getElementById('canvas');
-	const context = canvas.getContext('2d');
+	const canvasNormal = document.getElementById('canvasNormal');
+	const canvasHard = document.getElementById('canvasHard');
+	const canvasHell = document.getElementById('canvasHell');
+	let context = canvas.getContext('2d');
 	const gameInterface = document.getElementById('startingMenu');
 	const canvasContainer = document.getElementById('canvasContainer');
 	const gameMenu = document.getElementById('gameMenu');
 	const startGameButton = document.getElementById('startGame');
-	const start = new StartGame(context);
 	const sandTurret = document.getElementById('sandTurret');
 	const cataTurret = document.getElementById('cataTurret');
 	const slowTurret = document.getElementById('slowTurret');
@@ -23,17 +25,21 @@ window.onload = function() {
 	let restartButton = document.getElementById('restarButtonDiv');
 	let soundOn = document.getElementById('yesSound');
 	let soundOff = document.getElementById('noSound');
-	//Starting v.02
+
+	// Starting v.02
+	// HOME MENU - LVL SELECTION UI
+	// DIV container to select lvls
 	const selectedEasy = document.getElementById('selectedEasy');
 	const selectedNormal = document.getElementById('selectedNormal');
 	const selectedHard = document.getElementById('selectedHard');
 	const selectedHell = document.getElementById('selectedHell');
-
+	// Hover DIV select lvls, we use this to know which canvas+context use when selecting the mode
 	const selectedTrueEasy = document.getElementById('selectedTrueEasy');
 	const selectedTrueNormal = document.getElementById('selectedTrueNormal');
 	const selectedTrueHard = document.getElementById('selectedTrueHard');
 	const selectedTrueHell = document.getElementById('selectedTrueHell');
 
+	// PAUSE MENU - buttons
 	//continue button
 	const continueButtonFromPause = document.getElementById('continuePauseBtn');
 	//restart button
@@ -42,13 +48,38 @@ window.onload = function() {
 	const exitButtonFromPause = document.getElementById('toMenuPauseBtn');
 
 	// Events
+	// event to know which lvl is selected and what canvas & context use in that case
+	document.addEventListener('click', function() {
+		if (selectedTrueEasy.getAttribute('activationlvl') === 'true') {
+			context = canvas.getContext('2d');
+			canvas.classList.remove('hidden');
+		} else if (selectedTrueNormal.getAttribute('activationlvl') === 'true') {
+			context = canvasNormal.getContext('2d');
+			canvas.classList.add('hidden');
+			canvasNormal.classList.remove('hidden');
+		} else if (selectedTrueHard.getAttribute('activationlvl') === 'true') {
+			context = canvasHard.getContext('2d');
+			canvas.classList.add('hidden');
+			canvasHard.classList.remove('hidden');
+		} else if (selectedTrueHell.getAttribute('activationlvl') === 'true') {
+			context = canvasHell.getContext('2d');
+			canvas.classList.add('hidden');
+			canvasHell.classList.remove('hidden');
+		} else {
+		}
+	});
+
+	// START GAME
+	const start = new StartGame(context);
+
+	//event to insert cheatcodes when ENTER key is pressed
 	document.addEventListener('keydown', (event) => {
 		let test = cheatCodeInput.classList;
 		let textToUpper = goldCheat.value;
 		textToUpper = textToUpper.toLowerCase();
 		let textDefault = 'Insert cheatcode ...';
 
-		//Insert whosyourdaddy and press intro = 200gold more, clear and if you want repeat
+		//In game cheats
 		if (event.key === 'Enter' && test == 'hidden') {
 			cheatCodeInput.classList.remove('hidden');
 		} else if (event.key === 'Enter' && test == '') {
