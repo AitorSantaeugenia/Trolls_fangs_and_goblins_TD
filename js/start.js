@@ -31,7 +31,7 @@ class StartGame {
 		this.gameStatus = 'true';
 		this.canvasBoard = document.getElementById('canvas');
 		//div pause
-		this.pauseMenu = document.getElementById('overCanvas');
+		this.pauseMenu = document.getElementById('overCanvasPauseMenu');
 
 		this.towerCosts = {
 			sand: 70,
