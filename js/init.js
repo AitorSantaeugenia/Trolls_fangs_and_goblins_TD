@@ -1,10 +1,12 @@
 window.onload = function() {
-	const canvas = document.getElementById('canvas');
-	const canvasNormal = document.getElementById('canvasNormal');
-	const canvasHard = document.getElementById('canvasHard');
-	const canvasHell = document.getElementById('canvasHell');
-	let context = canvas.getContext('2d');
 	const gameInterface = document.getElementById('startingMenu');
+	let canvas = document.getElementById('canvas');
+	let canvas1 = '';
+	let canvas2 = '';
+	let canvas3 = '';
+	let canvas4 = '';
+	let context = canvas.getContext('2d');
+	const start = new StartGame(context);
 	const canvasContainer = document.getElementById('canvasContainer');
 	const gameMenu = document.getElementById('gameMenu');
 	const startGameButton = document.getElementById('startGame');
@@ -46,31 +48,82 @@ window.onload = function() {
 	const restartButtonFromPause = document.getElementById('restartPauseBtn');
 	//exit button
 	const exitButtonFromPause = document.getElementById('toMenuPauseBtn');
+	// let context = document.getElementById('canvas');
+	// start = new StartGame(context);
 
 	// Events
 	// event to know which lvl is selected and what canvas & context use in that case
 	document.addEventListener('click', function() {
 		if (selectedTrueEasy.getAttribute('activationlvl') === 'true') {
+			canvas2 = document.getElementById('canvasNormal');
+			canvas3 = document.getElementById('canvasHard');
+			canvas4 = document.getElementById('canvasHell');
+			canvas = document.getElementById('canvas');
 			context = canvas.getContext('2d');
 			canvas.classList.remove('hidden');
+			canvas2.classList.add('hidden');
+			canvas3.classList.add('hidden');
+			canvas4.classList.add('hidden');
+			// startSelectedLevel(context);
 		} else if (selectedTrueNormal.getAttribute('activationlvl') === 'true') {
-			context = canvasNormal.getContext('2d');
-			canvas.classList.add('hidden');
+			canvas1 = document.getElementById('canvas');
+			canvas3 = document.getElementById('canvasHard');
+			canvas4 = document.getElementById('canvasHell');
+			canvas = document.getElementById('canvasNormal');
+			context = canvas.getContext('2d');
+			canvas1.classList.add('hidden');
+			canvas3.classList.add('hidden');
+			canvas4.classList.add('hidden');
 			canvasNormal.classList.remove('hidden');
+			// startSelectedLevel(context);
 		} else if (selectedTrueHard.getAttribute('activationlvl') === 'true') {
-			context = canvasHard.getContext('2d');
-			canvas.classList.add('hidden');
+			canvas1 = document.getElementById('canvas');
+			canvas2 = document.getElementById('canvasNormal');
+			canvas4 = document.getElementById('canvasHell');
+			canvas1.classList.add('hidden');
+			canvas2.classList.add('hidden');
+			canvas4.classList.add('hidden');
+			canvas = document.getElementById('canvasHard');
+			context = canvas.getContext('2d');
 			canvasHard.classList.remove('hidden');
+			// startSelectedLevel(context);
 		} else if (selectedTrueHell.getAttribute('activationlvl') === 'true') {
-			context = canvasHell.getContext('2d');
-			canvas.classList.add('hidden');
+			canvas1 = document.getElementById('canvas');
+			canvas2 = document.getElementById('canvasNormal');
+			canvas3 = document.getElementById('canvasHard');
+			canvas1.classList.add('hidden');
+			canvas2.classList.add('hidden');
+			canvas3.classList.add('hidden');
+			canvas = document.getElementById('canvasHell');
+			context = canvas.getContext('2d');
 			canvasHell.classList.remove('hidden');
+			// startSelectedLevel(context);
 		} else {
+			canvas = document.getElementById('canvas');
+			canvas2 = document.getElementById('canvasNormal');
+			canvas3 = document.getElementById('canvasHard');
+			canvas4 = document.getElementById('canvasHell');
+			canvas.classList.remove('hidden');
+			canvas2.classList.add('hidden');
+			canvas3.classList.add('hidden');
+			canvas4.classList.add('hidden');
+			context = canvas.getContext('2d');
+			// startSelectedLevel(context);
 		}
 	});
 
+	// console.log(context);
+	//const start = new StartGame(context);
+	// console.log(context);
+
+	// // Function to know wich canvas is selected at the start of the game
+	// function startSelectedLevel(context) {
+	// 	let contextStart = context;
+	// 	start = new StartGame(contextStart);
+	// }
+
 	// START GAME
-	const start = new StartGame(context);
+	// const start = new StartGame(context);
 
 	//event to insert cheatcodes when ENTER key is pressed
 	document.addEventListener('keydown', (event) => {
@@ -197,7 +250,7 @@ window.onload = function() {
 
 	//Other functions
 	function getCursorPosition(canvas, event) {
-		const range = canvas.getBoundingClientRect();
+		let range = canvas.getBoundingClientRect();
 		const x = event.clientX - range.left;
 		const y = event.clientY - range.top;
 		return {
@@ -208,6 +261,7 @@ window.onload = function() {
 	}
 
 	canvas.onmousedown = (event) => {
+		console.log('aitormenta');
 		start.createTurret(getCursorPosition(canvas, event), turretSelected);
 	};
 

@@ -1,5 +1,6 @@
 class StartGame {
 	constructor(context) {
+		console.log('menta', context);
 		this.context = context;
 		this.intervalId = null;
 		this.path = [ [ 0, 350 ], [ 1200, 350 ] ];
