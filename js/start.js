@@ -1,7 +1,7 @@
 class StartGame {
-	constructor(context) {
-		console.log('menta', context);
-		this.context = context;
+	constructor() {
+		this.canvas = document.getElementById('canvas');
+		this.context = canvas.getContext('2d');
 		this.intervalId = null;
 		this.path = [ [ 0, 350 ], [ 1200, 350 ] ];
 		this.waves = [];
@@ -33,11 +33,19 @@ class StartGame {
 		this.canvasBoard = document.getElementById('canvas');
 		//div pause
 		this.pauseMenu = document.getElementById('overCanvasPauseMenu');
+		//difficulty
+		this.gameDifficulty = 'normal';
 
 		this.towerCosts = {
 			sand: 70,
 			slow: 200
 		};
+	}
+
+	//Difficulty level
+	setDifficultyLvl(lvlDifficulty) {
+		this.gameDifficulty = lvlDifficulty;
+		console.log(this.gameDifficulty);
 	}
 
 	run() {
