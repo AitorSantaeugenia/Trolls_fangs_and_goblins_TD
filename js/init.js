@@ -1,27 +1,31 @@
 window.onload = function() {
 	const gameInterface = document.getElementById('startingMenu');
 
-	let start = new StartGame();
+	const start = new StartGame();
 	const canvasContainer = document.getElementById('canvasContainer');
 	const gameMenu = document.getElementById('gameMenu');
 	const startGameButton = document.getElementById('startGame');
+	//turrets
 	const sandTurret = document.getElementById('sandTurret');
 	const cataTurret = document.getElementById('cataTurret');
 	const slowTurret = document.getElementById('slowTurret');
 	const flameTurret = document.getElementById('flameTurret');
 	const priceTurret = document.getElementById('idGoldTurretCost');
-	let turretSelected = '';
+	//audios
 	const audio1 = document.getElementById('backgroundMusic');
 	const audio2 = document.getElementById('victoryMusic');
 	const audio3 = document.getElementById('defeatMusic');
 	const audio4 = document.getElementById('jobDone');
 	const audio5 = document.getElementById('liveLessMusic');
 	const audio = document.getElementById('buttonMusic');
+
+	let soundOn = document.getElementById('yesSound');
+	let soundOff = document.getElementById('noSound');
+	//misc
+	let turretSelected = '';
 	let cheatCodeInput = document.getElementById('cheatCodes');
 	let goldCheat = document.getElementById('inputCheatCode');
 	let restartButton = document.getElementById('restarButtonDiv');
-	let soundOn = document.getElementById('yesSound');
-	let soundOff = document.getElementById('noSound');
 
 	// Starting v.02
 	// HOME MENU - LVL SELECTION UI
@@ -30,7 +34,7 @@ window.onload = function() {
 	const selectedNormal = document.getElementById('selectedNormal');
 	const selectedHard = document.getElementById('selectedHard');
 	const selectedHell = document.getElementById('selectedHell');
-	// Hover DIV select lvls, we use this to know which canvas+context use when selecting the mode
+	// Hover DIV select lvls, we use this to know which lvl difficulty
 	const selectedTrueEasy = document.getElementById('selectedTrueEasy');
 	const selectedTrueNormal = document.getElementById('selectedTrueNormal');
 	const selectedTrueHard = document.getElementById('selectedTrueHard');
@@ -188,7 +192,6 @@ window.onload = function() {
 
 	//Other functions
 	function getCursorPosition(canvas, event) {
-		//console.log('menta' + canvas);
 		let range = canvas.getBoundingClientRect();
 		const x = event.clientX - range.left;
 		const y = event.clientY - range.top;
@@ -200,7 +203,6 @@ window.onload = function() {
 	}
 
 	canvas.onmousedown = (event) => {
-		console.log('canvs is' + canvas);
 		start.createTurret(getCursorPosition(canvas, event), turretSelected);
 	};
 
