@@ -27,12 +27,13 @@ class Turret {
 		this.bullets.forEach((projectile) => projectile.move());
 	}
 
-	drawCanvas(path, pos, width) {
+	turretInPath(path, pos, width) {
 		let collide = false;
 
 		for (let i = 0; i < path.length - 1; i++) {
 			if (path[i][0] - path[i + 1][0] === 0) {
 				if (
+					//not collide with vertical path
 					Math.abs(path[i][0] - pos.x) < width + this.w / 2 &&
 					((pos.y > path[i][1] - width && pos.y < path[i + 1][1] + width) ||
 						(pos.y < path[i][1] + width && pos.y > path[i + 1][1] - width))
@@ -41,6 +42,7 @@ class Turret {
 				}
 			} else if (path[i][1] - path[i + 1][1] === 0) {
 				if (
+					//not collide with horizontal path
 					Math.abs(path[i][1] - pos.y) < width + this.h / 2 &&
 					((pos.x > path[i][0] - width && pos.x < path[i + 1][0] + width) ||
 						(pos.x < path[i][0] + width && pos.x > path[i + 1][0] - width))
