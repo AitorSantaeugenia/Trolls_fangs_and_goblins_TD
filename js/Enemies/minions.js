@@ -151,7 +151,7 @@ class Minons extends Enemy {
 		new HPbar(
 			this.context,
 			this.x - this.w / 2,
-			this.y - this.h / 2 - 15,
+			this.y - this.h / 2 - 11,
 			this.wHPBar * this.minionHp / 300,
 			8
 		).draw();
