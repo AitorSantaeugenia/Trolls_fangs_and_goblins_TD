@@ -247,7 +247,7 @@ class StartGame {
 					turret = new Turret(this.context, pos.x, pos.y);
 					towerCost = turret.returnPrice();
 					if (this.userGold >= towerCost) {
-						if (!turret.drawCanvas(this.path, pos, 30)) {
+						if (!turret.turretInPath(this.path, pos, 30)) {
 							this.towers.push(turret);
 							this.userGold -= towerCost;
 							if (this.soundOn.classList.contains('buttonSelectedBorder')) {
@@ -263,7 +263,7 @@ class StartGame {
 					turret = new SlowTurret(this.context, pos.x, pos.y);
 					towerCost = turret.returnPrice();
 					if (this.userGold >= towerCost) {
-						if (!turret.drawCanvas(this.path, pos, 30)) {
+						if (!turret.turretInPath(this.path, pos, 30)) {
 							this.towers.push(turret);
 							this.userGold -= towerCost;
 							if (this.soundOn.classList.contains('buttonSelectedBorder')) {
@@ -279,7 +279,7 @@ class StartGame {
 					turret = new FlameTurret(this.context, pos.x, pos.y);
 					towerCost = turret.returnPrice();
 					if (this.userGold >= towerCost) {
-						if (!turret.drawCanvas(this.path, pos, 30)) {
+						if (!turret.turretInPath(this.path, pos, 30)) {
 							this.towers.push(turret);
 							this.userGold -= towerCost;
 							if (this.soundOn.classList.contains('buttonSelectedBorder')) {
@@ -295,7 +295,7 @@ class StartGame {
 					turret = new CatapultTurret(this.context, pos.x, pos.y);
 					towerCost = turret.returnPrice();
 					if (this.userGold >= towerCost) {
-						if (!turret.drawCanvas(this.path, pos, 30)) {
+						if (!turret.turretInPath(this.path, pos, 30)) {
 							this.towers.push(turret);
 							this.userGold -= towerCost;
 							if (this.soundOn.classList.contains('buttonSelectedBorder')) {
