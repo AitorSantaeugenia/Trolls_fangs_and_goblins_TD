@@ -3,20 +3,10 @@ class StartGame {
 		this.canvas = document.getElementById('canvas');
 		this.context = canvas.getContext('2d');
 		this.intervalId = null;
-		this.ctxW = 1200;
-		this.ctxH = 700;
-		//Default path (Easy level)
-		this.path = [ [ 0, 350 ], [ 1200, 350 ] ]; // path1
-		// this.path = [
-		// 	[ 0, 0.365 * this.ctxH ],
-		// 	[ 0.1 * this.ctxW, 0.365 * this.ctxH ],
-		// 	[ 0.1 * this.ctxW, 0.3 * this.ctxH - 90 ],
-		// 	[ 0.9 * this.ctxW, 0.3 * this.ctxH - 90 ],
-		// 	[ 0.9 * this.ctxW, 0.7 * this.ctxH - 90 ],
-		// 	[ 0.1 * this.ctxW, 0.7 * this.ctxH - 90 ],
-		// 	[ 0.1 * this.ctxW, 0.475 * this.ctxH - 90 ],
-		// 	[ this.ctxW, 0.365 * this.ctxH ]
-		// ];
+		this.contextW = 1200;
+		this.contextH = 700;
+		//Path - We change value later
+		this.path = '';
 		this.waves = [];
 		this.waveIndex = 0;
 		this.waveEnemies = 0;
@@ -70,30 +60,61 @@ class StartGame {
 
 		if (selectedTrueEasy.getAttribute('activationlvl') === 'true') {
 			this.gameDifficulty = 'Easy';
-			this.path = [ [ 0, 350 ], [ 1200, 350 ] ]; // path1
+			this.path = [ [ 0, 350 ], [ 1200, 350 ] ]; // Path1
 			this.board = new Waypoint(this.context, this.path, 20);
 		} else if (selectedTrueNormal.getAttribute('activationlvl') === 'true') {
 			this.gameDifficulty = 'Normal';
 			this.path = [
-				[ 0, 0.365 * this.ctxH ],
-				[ 0.1 * this.ctxW, 0.365 * this.ctxH ],
-				[ 0.1 * this.ctxW, 0.3 * this.ctxH - 90 ],
-				[ 0.9 * this.ctxW, 0.3 * this.ctxH - 90 ],
-				[ 0.9 * this.ctxW, 0.7 * this.ctxH - 90 ],
-				[ 0.1 * this.ctxW, 0.7 * this.ctxH - 90 ],
-				[ 0.1 * this.ctxW, 0.475 * this.ctxH - 90 ],
-				[ this.ctxW, 0.365 * this.ctxH ]
+				[ 0, 255.5 ], //Path2
+				[ 120, 255.5 ],
+				[ 120, 120 ],
+				[ 1080, 120 ],
+				[ 1080, 400 ],
+				[ 120, 400 ],
+				[ 120, 255.5 ],
+				[ 1200, 255.5 ]
 			];
 			this.board = new Waypoint(this.context, this.path, 20);
 		} else if (selectedTrueHard.getAttribute('activationlvl') === 'true') {
 			this.gameDifficulty = 'Hard';
-			return (this.path = [ [ 0, 350 ], [ 1200, 350 ] ]); // path1
+			this.path = [
+				[ 0, 100 ], //Path2
+				[ 100, 100 ],
+				[ 100, 500 ],
+				[ 250, 500 ],
+				[ 250, 100 ],
+				[ 400, 100 ],
+				[ 400, 500 ],
+				[ 550, 500 ],
+				[ 550, 100 ],
+				[ 700, 100 ],
+				[ 700, 500 ],
+				[ 850, 500 ],
+				[ 850, 100 ],
+				[ 1000, 100 ],
+				[ 1000, 500 ],
+				[ 1150, 500 ],
+				[ 1150, 250 ],
+				[ 1200, 250 ]
+			];
+			this.board = new Waypoint(this.context, this.path, 20);
 		} else if (selectedTrueHell.getAttribute('activationlvl') === 'true') {
 			this.gameDifficulty = 'Hell';
-			return (this.path = [ [ 0, 350 ], [ 1200, 350 ] ]); // path1
+			this.path = [
+				[ 0, 0.365 * this.contextH ], //Path4
+				[ 0.1 * this.contextW, 0.365 * this.contextH ],
+				[ 0.1 * this.contextW, 0.3 * this.contextH - 90 ],
+				[ 0.9 * this.contextW, 0.3 * this.contextH - 90 ],
+				[ 0.9 * this.contextW, 0.7 * this.contextH - 90 ],
+				[ 0.1 * this.contextW, 0.7 * this.contextH - 90 ],
+				[ 0.1 * this.contextW, 0.475 * this.contextH - 90 ],
+				[ this.contextW, 0.365 * this.contextH ]
+			];
+			this.board = new Waypoint(this.context, this.path, 20);
 		} else {
 			this.gameDifficulty = 'Easy';
-			return (this.path = [ [ 0, 350 ], [ 1200, 350 ] ]); // path1
+			this.path = [ [ 0, 350 ], [ 1200, 350 ] ]; // Path1 as default
+			this.board = new Waypoint(this.context, this.path, 20);
 		}
 	}
 
