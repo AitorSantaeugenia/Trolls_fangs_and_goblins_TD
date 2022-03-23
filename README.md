@@ -26,7 +26,7 @@
 - Modal as instructions at the start of the game, clicking a button
 - Better menu for sound on/off
 - Better buttons / better sound on || off button
-- If ESC, pause game and show menu"options"
+- ~~If ESC, pause game and show menu"options"~~
 - ~~Centered vw & vh canvas~~
 - Boss round and enemies with different stats (class enemy)
   - Better game balance
@@ -37,14 +37,13 @@
   - POISON
 - ~~Background transitions for menu ??~~ || Nope
 - ~~Better bottom UI~~
-- Restart button (lvl restart)
+- ~~Restart button (lvl restart)~~
 - Cheat button explanation
 - how do you turn this on
 - MSG when introducing a cheatcode
-- Custom game img
-- Instructions img
-- Continue img
-- Better start img
+- Instruction menu
+- Custom game menu
+- Change width+height map (minions+path) on selecting lvl
 
 ```
 If you have any suggesitons, plz don't be shy and tell me here on github |or| aitorsantaeugenia@gmail.com
