@@ -104,22 +104,22 @@ class Minons extends Enemy {
 		const percentageY = 1 - percentageX;
 
 		if (distX > 0) {
-			this._updateDirection('right');
-			this.x += this.speed * percentageX; // derecha
+			this.updateDirection('right');
+			this.x += this.speed * percentageX; // right
 		} else if (distX < 0) {
-			this._updateDirection('left');
-			this.x -= this.speed * percentageX; // izquierda
+			this.updateDirection('left');
+			this.x -= this.speed * percentageX; // left
 		}
 
 		if (distY > 0) {
-			this._updateDirection('down');
-			this.y += this.speed * percentageY; // abajo
+			this.updateDirection('down');
+			this.y += this.speed * percentageY; // down
 		} else if (distY < 0) {
-			this._updateDirection('up');
-			this.y -= this.speed * percentageY; // arriba
+			this.updateDirection('up');
+			this.y -= this.speed * percentageY; // up
 		}
 
-		// Si llega al destino marcado, cambia a nuevo destino
+		// change to next waypoint after reaching one
 		if (
 			this.x + 1 >= this.path[this.pathIndex][0] &&
 			this.x - 1 <= this.path[this.pathIndex][0] &&
@@ -131,7 +131,7 @@ class Minons extends Enemy {
 			this.pathIndex += 1;
 		}
 	}
-	_updateDirection(dir) {
+	updateDirection(dir) {
 		switch (dir) {
 			case 'up':
 				this.direction = 0;
