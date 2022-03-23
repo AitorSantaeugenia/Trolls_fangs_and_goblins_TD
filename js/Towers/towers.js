@@ -29,8 +29,17 @@ class Turret {
 
 	drawCanvas(path, pos, width) {
 		let collide = false;
+
 		for (let i = 0; i < path.length - 1; i++) {
-			if (path[i][1] - path[i + 1][1] === 0) {
+			if (path[i][0] - path[i + 1][0] === 0) {
+				if (
+					Math.abs(path[i][0] - pos.x) < width + this.w / 2 &&
+					((pos.y > path[i][1] - width && pos.y < path[i + 1][1] + width) ||
+						(pos.y < path[i][1] + width && pos.y > path[i + 1][1] - width))
+				) {
+					collide = true;
+				}
+			} else if (path[i][1] - path[i + 1][1] === 0) {
 				if (
 					Math.abs(path[i][1] - pos.y) < width + this.h / 2 &&
 					((pos.x > path[i][0] - width && pos.x < path[i + 1][0] + width) ||
