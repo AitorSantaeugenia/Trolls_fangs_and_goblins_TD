@@ -11,13 +11,13 @@ class Waypoint {
 
 		//load Floor img
 		this.img = new Image();
-		this.img.src = 'https://aitorsantaeugenia.github.io/TD_Project1/images/terrain/floor.png';
+		this.img.src = './images/terrain/floor.png';
 	}
 
 	//Methods
 	draw() {
 		// Floor pattern
-		this.context.fillStyle = this.context.createPattern(this.img, 'repeat');
+		//this.context.fillStyle = this.context.createPattern(this.img, 'repeat');
 
 		for (let i = 0, l = this.path.length; i < l - 1; i++) {
 			const axisX = this.path[i + 1][0] - this.path[i][0];
