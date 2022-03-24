@@ -18,6 +18,7 @@ class Waypoint {
 	draw() {
 		// Floor pattern
 		//this.context.fillStyle = this.context.createPattern(this.img, 'repeat');
+		this.context.globalCompositeOperation = 'source-over';
 
 		for (let i = 0, l = this.path.length; i < l - 1; i++) {
 			const axisX = this.path[i + 1][0] - this.path[i][0];
