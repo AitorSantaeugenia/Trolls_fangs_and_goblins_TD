@@ -38,6 +38,10 @@ class StartGame {
 		this.pauseMenu = document.getElementById('overCanvasPauseMenu');
 		//difficulty
 		this.gameDifficulty = 'Easy';
+		//towers changing size when selecting different levelSection
+		this.turretSizeW = '';
+		this.turretSizeH = '';
+		this.turretHitBox = '';
 
 		this.towerCosts = {
 			sand: 70,
@@ -62,6 +66,9 @@ class StartGame {
 			this.gameDifficulty = 'Easy';
 			this.path = [ [ 0, 350 ], [ 1200, 350 ] ]; // Path1
 			this.board = new Waypoint(this.context, this.path, 20);
+			this.turretSizeW = 60;
+			this.turretSizeH = 80;
+			this.turretHitBox = 30;
 		} else if (selectedTrueNormal.getAttribute('activationlvl') === 'true') {
 			this.gameDifficulty = 'Normal';
 			this.path = [
@@ -75,10 +82,13 @@ class StartGame {
 				[ 1200, 255.5 ]
 			];
 			this.board = new Waypoint(this.context, this.path, 20);
+			this.turretSizeW = 40;
+			this.turretSizeH = 50;
+			this.turretHitBox = 20;
 		} else if (selectedTrueHard.getAttribute('activationlvl') === 'true') {
 			this.gameDifficulty = 'Hard';
 			this.path = [
-				[ 0, 100 ], //Path2
+				[ 0, 100 ], //Path3
 				[ 100, 100 ],
 				[ 100, 500 ],
 				[ 250, 500 ],
@@ -98,6 +108,9 @@ class StartGame {
 				[ 1200, 250 ]
 			];
 			this.board = new Waypoint(this.context, this.path, 20);
+			this.turretSizeW = 40;
+			this.turretSizeH = 50;
+			this.turretHitBox = 20;
 		} else if (selectedTrueHell.getAttribute('activationlvl') === 'true') {
 			this.gameDifficulty = 'Hell';
 			this.path = [
@@ -111,10 +124,16 @@ class StartGame {
 				[ this.contextW, 0.365 * this.contextH ]
 			];
 			this.board = new Waypoint(this.context, this.path, 20);
+			this.turretSizeW = 40;
+			this.turretSizeH = 50;
+			this.turretHitBox = 20;
 		} else {
 			this.gameDifficulty = 'Easy';
 			this.path = [ [ 0, 350 ], [ 1200, 350 ] ]; // Path1 as default
 			this.board = new Waypoint(this.context, this.path, 20);
+			this.turretSizeW = 60;
+			this.turretSizeH = 80;
+			this.turretHitBox = 30;
 		}
 	}
 
@@ -244,10 +263,10 @@ class StartGame {
 			let towerCost = 0;
 			if (!this.positionTower(pos)) {
 				if (type === 'sand') {
-					turret = new Turret(this.context, pos.x, pos.y);
+					turret = new Turret(this.context, pos.x, pos.y, this.turretSizeW, this.turretSizeH);
 					towerCost = turret.returnPrice();
 					if (this.userGold >= towerCost) {
-						if (!turret.turretInPath(this.path, pos, 30)) {
+						if (!turret.turretInPath(this.path, pos, this.turretHitBox)) {
 							this.towers.push(turret);
 							this.userGold -= towerCost;
 							if (this.soundOn.classList.contains('buttonSelectedBorder')) {
@@ -260,10 +279,10 @@ class StartGame {
 						}
 					}
 				} else if (type === 'slow') {
-					turret = new SlowTurret(this.context, pos.x, pos.y);
+					turret = new SlowTurret(this.context, pos.x, pos.y, this.turretSizeW, this.turretSizeH);
 					towerCost = turret.returnPrice();
 					if (this.userGold >= towerCost) {
-						if (!turret.turretInPath(this.path, pos, 30)) {
+						if (!turret.turretInPath(this.path, pos, this.turretHitBox)) {
 							this.towers.push(turret);
 							this.userGold -= towerCost;
 							if (this.soundOn.classList.contains('buttonSelectedBorder')) {
@@ -276,10 +295,10 @@ class StartGame {
 						}
 					}
 				} else if (type === 'flame') {
-					turret = new FlameTurret(this.context, pos.x, pos.y);
+					turret = new FlameTurret(this.context, pos.x, pos.y, this.turretSizeW, this.turretSizeH);
 					towerCost = turret.returnPrice();
 					if (this.userGold >= towerCost) {
-						if (!turret.turretInPath(this.path, pos, 30)) {
+						if (!turret.turretInPath(this.path, pos, this.turretHitBox)) {
 							this.towers.push(turret);
 							this.userGold -= towerCost;
 							if (this.soundOn.classList.contains('buttonSelectedBorder')) {
@@ -292,10 +311,10 @@ class StartGame {
 						}
 					}
 				} else if (type === 'catapult') {
-					turret = new CatapultTurret(this.context, pos.x, pos.y);
+					turret = new CatapultTurret(this.context, pos.x, pos.y, this.turretSizeW, this.turretSizeH);
 					towerCost = turret.returnPrice();
 					if (this.userGold >= towerCost) {
-						if (!turret.turretInPath(this.path, pos, 30)) {
+						if (!turret.turretInPath(this.path, pos, this.turretHitBox)) {
 							this.towers.push(turret);
 							this.userGold -= towerCost;
 							if (this.soundOn.classList.contains('buttonSelectedBorder')) {
