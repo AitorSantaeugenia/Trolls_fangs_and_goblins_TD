@@ -1,5 +1,5 @@
 class Turret {
-	constructor(context, x, y) {
+	constructor(context, x, y, w, h) {
 		this.context = context;
 		this.x = x;
 		this.y = y;
@@ -10,8 +10,8 @@ class Turret {
 		this.type = 'sand';
 		this.bullets = [];
 		// Size
-		this.w = 60;
-		this.h = 80;
+		this.w = w;
+		this.h = h;
 		// IMG
 		this.img = new Image();
 		this.img.src = 'https://aitorsantaeugenia.github.io/TD_Project1/images/towers/sandTurret.png';
@@ -29,6 +29,8 @@ class Turret {
 
 	turretInPath(path, pos, width) {
 		let collide = false;
+
+		console.log('Aitor' + width);
 
 		for (let i = 0; i < path.length - 1; i++) {
 			if (path[i][0] - path[i + 1][0] === 0) {
@@ -85,10 +87,10 @@ class Turret {
 
 //Catapult turret
 class CatapultTurret extends Turret {
-	constructor(context, x, y) {
+	constructor(context, x, y, w, h) {
 		super(context, x, y);
-		this.w = 60;
-		this.h = 80;
+		this.w = w;
+		this.h = h;
 		this.dmg = 20;
 		this.cost = 150;
 		this.range = 450;
@@ -102,10 +104,10 @@ class CatapultTurret extends Turret {
 
 //Torre slow
 class SlowTurret extends Turret {
-	constructor(context, x, y) {
+	constructor(context, x, y, w, h) {
 		super(context, x, y);
-		this.w = 60;
-		this.h = 80;
+		this.w = w;
+		this.h = h;
 		this.dmg = 0.5;
 		this.cost = 200;
 		this.range = 220;
@@ -120,10 +122,10 @@ class SlowTurret extends Turret {
 
 //Torre heavy
 class FlameTurret extends Turret {
-	constructor(context, x, y) {
+	constructor(context, x, y, w, h) {
 		super(context, x, y);
-		this.w = 60;
-		this.h = 80;
+		this.w = w;
+		this.h = h;
 		this.dmg = 35;
 		this.cost = 300;
 		this.range = 450;
