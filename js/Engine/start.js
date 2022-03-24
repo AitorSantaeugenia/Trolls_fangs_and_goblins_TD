@@ -66,6 +66,7 @@ class StartGame {
 			this.gameDifficulty = 'Easy';
 			this.path = [ [ 0, 350 ], [ 1200, 350 ] ]; // Path1
 			this.board = new Waypoint(this.context, this.path, 20);
+			//size of turrets & hitbox
 			this.turretSizeW = 60;
 			this.turretSizeH = 80;
 			this.turretHitBox = 30;
@@ -131,6 +132,7 @@ class StartGame {
 			this.gameDifficulty = 'Easy';
 			this.path = [ [ 0, 350 ], [ 1200, 350 ] ]; // Path1 as default
 			this.board = new Waypoint(this.context, this.path, 20);
+			//default size of turrets
 			this.turretSizeW = 60;
 			this.turretSizeH = 80;
 			this.turretHitBox = 30;
