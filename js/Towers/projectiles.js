@@ -39,6 +39,7 @@ class projectileTurret {
 	}
 
 	draw() {
+		this.context.globalCompositeOperation = 'source-over';
 		this.context.drawImage(this.img, this.posX - 5, this.posY - 20, this.w, this.h);
 	}
 
