@@ -18,6 +18,7 @@ class Turret {
 	}
 
 	draw() {
+		this.context.globalCompositeOperation = 'destination-over';
 		this.context.drawImage(this.img, this.x - this.w / 2, this.y - this.h / 2, this.w, this.h);
 		this.bullets.forEach((projectile) => projectile.draw());
 		this.removeProjectilesHit();
@@ -29,8 +30,6 @@ class Turret {
 
 	turretInPath(path, pos, width) {
 		let collide = false;
-
-		console.log('Aitor' + width);
 
 		for (let i = 0; i < path.length - 1; i++) {
 			if (path[i][0] - path[i + 1][0] === 0) {
