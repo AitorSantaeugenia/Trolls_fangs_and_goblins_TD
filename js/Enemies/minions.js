@@ -16,8 +16,7 @@ class Minons extends Enemy {
 		// Image red enemy.png
 		this.randomImage = Math.trunc(Math.random() * 8);
 		this.img = new Image();
-		this.img.src = `https://aitorsantaeugenia.github.io/TD_Project1//images/enemies/sprites/${this
-			.randomImage}.png`;
+		this.img.src = `./images/enemies/sprites/${this.randomImage}.png`;
 
 		//tring out spritesheets
 		this.canvas = document.querySelector('canvas');
@@ -40,7 +39,7 @@ class Minons extends Enemy {
 
 		//different size of the sprites
 		if (this.randomImage === 1) {
-			this.swidth = 170;
+			this.swidth = 180;
 			this.sheight = 240;
 		} else if (this.randomImage === 2) {
 			this.swidth = 215;
@@ -61,7 +60,7 @@ class Minons extends Enemy {
 			this.swidth = 160;
 			this.sheight = 280;
 		} else {
-			this.swidth = 170;
+			this.swidth = 180;
 			this.sheight = 240;
 		}
 	}
@@ -71,11 +70,11 @@ class Minons extends Enemy {
 		this.context.drawImage(
 			this.img,
 			this.img.currentLoopIndex * this.img.width / this.img.frames,
-			this.direction,
+			this.img.height / 4 * this.direction,
 			this.swidth,
 			this.sheight,
 			this.x - this.w / 2,
-			this.y - this.h / 2,
+			this.y - this.h / 2, //
 			this.w,
 			this.h
 		);
@@ -134,17 +133,17 @@ class Minons extends Enemy {
 	}
 	updateDirection(dir) {
 		switch (dir) {
-			case 'up':
+			case 'right':
 				this.direction = 0;
 				break;
-			case 'right':
-				this.direction = 1;
+			case 'up':
+				this.direction = 3;
 				break;
 			case 'down':
-				this.direction = 2;
+				this.direction = 1;
 				break;
 			case 'left':
-				this.direction = 3;
+				this.direction = 2;
 				break;
 		}
 	}
