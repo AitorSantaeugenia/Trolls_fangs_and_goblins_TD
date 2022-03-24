@@ -67,6 +67,7 @@ class Minons extends Enemy {
 	}
 
 	draw() {
+		this.context.globalCompositeOperation = 'source-over';
 		this.context.drawImage(
 			this.img,
 			this.img.currentLoopIndex * this.img.width / this.img.frames,
