@@ -77,6 +77,7 @@ window.onload = function() {
 		//In game cheats
 		if (event.key === 'Enter' && test == 'hidden') {
 			cheatCodeInput.classList.remove('hidden');
+			//when clicking ENTER to insert a cheatcode, it get focus of the whole text, you need just start typing
 			let checkLength = cheatInput.value;
 			checkLength = checkLength.length;
 			cheatInput.focus();
@@ -210,6 +211,8 @@ window.onload = function() {
 		start.createTurret(getCursorPosition(canvas, event), turretSelected);
 	};
 
+	//when clicking the INPUT to insert a cheatcode, selects the whole text, then you just need to start typing
+	//is not necessary since we implemented it at line #80, but it's a better behaviour than without it
 	cheatCodeInput.addEventListener('click', function() {
 		let checkLength = cheatInput.value;
 		checkLength = checkLength.length;
