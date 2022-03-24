@@ -24,7 +24,7 @@ window.onload = function() {
 	//misc
 	let turretSelected = '';
 	let cheatCodeInput = document.getElementById('cheatCodes');
-	let goldCheat = document.getElementById('inputCheatCode');
+	let cheatInput = document.getElementById('inputCheatCode');
 	let restartButton = document.getElementById('restarButtonDiv');
 
 	// Starting v.02
@@ -70,13 +70,17 @@ window.onload = function() {
 	//event to insert cheatcodes when ENTER key is pressed
 	document.addEventListener('keydown', (event) => {
 		let test = cheatCodeInput.classList;
-		let textToUpper = goldCheat.value;
+		let textToUpper = cheatInput.value;
 		textToUpper = textToUpper.toLowerCase();
 		let textDefault = 'Insert cheatcode ...';
 
 		//In game cheats
 		if (event.key === 'Enter' && test == 'hidden') {
 			cheatCodeInput.classList.remove('hidden');
+			let checkLength = cheatInput.value;
+			checkLength = checkLength.length;
+			cheatInput.focus();
+			cheatInput.setSelectionRange(0, checkLength);
 		} else if (event.key === 'Enter' && test == '') {
 			if (textToUpper === 'greedisgood') {
 				start.cheatCodeGold();
@@ -207,9 +211,9 @@ window.onload = function() {
 	};
 
 	cheatCodeInput.addEventListener('click', function() {
-		let checkLength = goldCheat.value;
+		let checkLength = cheatInput.value;
 		checkLength = checkLength.length;
-		goldCheat.setSelectionRange(0, checkLength);
+		cheatInput.setSelectionRange(0, checkLength);
 	});
 
 	startGameButton.addEventListener('click', function() {
