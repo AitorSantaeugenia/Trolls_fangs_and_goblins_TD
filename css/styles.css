@@ -381,6 +381,7 @@ font-family: Play;
   margin-left: -10.2vw;
   font-family: 'Permanent Marker', cursive;
   border:3px solid red;
+  cursor: pointer;
 }
 
 .tooltiptext{
