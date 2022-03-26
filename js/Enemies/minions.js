@@ -14,19 +14,14 @@ class Minons extends Enemy {
 		this.minionHp = 300;
 		this.speed = 1.4;
 		// Image red enemy.png
-		this.randomImage = Math.trunc(Math.random() * 8);
+		this.randomImage = Math.trunc(Math.random() * 15);
 		this.img = new Image();
 		this.img.src = `./images/enemies/sprites/${this.randomImage}.png`;
 
 		//tring out spritesheets
 		this.canvas = document.querySelector('canvas');
 
-		//Own testing with sprites
-		//https://dev.to/martyhimmel/animating-sprite-sheets-with-javascript-ag3
-		//Work in progress
-		//1- pillar posicion imagen
-		//2- pintar imagen (acordarse del random de arriba)
-		//3- animar con frames
+		//minions properties
 		this.frameCount = 0;
 		this.w = 40;
 		this.h = 40;
@@ -38,27 +33,51 @@ class Minons extends Enemy {
 		this.sheight = 0;
 
 		//different size of the sprites
-		if (this.randomImage === 1) {
-			this.swidth = 180;
-			this.sheight = 240;
+		if (this.randomImage === 0) {
+			this.swidth = 280;
+			this.sheight = 250;
+		} else if (this.randomImage === 1) {
+			this.swidth = 230;
+			this.sheight = 250;
 		} else if (this.randomImage === 2) {
-			this.swidth = 215;
-			this.sheight = 240;
+			this.swidth = 250;
+			this.sheight = 268;
 		} else if (this.randomImage === 3) {
-			this.swidth = 180;
-			this.sheight = 240;
+			this.swidth = 270;
+			this.sheight = 284;
 		} else if (this.randomImage === 4) {
-			this.swidth = 125;
-			this.sheight = 200;
+			this.swidth = 270;
+			this.sheight = 276;
 		} else if (this.randomImage === 5) {
-			this.swidth = 155;
-			this.sheight = 240;
+			this.swidth = 300;
+			this.sheight = 276;
 		} else if (this.randomImage === 6) {
-			this.swidth = 138;
-			this.sheight = 240;
+			this.swidth = 280;
+			this.sheight = 276;
 		} else if (this.randomImage === 7) {
-			this.swidth = 160;
-			this.sheight = 280;
+			this.swidth = 280;
+			this.sheight = 276;
+		} else if (this.randomImage === 8) {
+			this.swidth = 280;
+			this.sheight = 276;
+		} else if (this.randomImage === 9) {
+			this.swidth = 300;
+			this.sheight = 276;
+		} else if (this.randomImage === 10) {
+			this.swidth = 290;
+			this.sheight = 276;
+		} else if (this.randomImage === 11) {
+			this.swidth = 300;
+			this.sheight = 276;
+		} else if (this.randomImage === 12) {
+			this.swidth = 300;
+			this.sheight = 276;
+		} else if (this.randomImage === 13) {
+			this.swidth = 300;
+			this.sheight = 276;
+		} else if (this.randomImage === 14) {
+			this.swidth = 300;
+			this.sheight = 276;
 		} else {
 			this.swidth = 180;
 			this.sheight = 240;
