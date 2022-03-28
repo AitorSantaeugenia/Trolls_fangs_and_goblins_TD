@@ -115,14 +115,24 @@ class StartGame {
 		} else if (selectedTrueHell.getAttribute('activationlvl') === 'true') {
 			this.gameDifficulty = 'Hell';
 			this.path = [
-				[ 0, 0.365 * this.contextH ], //Path4
-				[ 0.1 * this.contextW, 0.365 * this.contextH ],
-				[ 0.1 * this.contextW, 0.3 * this.contextH - 90 ],
-				[ 0.9 * this.contextW, 0.3 * this.contextH - 90 ],
-				[ 0.9 * this.contextW, 0.7 * this.contextH - 90 ],
-				[ 0.1 * this.contextW, 0.7 * this.contextH - 90 ],
-				[ 0.1 * this.contextW, 0.475 * this.contextH - 90 ],
-				[ this.contextW, 0.365 * this.contextH ]
+				[ 0, 100 ], //Path3
+				[ 100, 100 ],
+				[ 100, 500 ],
+				[ 250, 500 ],
+				[ 250, 100 ],
+				[ 400, 100 ],
+				[ 400, 500 ],
+				[ 550, 500 ],
+				[ 550, 100 ],
+				[ 700, 100 ],
+				[ 700, 500 ],
+				[ 850, 500 ],
+				[ 850, 100 ],
+				[ 1000, 100 ],
+				[ 1000, 500 ],
+				[ 1150, 500 ],
+				[ 1150, 250 ],
+				[ 1200, 250 ]
 			];
 			this.board = new Waypoint(this.context, this.path, 20);
 			this.turretSizeW = 40;
