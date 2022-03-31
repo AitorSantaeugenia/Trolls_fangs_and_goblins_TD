@@ -1,6 +1,6 @@
 //Enemy 1 - redDemon
 class Minons extends Enemy {
-	constructor(context, path) {
+	constructor(context, path, width, height) {
 		//Setters
 		super(context, path);
 		this.x = this.path[0][0];
@@ -23,10 +23,10 @@ class Minons extends Enemy {
 
 		//minions properties
 		this.frameCount = 0;
-		this.w = 40;
-		this.h = 40;
-		this.width = 40;
-		this.height = 40;
+		this.w = width;
+		this.h = height;
+		// this.width = width;
+		// this.height = height;
 		this.img.frames = 3;
 		this.img.currentLoopIndex = 0;
 		this.swidth = 0;
