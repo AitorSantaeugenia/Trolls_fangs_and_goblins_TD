@@ -48,6 +48,8 @@ class StartGame {
 		//animated campfire position
 		this.campfireX = '';
 		this.campfireY = '';
+		//path Floor
+		this.pathFloor = '';
 
 		this.towerCosts = {
 			sand: 70,
@@ -71,7 +73,9 @@ class StartGame {
 		if (selectedTrueEasy.getAttribute('activationlvl') === 'true') {
 			this.gameDifficulty = 'Easy';
 			this.path = [ [ 0, 350 ], [ 1200, 350 ] ]; // Path1
-			this.board = new Waypoint(this.context, this.path, 20);
+			//path floor
+			this.pathFloor = './images/terrain/floor.png';
+			this.board = new Waypoint(this.context, this.path, 20, this.pathFloor);
 			//size of turrets & hitbox
 			this.turretSizeW = 60;
 			this.turretSizeH = 80;
@@ -80,6 +84,8 @@ class StartGame {
 			this.minionHeight = 40;
 			this.campfireX = 455;
 			this.campfireY = 490;
+			//background img
+			this.canvas.style.backgroundImage = 'url(./images/background.png)';
 		} else if (selectedTrueNormal.getAttribute('activationlvl') === 'true') {
 			this.gameDifficulty = 'Normal';
 			this.path = [
@@ -92,14 +98,18 @@ class StartGame {
 				[ 120, 255.5 ],
 				[ 1200, 255.5 ]
 			];
-			this.board = new Waypoint(this.context, this.path, 20);
+			//path floor
+			this.pathFloor = './images/terrain/Floor2.png';
+			this.board = new Waypoint(this.context, this.path, 20, this.pathFloor);
 			this.turretSizeW = 40;
 			this.turretSizeH = 50;
 			this.turretHitBox = 20;
 			this.minonWidth = 30;
 			this.minionHeight = 30;
-			this.campfireX = 800;
+			this.campfireX = 700;
 			this.campfireY = 490;
+			//background img
+			this.canvas.style.backgroundImage = 'url(./images/background2.png)';
 		} else if (selectedTrueHard.getAttribute('activationlvl') === 'true') {
 			this.gameDifficulty = 'Hard';
 			this.path = [
@@ -122,12 +132,16 @@ class StartGame {
 				[ 1150, 250 ],
 				[ 1200, 250 ]
 			];
-			this.board = new Waypoint(this.context, this.path, 20);
+			//path floor
+			this.pathFloor = './images/terrain/floor.png';
+			this.board = new Waypoint(this.context, this.path, 20, this.pathFloor);
 			this.turretSizeW = 40;
 			this.turretSizeH = 50;
 			this.turretHitBox = 20;
 			this.minonWidth = 30;
 			this.minionHeight = 30;
+			//background img
+			this.canvas.style.backgroundImage = 'url(./images/background.png)';
 		} else if (selectedTrueHell.getAttribute('activationlvl') === 'true') {
 			this.gameDifficulty = 'Hell';
 			this.path = [
@@ -150,16 +164,22 @@ class StartGame {
 				[ 1150, 250 ],
 				[ 1200, 250 ]
 			];
-			this.board = new Waypoint(this.context, this.path, 20);
+			//path floor
+			this.pathFloor = './images/terrain/floor.png';
+			this.board = new Waypoint(this.context, this.path, 20, this.pathFloor);
 			this.turretSizeW = 40;
 			this.turretSizeH = 50;
 			this.turretHitBox = 20;
 			this.minonWidth = 30;
 			this.minionHeight = 30;
+			//background img
+			this.canvas.style.backgroundImage = 'url(./images/background.png)';
 		} else {
 			this.gameDifficulty = 'Easy';
 			this.path = [ [ 0, 350 ], [ 1200, 350 ] ]; // Path1 as default
-			this.board = new Waypoint(this.context, this.path, 20);
+			//path floor
+			this.pathFloor = './images/terrain/floor.png';
+			this.board = new Waypoint(this.context, this.path, 20, this.pathFloor);
 			//default size of turrets
 			this.turretSizeW = 60;
 			this.turretSizeH = 80;
@@ -168,6 +188,8 @@ class StartGame {
 			this.minionHeight = 40;
 			this.campfireX = 455;
 			this.campfireY = 490;
+			//background img
+			this.canvas.style.backgroundImage = 'url(./images/background.png)';
 		}
 	}
 

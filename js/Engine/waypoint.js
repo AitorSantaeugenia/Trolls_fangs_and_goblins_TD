@@ -1,5 +1,5 @@
 class Waypoint {
-	constructor(context, path, pathW) {
+	constructor(context, path, pathW, pathFloor) {
 		//Setters
 		this.context = context;
 		this.path = path;
@@ -11,7 +11,7 @@ class Waypoint {
 
 		//load Floor img
 		this.img = new Image();
-		this.img.src = './images/terrain/floor.png';
+		this.img.src = pathFloor;
 	}
 
 	//Methods
