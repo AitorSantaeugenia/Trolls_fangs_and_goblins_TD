@@ -45,6 +45,9 @@ class StartGame {
 		//minion properties
 		this.minonWidth = '';
 		this.minionHeight = '';
+		//animated campfire position
+		this.campfireX = '';
+		this.campfireY = '';
 
 		this.towerCosts = {
 			sand: 70,
@@ -75,6 +78,8 @@ class StartGame {
 			this.turretHitBox = 30;
 			this.minonWidth = 40;
 			this.minionHeight = 40;
+			this.campfireX = 455;
+			this.campfireY = 490;
 		} else if (selectedTrueNormal.getAttribute('activationlvl') === 'true') {
 			this.gameDifficulty = 'Normal';
 			this.path = [
@@ -93,6 +98,8 @@ class StartGame {
 			this.turretHitBox = 20;
 			this.minonWidth = 30;
 			this.minionHeight = 30;
+			this.campfireX = 800;
+			this.campfireY = 490;
 		} else if (selectedTrueHard.getAttribute('activationlvl') === 'true') {
 			this.gameDifficulty = 'Hard';
 			this.path = [
@@ -159,6 +166,8 @@ class StartGame {
 			this.turretHitBox = 30;
 			this.minonWidth = 40;
 			this.minionHeight = 40;
+			this.campfireX = 455;
+			this.campfireY = 490;
 		}
 	}
 
@@ -187,6 +196,7 @@ class StartGame {
 			this.enemies.forEach((enemy) => enemy.draw());
 			this.towers.forEach((turret) => turret.draw());
 			this.framesCounter++;
+			this.campFireCanvas(this.campfireX, this.campfireY);
 
 			if (this.framesCounter % 50 === 0) {
 				this.framesCounter = 0;
@@ -568,6 +578,70 @@ class StartGame {
 		this.userHP = 35;
 		this.userGold = 500;
 		this.run();
+	}
+	//print campfire
+	campFireCanvas(x, y) {
+		var ctx = canvas.getContext('2d');
+		var x = x;
+		var y = y;
+		//ctx.clearRect(0, 0, 300, 300);
+
+		ctx.fillStyle = 'rgb(51, 26, 0)';
+		ctx.strokeStyle = 'rgba(250,100,0, 0.75)';
+
+		ctx.save();
+
+		ctx.beginPath();
+		ctx.moveTo(x + 5, y);
+		ctx.lineTo(x + 5, y);
+		ctx.lineTo(x + 50, y + 17.5);
+		ctx.lineTo(x + 45, y + 25);
+		ctx.lineTo(x, y + 7.5);
+		ctx.closePath();
+		ctx.fill();
+
+		ctx.beginPath();
+		ctx.moveTo(x + 45, y);
+		ctx.lineTo(x + 45, y);
+		ctx.lineTo(x + 50, y + 7.5);
+		ctx.lineTo(x + 5, y + 25);
+		ctx.lineTo(x, y + 17.5);
+		ctx.closePath();
+		ctx.fill();
+
+		ctx.fillStyle = 'rgb(255, 153, 0, 0.60)';
+		var startY = y - (Math.floor(Math.random() * 10) + 10);
+
+		ctx.beginPath();
+		ctx.moveTo(x, startY);
+		ctx.bezierCurveTo(x + 12.5, y, x + 25, y, x + 25, y - Math.floor(Math.random() * 25));
+		ctx.bezierCurveTo(x + 25, y, x + 37.5, y, x + 50, y - (Math.floor(Math.random() * 10) + 10));
+		ctx.quadraticCurveTo(x + 25, y + 37.5, x, startY);
+		ctx.fill();
+
+		var flamelety = y - (Math.floor(Math.random() * 12.5) + 25);
+		ctx.beginPath();
+		ctx.moveTo(x + 12.5, flamelety);
+		ctx.bezierCurveTo(x - 25, y + 12.5, x + 50, y + 12.5, x + 12.5, flamelety);
+		ctx.fill();
+
+		flamelety = y - (Math.floor(Math.random() * 12.5) + 25);
+		ctx.beginPath();
+		ctx.moveTo(x + 37.5, flamelety);
+		ctx.bezierCurveTo(x, y + 12.5, x + 75, y + 12.5, x + 37.5, flamelety);
+		ctx.fill();
+
+		flamelety = y - (Math.floor(Math.random() * 12.5) + 37.5);
+		ctx.beginPath();
+		ctx.moveTo(x + 25, flamelety);
+		ctx.bezierCurveTo(x - 25, y + 12.5, x + 75, y + 12.5, x + 25, flamelety);
+		ctx.fill();
+
+		flamelety = y - (Math.floor(Math.random() * 12.5) + 25);
+		ctx.beginPath();
+		ctx.moveTo(x + 25, flamelety);
+		ctx.bezierCurveTo(x - 25, y + 12.5, x + 75, y + 12.5, x + 25, flamelety);
+		ctx.fill();
 	}
 	//clear the canvas for a reset or game win/ game end
 	clearCanvas() {
