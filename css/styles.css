@@ -21,7 +21,6 @@ html{
 }
 
 #canvas {
-  background: url("./../images/background.png");
   background-repeat: no-repeat;
 }
 #canvasNormal {
