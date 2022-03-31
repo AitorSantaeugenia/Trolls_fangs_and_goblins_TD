@@ -203,7 +203,7 @@ class StartGame {
 	}
 
 	addEnemy() {
-		//We add enemies while it's small than the enemy array (20)
+		//We add enemies while it's smaller than the enemy array (20)
 		if (this.waveEnemies < this.waves.wave[this.waveIndex].length) {
 			this.enemies.push(this.waves.wave[this.waveIndex][this.waveEnemies]);
 			this.waveEnemies += 1;
