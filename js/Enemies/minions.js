@@ -31,6 +31,16 @@ class Minons extends Enemy {
 		this.img.currentLoopIndex = 0;
 		this.swidth = 0;
 		this.sheight = 0;
+		//center HPBAR
+		this.varHPBAR = 0;
+
+		//if minion width = 40, hp is center in the middle -(-1)
+		if (this.w === 40) {
+			this.varHPBAR = -1;
+			//else hp is center in the middle -2
+		} else {
+			this.varHPBAR = 2;
+		}
 
 		//different size of the sprites
 		if (this.randomImage === 0) {
@@ -169,7 +179,7 @@ class Minons extends Enemy {
 	paintHpBar() {
 		new HPbar(
 			this.context,
-			this.x - this.w / 2,
+			this.x - this.w / 2 - this.varHPBAR,
 			this.y - this.h / 2 - 11,
 			this.wHPBar * this.minionHp / 300,
 			8
