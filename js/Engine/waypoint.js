@@ -17,7 +17,7 @@ class Waypoint {
 	//Methods
 	draw() {
 		// Floor pattern
-		//this.context.fillStyle = this.context.createPattern(this.img, 'repeat');
+		this.context.fillStyle = this.context.createPattern(this.img, 'repeat');
 		this.context.globalCompositeOperation = 'source-over';
 
 		for (let i = 0, l = this.path.length; i < l - 1; i++) {
