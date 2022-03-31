@@ -1,9 +1,12 @@
 class Wave {
-	constructor(context, path) {
+	constructor(context, path, mWidth, mHeight) {
 		this.context = context;
 		this.path = path;
 		// Minions x wave
 		this.waveCount = 10;
+		//Minion properties
+		this.minionWidth = mWidth;
+		this.minionHeight = mHeight;
 		// Waves
 		this.wave = [
 			this.getWave1(this.waveCount),
@@ -19,7 +22,7 @@ class Wave {
 		let wave = [];
 		let countEnemies = this.waveCount;
 		for (let i = 1; i <= countEnemies; i++) {
-			wave.push(new Minons(this.context, this.path));
+			wave.push(new Minons(this.context, this.path, this.minionHeight, this.minionWidth));
 		}
 		return wave;
 	}
@@ -27,7 +30,7 @@ class Wave {
 		let wave = [];
 		let countEnemies = this.waveCount + 10;
 		for (let i = 1; i <= countEnemies; i++) {
-			wave.push(new Minons(this.context, this.path));
+			wave.push(new Minons(this.context, this.path, this.minionHeight, this.minionWidth));
 		}
 		return wave;
 	}
@@ -35,7 +38,7 @@ class Wave {
 		let wave = [];
 		let countEnemies = this.waveCount;
 		for (let i = 1; i <= countEnemies; i++) {
-			wave.push(new Minons(this.context, this.path));
+			wave.push(new Minons(this.context, this.path, this.minionHeight, this.minionWidth));
 		}
 		return wave;
 	}
@@ -43,7 +46,7 @@ class Wave {
 		let wave = [];
 		let countEnemies = this.waveCount + 10;
 		for (let i = 1; i <= countEnemies; i++) {
-			wave.push(new Minons(this.context, this.path));
+			wave.push(new Minons(this.context, this.path, this.minionHeight, this.minionWidth));
 		}
 		return wave;
 	}
@@ -51,7 +54,7 @@ class Wave {
 		let wave = [];
 		let countEnemies = this.waveCount;
 		for (let i = 1; i <= countEnemies; i++) {
-			wave.push(new Minons(this.context, this.path));
+			wave.push(new Minons(this.context, this.path, this.minionHeight, this.minionWidth));
 		}
 		return wave;
 	}

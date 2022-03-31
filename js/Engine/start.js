@@ -42,6 +42,9 @@ class StartGame {
 		this.turretSizeW = '';
 		this.turretSizeH = '';
 		this.turretHitBox = '';
+		//minion properties
+		this.minonWidth = '';
+		this.minionHeight = '';
 
 		this.towerCosts = {
 			sand: 70,
@@ -70,6 +73,8 @@ class StartGame {
 			this.turretSizeW = 60;
 			this.turretSizeH = 80;
 			this.turretHitBox = 30;
+			this.minonWidth = 40;
+			this.minionHeight = 40;
 		} else if (selectedTrueNormal.getAttribute('activationlvl') === 'true') {
 			this.gameDifficulty = 'Normal';
 			this.path = [
@@ -86,6 +91,8 @@ class StartGame {
 			this.turretSizeW = 40;
 			this.turretSizeH = 50;
 			this.turretHitBox = 20;
+			this.minonWidth = 30;
+			this.minionHeight = 30;
 		} else if (selectedTrueHard.getAttribute('activationlvl') === 'true') {
 			this.gameDifficulty = 'Hard';
 			this.path = [
@@ -112,6 +119,8 @@ class StartGame {
 			this.turretSizeW = 40;
 			this.turretSizeH = 50;
 			this.turretHitBox = 20;
+			this.minonWidth = 30;
+			this.minionHeight = 30;
 		} else if (selectedTrueHell.getAttribute('activationlvl') === 'true') {
 			this.gameDifficulty = 'Hell';
 			this.path = [
@@ -138,6 +147,8 @@ class StartGame {
 			this.turretSizeW = 40;
 			this.turretSizeH = 50;
 			this.turretHitBox = 20;
+			this.minonWidth = 30;
+			this.minionHeight = 30;
 		} else {
 			this.gameDifficulty = 'Easy';
 			this.path = [ [ 0, 350 ], [ 1200, 350 ] ]; // Path1 as default
@@ -146,6 +157,8 @@ class StartGame {
 			this.turretSizeW = 60;
 			this.turretSizeH = 80;
 			this.turretHitBox = 30;
+			this.minonWidth = 40;
+			this.minionHeight = 40;
 		}
 	}
 
@@ -154,7 +167,7 @@ class StartGame {
 			this.clearCanvas();
 			this.intervalId = requestAnimationFrame(() => this.run());
 			this.checkSound();
-			this.waves = new Wave(this.context, this.path);
+			this.waves = new Wave(this.context, this.path, this.minonWidth, this.minionHeight);
 			this.enemyInfo();
 			this.playerHP();
 			this.draw();
