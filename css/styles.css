@@ -21,7 +21,7 @@ html{
 }
 
 #canvas {
-  background: url("https://aitorsantaeugenia.github.io/TD_Project1/images/background.png");
+  background: url("./../images/background.png");
   background-repeat: no-repeat;
 }
 #canvasNormal {
