@@ -17,6 +17,7 @@ class StartGame {
 		this.audio5 = document.getElementById('liveLessSound');
 		// this.audio6 = document.getElementById('twistedTreelineSong');
 		this.audio6 = document.getElementById('moreGoldSound');
+		// this.audio7 = document.getElementById('pothSong');
 		//Path
 		this.board = '';
 		this.enemies = [];
@@ -148,6 +149,8 @@ class StartGame {
 			this.minionHeight = 30;
 			//background img
 			this.canvas.style.backgroundImage = 'url(./images/background.png)';
+			//selecting songtrack
+			this.audio1 = document.getElementById('backgroundMusic');
 		} else if (selectedTrueHell.getAttribute('activationlvl') === 'true') {
 			this.gameDifficulty = 'Hell';
 			this.path = [
@@ -180,6 +183,8 @@ class StartGame {
 			this.minionHeight = 30;
 			//background img
 			this.canvas.style.backgroundImage = 'url(./images/background.png)';
+			//selecting songtrack
+			this.audio1 = document.getElementById('pothSong');
 		} else {
 			this.gameDifficulty = 'Easy';
 			this.path = [ [ 0, 350 ], [ 1200, 350 ] ]; // Path1 as default
