@@ -10,13 +10,13 @@ class StartGame {
 		this.waves = [];
 		this.waveIndex = 0;
 		this.waveEnemies = 0;
-		this.audio1 = document.getElementById('backgroundMusic');
+		this.audio1 = '';
 		this.audio2 = document.getElementById('victoryMusic');
 		this.audio3 = document.getElementById('defeatMusic');
 		this.audio4 = document.getElementById('jobDoneSound');
 		this.audio5 = document.getElementById('liveLessSound');
-		this.audio6 = document.getElementById('twistedTreelineSong');
-		this.audio7 = document.getElementById('moreGoldSound');
+		// this.audio6 = document.getElementById('twistedTreelineSong');
+		this.audio6 = document.getElementById('moreGoldSound');
 		//Path
 		this.board = '';
 		this.enemies = [];
@@ -88,6 +88,8 @@ class StartGame {
 			this.campfireY = 490;
 			//background img
 			this.canvas.style.backgroundImage = 'url(./images/background.png)';
+			//selecting songtrack
+			this.audio1 = document.getElementById('backgroundMusic');
 		} else if (selectedTrueNormal.getAttribute('activationlvl') === 'true') {
 			this.gameDifficulty = 'Normal';
 			this.path = [
@@ -108,10 +110,12 @@ class StartGame {
 			this.turretHitBox = 20;
 			this.minonWidth = 30;
 			this.minionHeight = 30;
-			this.campfireX = 700;
+			this.campfireX = 740;
 			this.campfireY = 490;
 			//background img
 			this.canvas.style.backgroundImage = 'url(./images/background2.png)';
+			//selecting songtrack
+			this.audio1 = document.getElementById('twistedTreelineSong');
 		} else if (selectedTrueHard.getAttribute('activationlvl') === 'true') {
 			this.gameDifficulty = 'Hard';
 			this.path = [
@@ -192,6 +196,8 @@ class StartGame {
 			this.campfireY = 490;
 			//background img
 			this.canvas.style.backgroundImage = 'url(./images/background.png)';
+			//selecting songtrack
+			this.audio1 = document.getElementById('backgroundMusic');
 		}
 	}
 
@@ -337,8 +343,12 @@ class StartGame {
 							}
 						}
 					} else {
-						this.audio7.volume = 0.1;
-						this.audio7.play();
+						if (this.soundOn.classList.contains('buttonSelectedBorder')) {
+							this.audio6.volume = 0.1;
+							this.audio6.play();
+						} else if (this.soundOff.classList.contains('buttonSelectedBorder')) {
+							this.audio6.volume = 0;
+						}
 					}
 				} else if (type === 'slow') {
 					turret = new SlowTurret(this.context, pos.x, pos.y, this.turretSizeW, this.turretSizeH);
@@ -356,8 +366,12 @@ class StartGame {
 							}
 						}
 					} else {
-						this.audio7.volume = 0.1;
-						this.audio7.play();
+						if (this.soundOn.classList.contains('buttonSelectedBorder')) {
+							this.audio6.volume = 0.1;
+							this.audio6.play();
+						} else if (this.soundOff.classList.contains('buttonSelectedBorder')) {
+							this.audio6.volume = 0;
+						}
 					}
 				} else if (type === 'flame') {
 					turret = new FlameTurret(this.context, pos.x, pos.y, this.turretSizeW, this.turretSizeH);
@@ -375,8 +389,12 @@ class StartGame {
 							}
 						}
 					} else {
-						this.audio7.volume = 0.1;
-						this.audio7.play();
+						if (this.soundOn.classList.contains('buttonSelectedBorder')) {
+							this.audio6.volume = 0.1;
+							this.audio6.play();
+						} else if (this.soundOff.classList.contains('buttonSelectedBorder')) {
+							this.audio6.volume = 0;
+						}
 					}
 				} else if (type === 'catapult') {
 					turret = new CatapultTurret(this.context, pos.x, pos.y, this.turretSizeW, this.turretSizeH);
@@ -394,8 +412,12 @@ class StartGame {
 							}
 						}
 					} else {
-						this.audio7.volume = 0.1;
-						this.audio7.play();
+						if (this.soundOn.classList.contains('buttonSelectedBorder')) {
+							this.audio6.volume = 0.1;
+							this.audio6.play();
+						} else if (this.soundOff.classList.contains('buttonSelectedBorder')) {
+							this.audio6.volume = 0;
+						}
 					}
 				}
 			}
