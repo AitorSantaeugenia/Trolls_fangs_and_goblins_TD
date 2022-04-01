@@ -13,8 +13,10 @@ class StartGame {
 		this.audio1 = document.getElementById('backgroundMusic');
 		this.audio2 = document.getElementById('victoryMusic');
 		this.audio3 = document.getElementById('defeatMusic');
-		this.audio4 = document.getElementById('jobDone');
-		this.audio5 = document.getElementById('liveLessMusic');
+		this.audio4 = document.getElementById('jobDoneSound');
+		this.audio5 = document.getElementById('liveLessSound');
+		this.audio6 = document.getElementById('twistedTreelineSong');
+		this.audio7 = document.getElementById('moreGoldSound');
 		//Path
 		this.board = '';
 		this.enemies = [];
@@ -334,6 +336,9 @@ class StartGame {
 								this.audio4.pause();
 							}
 						}
+					} else {
+						this.audio7.volume = 0.1;
+						this.audio7.play();
 					}
 				} else if (type === 'slow') {
 					turret = new SlowTurret(this.context, pos.x, pos.y, this.turretSizeW, this.turretSizeH);
@@ -350,6 +355,9 @@ class StartGame {
 								this.audio4.pause();
 							}
 						}
+					} else {
+						this.audio7.volume = 0.1;
+						this.audio7.play();
 					}
 				} else if (type === 'flame') {
 					turret = new FlameTurret(this.context, pos.x, pos.y, this.turretSizeW, this.turretSizeH);
@@ -366,6 +374,9 @@ class StartGame {
 								this.audio4.pause();
 							}
 						}
+					} else {
+						this.audio7.volume = 0.1;
+						this.audio7.play();
 					}
 				} else if (type === 'catapult') {
 					turret = new CatapultTurret(this.context, pos.x, pos.y, this.turretSizeW, this.turretSizeH);
@@ -382,6 +393,9 @@ class StartGame {
 								this.audio4.pause();
 							}
 						}
+					} else {
+						this.audio7.volume = 0.1;
+						this.audio7.play();
 					}
 				}
 			}
