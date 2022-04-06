@@ -17,7 +17,7 @@ window.onload = function() {
 	const audio3 = document.getElementById('defeatMusic');
 	const audio4 = document.getElementById('jobDone');
 	const audio5 = document.getElementById('liveLessMusic');
-	const audio = document.getElementById('buttonMusic');
+	const audio = document.getElementById('newGameSound');
 
 	let soundOn = document.getElementById('yesSound');
 	let soundOff = document.getElementById('noSound');
