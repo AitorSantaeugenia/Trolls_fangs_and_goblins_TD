@@ -2,6 +2,7 @@ window.onload = function() {
 	const gameInterface = document.getElementById('startingMenu');
 
 	const start = new StartGame();
+	const test = new Turret();
 	const canvasContainer = document.getElementById('canvasContainer');
 	const gameMenu = document.getElementById('gameMenu');
 	const startGameButton = document.getElementById('startGame');
@@ -52,6 +53,12 @@ window.onload = function() {
 	//game difficulty - default Easy
 	let gameDifficulty = 'Easy';
 
+	//canvas for mousemove
+	const canvas = document.getElementById('canvas');
+	const context = canvas.getContext('2d');
+	//var to know when turret is selectedTrueEasy
+	var turretIsSelected = false;
+
 	// Events
 	// event to know which lvl difficulty is selected and do some behaviour or another in canvas
 	document.addEventListener('click', function() {
@@ -70,20 +77,20 @@ window.onload = function() {
 
 	//event to insert cheatcodes when ENTER key is pressed
 	document.addEventListener('keydown', (event) => {
-		let test = cheatCodeInput.classList;
+		let cheatCodeClass = cheatCodeInput.classList;
 		let textToUpper = cheatInput.value;
 		textToUpper = textToUpper.toLowerCase();
 		let textDefault = 'Insert cheatcode ...';
 
 		//In game cheats
-		if (event.key === 'Enter' && test == 'hidden') {
+		if (event.key === 'Enter' && cheatCodeClass == 'hidden') {
 			cheatCodeInput.classList.remove('hidden');
 			//when clicking ENTER to insert a cheatcode, it get focus of the whole text, you need just start typing
 			let checkLength = cheatInput.value;
 			checkLength = checkLength.length;
 			cheatInput.focus();
 			cheatInput.setSelectionRange(0, checkLength);
-		} else if (event.key === 'Enter' && test == '') {
+		} else if (event.key === 'Enter' && cheatCodeClass == '') {
 			if (textToUpper === 'greedisgood') {
 				start.cheatCodeGold();
 				document.getElementById('inputCheatCode').value = textDefault;
@@ -242,24 +249,28 @@ window.onload = function() {
 	sandTurret.addEventListener('click', function() {
 		turretSelected = 'sand';
 		priceTurret.innerHTML = '$70';
+		turretIsSelected = true;
 		start.checkTurretSelected(turretSelected);
 	});
 
 	cataTurret.addEventListener('click', function() {
 		turretSelected = 'catapult';
 		priceTurret.innerHTML = '$150';
+		turretIsSelected = true;
 		start.checkTurretSelected(turretSelected);
 	});
 
 	slowTurret.addEventListener('click', function() {
 		turretSelected = 'slow';
 		priceTurret.innerHTML = '$200';
+		turretIsSelected = true;
 		start.checkTurretSelected(turretSelected);
 	});
 
 	flameTurret.addEventListener('click', function() {
 		turretSelected = 'flame';
 		priceTurret.innerHTML = '$300';
+		turretIsSelected = true;
 		start.checkTurretSelected(turretSelected);
 	});
 
@@ -280,4 +291,88 @@ window.onload = function() {
 	function startGame() {
 		start.run(audio1, audio2, audio3, audio4, audio5);
 	}
+
+	// $('canvas').addEventListener(
+	// 	'mousemove',
+	// 	function(e) {
+	// 		var selection = game.selection;
+	// 		var turret = selection.turret;
+
+	// 		if (selection && selection.status !== 'selected') {
+	// 			var tx = Math.ceil((e.pageX - this.offsetLeft) / 5);
+	// 			var ty = Math.ceil((e.pageY - this.offsetTop) / 5);
+
+	// 			turret.x = tx * 5 - 2.5;
+	// 			turret.y = ty * 5 - 2.5;
+	// 			selection.placeable = tx >= 3 && tx <= 158 && ty >= 3 && ty <= 98;
+
+	// 			for (var i = 5; i--; ) {
+	// 				for (var ii = 5; ii--; ) {
+	// 					if (game.tiles[tx + i - 2 + ',' + (ty + ii - 2)]) {
+	// 						selection.placeable = false;
+	// 						return;
+	// 					}
+	// 				}
+	// 			}
+	// 		}
+	// 	},
+	// 	false
+	// );
+
+	// canvas.addEventListener('mousemove', (e) => {
+	// 	var turret = turretSelected;
+	// 	var selection = turretIsSelected;
+	// 	var canvas = document.getElementById('canvas');
+	// 	var context = canvas.getContext('2d');
+	// 	//console.log(turret);
+
+	// 	//console.log(selection);
+	// 	//console.log(e.pageX, e.pageY);
+	// 	//console.log(e);
+	// 	//console.log(context);
+
+	// 	//console.log('FU AITOR');
+	// 	//context.fillStyle = 'rgba(255, 255, 255, .3)';
+	// 	// test.testingTecno(e.pageX, e.pageY, turret, context);
+	// 	// context.fillStyle = 'rgba(255, 0, 0, .3)';
+	// 	// context.beginPath();
+	// 	// context.arc(e.pageX, e.pageY, 300, 0, Math.PI * 2, true);
+	// 	// context.fill();
+	// 	//let canvas = document.getElementById('canvas');
+	// 	const ctx = context;
+	// 	//console.log(ctx);
+	// 	let pageX = e.x;
+	// 	let pageY = e.y;
+	// 	//console.log(pageX, pageY);
+	// 	let towerSelected = turret;
+	// 	let turretIMG = new Image();
+
+	// 	//console.log(towerSelected);
+	// 	//console.log(this.img.src);
+	// 	//this.context.fillStyle = 'rgba(255, 255, 255, .3)';
+	// 	if (towerSelected === 'sand') {
+	// 		turretIMG.src = 'https://aitorsantaeugenia.github.io/TD_Project1/images/towers/sandTurret.png';
+	// 	} else if (towerSelected === 'catapult') {
+	// 		turretIMG.src = 'https://aitorsantaeugenia.github.io/TD_Project1/images/towers/stoneTurret.png';
+	// 	} else if (towerSelected === 'slow') {
+	// 		turretIMG.src = 'https://aitorsantaeugenia.github.io/TD_Project1/images/towers/freezeTurret.png';
+	// 	} else if (towerSelected === 'flame') {
+	// 		turretIMG.src = 'https://aitorsantaeugenia.github.io/TD_Project1/images/towers/flameTurret.png';
+	// 	}
+
+	// 	//console.log(this.context);
+	// 	//console.log(turretIMG.src);
+	// 	//console.log(turretIMG.src);
+	// 	ctx.fillStyle = 'rgba(255, 255, 255, .3)';
+	// 	//ctx.globalCompositeOperation = 'destination-out';
+
+	// 	ctx.beginPath();
+	// 	context.lineWidth = 1;
+	// 	ctx.arc(pageX, pageY, 500, 0, Math.PI * 2, true);
+	// 	context.moveTo(pageX, pageY);
+	// 	//context.lineTo(x2, y2);
+	// 	ctx.fill();
+
+	// 	//ctx.drawImage(turretIMG, pageX, pageY, 300, 300, 50, 50, 200, 200);
+	// });
 };

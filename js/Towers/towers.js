@@ -12,14 +12,31 @@ class Turret {
 		// Size
 		this.w = w;
 		this.h = h;
+		this.collide = '';
+		this.selectionTurret = false;
 		// IMG
 		this.img = new Image();
 		this.img.src = 'https://aitorsantaeugenia.github.io/TD_Project1/images/towers/sandTurret.png';
+
+		//we add canvas
+		this.canvas = document.getElementById('canvas');
+		//this.canvas.addEventListener('mousemove', false);
+		// this.canvas.addEventListener('mousemove', this.mouseMove.bind(this), false);
 	}
 
 	draw() {
 		this.context.globalCompositeOperation = 'destination-over';
 		this.context.drawImage(this.img, this.x - this.w / 2, this.y - this.h / 2, this.w, this.h);
+
+		//this.context.fillStyle = this.collide === false ? 'rgba(255, 255, 255, .3)' : 'rgba(255, 0, 0, .3)';
+		// if ((this.selectionTurret = true)) {
+		// 	this.context.fillStyle = this.selectionTurret = true ? 'rgba(255, 255, 255, .3)' : 'rgba(255, 0, 0, .3)';
+		// 	this.context.beginPath();
+		// 	this.context.arc(this.x, this.y, this.range, 0, Math.PI * 2, true);
+		// 	this.context.fill();
+		// }
+		// this.context.fill();
+
 		this.bullets.forEach((projectile) => projectile.draw());
 		this.removeProjectilesHit();
 	}
@@ -29,7 +46,7 @@ class Turret {
 	}
 
 	turretInPath(path, pos, width) {
-		let collide = false;
+		this.collide = false;
 
 		for (let i = 0; i < path.length - 1; i++) {
 			if (path[i][0] - path[i + 1][0] === 0) {
@@ -39,7 +56,7 @@ class Turret {
 					((pos.y > path[i][1] - width && pos.y < path[i + 1][1] + width) ||
 						(pos.y < path[i][1] + width && pos.y > path[i + 1][1] - width))
 				) {
-					collide = true;
+					this.collide = true;
 				}
 			} else if (path[i][1] - path[i + 1][1] === 0) {
 				if (
@@ -48,11 +65,11 @@ class Turret {
 					((pos.x > path[i][0] - width && pos.x < path[i + 1][0] + width) ||
 						(pos.x < path[i][0] + width && pos.x > path[i + 1][0] - width))
 				) {
-					collide = true;
+					this.collide = true;
 				}
 			}
 		}
-		return collide;
+		return this.collide;
 	}
 
 	enemyInRange(enemy) {
@@ -82,6 +99,51 @@ class Turret {
 	isHitting() {
 		return this.bullets.length > 0;
 	}
+
+	// testingTecno(x, y, turret, context) {
+	// 	//let canvas = document.getElementById('canvas');
+	// 	const ctx = context;
+	// 	let pageX = x;
+	// 	let pageY = y;
+	// 	let towerSelected = turret;
+	// 	let turretIMG = new Image();
+
+	// 	//console.log(towerSelected);
+	// 	//console.log(this.img.src);
+	// 	//this.context.fillStyle = 'rgba(255, 255, 255, .3)';
+	// 	if (towerSelected === 'sand') {
+	// 		turretIMG.src = 'https://aitorsantaeugenia.github.io/TD_Project1/images/towers/sandTurret.png';
+	// 	} else if (towerSelected === 'catapult') {
+	// 		turretIMG.src = 'https://aitorsantaeugenia.github.io/TD_Project1/images/towers/stoneTurret.png';
+	// 	} else if (towerSelected === 'slow') {
+	// 		turretIMG.src = 'https://aitorsantaeugenia.github.io/TD_Project1/images/towers/freezeTurret.png';
+	// 	} else if (towerSelected === 'flame') {
+	// 		turretIMG.src = 'https://aitorsantaeugenia.github.io/TD_Project1/images/towers/flameTurret.png';
+	// 	}
+
+	// 	//console.log(this.context);
+	// 	//console.log(turretIMG.src);
+	// 	ctx.fillStyle = 'rgba(255, 255, 255, .3)';
+	// 	ctx.globalCompositeOperation = 'destination-over';
+	// 	ctx.beginPath();
+	// 	ctx.arc(pageX, pageY, 300, 0, Math.PI * 2);
+	// 	ctx.fill();
+
+	// 	ctx.drawImage(turretIMG, pageX, pageY, 300, 300, 50, 50, 200, 200);
+	// }
+	// canvas.addEventListener(
+	// 	'mousemove',
+	// 	function(e) {
+	// 		var turret = turretSelected;
+	// 		var selection = turretIsSelected;
+	// 		console.log(turretIsSelected);
+
+	// 		if (selection) {
+	// 			towers.testingTecno();
+	// 		}
+	// 	},
+	// 	false
+	// );
 }
 
 //Catapult turret
