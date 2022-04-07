@@ -10,14 +10,15 @@ class StartGame {
 		this.waves = [];
 		this.waveIndex = 0;
 		this.waveEnemies = 0;
+		//Game sounds and Themes
+		//we change audio1 inside #75 function, for each lvl there is a different theme
 		this.audio1 = '';
 		this.audio2 = document.getElementById('victoryMusic');
 		this.audio3 = document.getElementById('defeatMusic');
 		this.audio4 = document.getElementById('jobDoneSound');
 		this.audio5 = document.getElementById('liveLessSound');
-		// this.audio6 = document.getElementById('twistedTreelineSong');
 		this.audio6 = document.getElementById('moreGoldSound');
-		// this.audio7 = document.getElementById('pothSong');
+
 		//Path
 		this.board = '';
 		this.enemies = [];
@@ -29,7 +30,7 @@ class StartGame {
 		this.loser.src = 'https://aitorsantaeugenia.github.io/TD_Project1/images/defeat.png';
 		this.winner = new Image();
 		this.winner.src = 'https://aitorsantaeugenia.github.io/TD_Project1/images/victory.png';
-		this.restartButton = document.getElementById('restarButtonDiv');
+		this.endGameMenuDiv = document.getElementById('endGameMenu');
 		this.restartTextCd = document.getElementById('restartingTimerText');
 		this.soundOn = document.getElementById('yesSound');
 		this.soundOff = document.getElementById('noSound');
@@ -53,6 +54,10 @@ class StartGame {
 		this.campfireY = '';
 		//path Floor
 		this.pathFloor = '';
+		//timer for the ending menu
+		this.timeleft = 10;
+		//countdown variable for winning or losing game MENU
+		this.downloadTimer = '';
 
 		this.towerCosts = {
 			sand: 70,
@@ -64,10 +69,10 @@ class StartGame {
 	setDifficultyLvl(lvlDifficulty) {
 		this.gameDifficulty = lvlDifficulty;
 
-		this.selectPath();
+		this.selectGameMode();
 	}
 
-	selectPath() {
+	selectGameMode() {
 		const selectedTrueEasy = document.getElementById('selectedTrueEasy');
 		const selectedTrueNormal = document.getElementById('selectedTrueNormal');
 		const selectedTrueHard = document.getElementById('selectedTrueHard');
@@ -487,10 +492,17 @@ class StartGame {
 		}
 	}
 	gameWin() {
+		//wining sound reset to 0
+		this.audio2.currentTime = 0;
+
+		if (this.downloadTimer != '') {
+			clearInterval(this.downloadTimer);
+			this.timeleft = 10;
+		}
 		//We stop the game
 		window.cancelAnimationFrame(this.intervalId);
-		this.restartTextCd.innerText = 'Restarting in 10 seconds';
-		this.restartButton.classList.remove('hidden');
+		this.restartTextCd.innerText = 'Exiting game in 10 seconds';
+		this.endGameMenuDiv.classList.remove('hidden');
 		this.audio1.pause();
 
 		if (this.soundOn.classList.contains('buttonSelectedBorder')) {
@@ -503,29 +515,37 @@ class StartGame {
 		//We clear the map
 		this.clearCanvas();
 		//We show the winer/loser logo
-		this.context.drawImage(this.winner, 150, -55, 950, 420);
+		this.context.drawImage(this.winner, 125, -55, 950, 420);
 
 		//10 seconds, refresh or click
-		let timeleft = 10;
-		let downloadTimer = setInterval(() => {
-			if (timeleft <= 0) {
-				setInterval(downloadTimer);
-				this.restart();
+		this.downloadTimer = setInterval(() => {
+			if (this.timeleft <= 0) {
+				if (!this.endGameMenuDiv.classList.contains('hidden')) {
+					setInterval(this.downloadTimer);
+					this.exitGame();
+				}
 			} else {
-				this.restartTextCd.innerText = 'Restarting in ' + timeleft + ' seconds';
+				this.restartTextCd.innerText = 'Exiting game in ' + this.timeleft + ' seconds';
 			}
-			timeleft -= 1;
+			this.timeleft -= 1;
 		}, 1000);
 	}
 	gameLost() {
+		//defeat sound reset to 0
+		this.audio3.currentTime = 0;
+		if (this.downloadTimer != '') {
+			clearInterval(this.downloadTimer);
+			this.timeleft = 10;
+		}
+
 		window.cancelAnimationFrame(this.intervalId);
-		this.restartTextCd.innerText = 'Restarting in 10 seconds';
-		this.restartButton.classList.remove('hidden');
+		this.restartTextCd.innerText = 'Exiting game in 10 seconds';
+		this.endGameMenuDiv.classList.remove('hidden');
 
 		//We clear the map
 		this.clearCanvas();
 		//We show the winer/loser logo
-		this.context.drawImage(this.loser, 325, 30, 600, 300);
+		this.context.drawImage(this.loser, 295, -10, 600, 300);
 		this.audio1.pause();
 
 		if (this.soundOn.classList.contains('buttonSelectedBorder')) {
@@ -537,18 +557,19 @@ class StartGame {
 		}
 
 		//10 seconds, refresh or click
-		let timeleft = 10;
-		let downloadTimer = setInterval(() => {
-			if (timeleft <= 0) {
-				setInterval(downloadTimer);
-				this.restart();
+		this.downloadTimer = setInterval(() => {
+			if (this.timeleft <= 0) {
+				if (!this.endGameMenuDiv.classList.contains('hidden')) {
+					setInterval(this.downloadTimer);
+					this.exitGame();
+				}
 			} else {
-				this.restartTextCd.innerText = 'Restarting in ' + timeleft + ' seconds';
+				this.restartTextCd.innerText = 'Exiting game in ' + this.timeleft + ' seconds';
 			}
-			timeleft -= 1;
+			this.timeleft -= 1;
 		}, 1000);
 	}
-	restart() {
+	exitGame() {
 		location.reload();
 	}
 	checkGameContinue() {
@@ -573,14 +594,21 @@ class StartGame {
 			this.audio1.volume = 0.1;
 			this.audio1.play();
 			this.audio1.loop = true;
+			// this.soundOn.setAttribute('isActive', 'true');
+			// this.soundOff.setAttribute('isActive', 'false');
 		} else if (this.soundOff.classList.contains('buttonSelectedBorder')) {
 			this.audio1.volume = 0;
 			this.audio1.pause();
+			// this.soundOff.setAttribute('isActive', 'true');
+			// this.soundOn.setAttribute('isActive', 'false');
 		}
 	}
 	// paused game menu
+	//selectedTrueEasy.setAttribute('activationLvl', 'true');
+	//selectedTrueEasy.getAttribute('activationlvl') === 'true')
 	pauseGame() {
 		if (this.gameStatus === 'true') {
+			//game paused
 			this.gameStatus = 'false';
 			//we stop all the audios to prevent bugs
 			this.audio1.volume = 0;
@@ -594,6 +622,15 @@ class StartGame {
 			this.audio5.volume = 0;
 			this.audio5.pause();
 			//add or remove a border in the soundon soundoff icon
+			// if (
+			// 	this.soundOn.getAttribute('isActive') === 'true' &&
+			// 	this.soundOff.getAttribute('isActive') === 'false'
+			// ) {
+			// 	this.soundOff.classList.add('buttonSelectedBorder');
+			// 	this.soundOn.classList.remove('buttonSelectedBorder');
+			// 	// this.soundOff.setAttribute('isActive', 'true');
+			// 	// this.soundOn.setAttribute('isActive', 'false');
+			// }
 			this.soundOff.classList.add('buttonSelectedBorder');
 			this.soundOn.classList.remove('buttonSelectedBorder');
 			//add pointer events class to prevent building in pause time
@@ -601,11 +638,19 @@ class StartGame {
 			//DIV pause show up
 			this.pauseMenu.style.visibility = 'visible';
 		} else if (this.gameStatus === 'false') {
+			//continue game
 			this.gameStatus = 'true';
 			this.run();
 			this.audio1.volume = 0.1;
 			this.audio1.play();
 			//add or remove a border in the soundon soundoff icon
+			// if (
+			// 	this.soundOn.getAttribute('isActive') === 'false' &&
+			// 	this.soundOff.getAttribute('isActive') === 'true'
+			// ) {
+			// 	this.soundOff.classList.remove('buttonSelectedBorder');
+			// 	this.soundOn.classList.add('buttonSelectedBorder');
+			// }
 			this.soundOn.classList.add('buttonSelectedBorder');
 			this.soundOff.classList.remove('buttonSelectedBorder');
 			//remove pointer events class to build again after pause
@@ -618,6 +663,7 @@ class StartGame {
 	// restart level selected
 	restartLvl() {
 		this.gameStatus = 'true';
+		this.endGameMenuDiv.classList.add('hidden');
 		clearInterval(this.intervalId);
 		//we hide the pause menu to instant restart of the lvl
 		this.pauseMenu.style.visibility = 'hidden';
@@ -625,6 +671,8 @@ class StartGame {
 		this.canvasBoard.classList.remove('noPointerEvents');
 		//we play audio again
 		this.audio1.volume = 0.1;
+		this.audio2.pause();
+		this.audio3.pause();
 		//we reset the audio time to start it from 0
 		this.audio1.currentTime = 0;
 		this.audio1.play();
@@ -633,13 +681,7 @@ class StartGame {
 		this.soundOff.classList.remove('buttonSelectedBorder');
 		this.intervalId = null;
 		this.clearCanvas();
-		this.waves = [];
-		this.waveIndex = 0;
-		this.waveEnemies = 0;
-		this.enemies = [];
-		this.towers = [];
-		this.userHP = 35;
-		this.userGold = 500;
+		this.defaultSetupGame();
 		this.run();
 	}
 	//print campfire
@@ -647,7 +689,6 @@ class StartGame {
 		var ctx = canvas.getContext('2d');
 		var x = x;
 		var y = y;
-		//ctx.clearRect(0, 0, 300, 300);
 
 		ctx.fillStyle = 'rgb(51, 26, 0)';
 		ctx.strokeStyle = 'rgba(250,100,0, 0.75)';
@@ -709,5 +750,28 @@ class StartGame {
 	//clear the canvas for a reset or game win/ game end
 	clearCanvas() {
 		this.context.clearRect(0, 0, this.context.canvas.width, this.context.canvas.height);
+	}
+
+	//when the game is reset (endgame menu or pause menu), if game was muted, it stay muted and turrets lose their classes
+	//we also reset game properties such as HP, gold, etc
+	defaultSetupGame() {
+		const sandTurret = document.getElementById('sandTurret');
+		const cataTurret = document.getElementById('cataTurret');
+		const slowTurret = document.getElementById('slowTurret');
+		const flameTurret = document.getElementById('flameTurret');
+
+		sandTurret.classList.remove('turretSelectedBorder');
+		cataTurret.classList.remove('turretSelectedBorder');
+		slowTurret.classList.remove('turretSelectedBorder');
+		flameTurret.classList.remove('turretSelectedBorder');
+
+		//game properties reset
+		this.waves = [];
+		this.waveIndex = 0;
+		this.waveEnemies = 0;
+		this.enemies = [];
+		this.towers = [];
+		this.userHP = 35;
+		this.userGold = 500;
 	}
 }
