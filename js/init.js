@@ -25,7 +25,8 @@ window.onload = function() {
 	let turretSelected = '';
 	let cheatCodeInput = document.getElementById('cheatCodes');
 	let cheatInput = document.getElementById('inputCheatCode');
-	let restartButton = document.getElementById('restarButtonDiv');
+	let exitButton = document.getElementById('exitButtonEndGameMenu');
+	let restartLvlButton = document.getElementById('restartButtonEndGameMenu');
 
 	// Starting v.02
 	// HOME MENU - LVL SELECTION UI
@@ -230,8 +231,12 @@ window.onload = function() {
 		startGame();
 	});
 
-	restartButton.addEventListener('click', function() {
-		start.restart();
+	exitButton.addEventListener('click', function() {
+		start.exitGame();
+	});
+
+	restartLvlButton.addEventListener('click', function() {
+		start.restartLvl();
 	});
 
 	sandTurret.addEventListener('click', function() {
