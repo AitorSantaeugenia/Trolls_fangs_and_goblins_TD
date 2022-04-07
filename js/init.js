@@ -266,11 +266,15 @@ window.onload = function() {
 	soundOn.addEventListener('click', function() {
 		soundOn.classList.add('buttonSelectedBorder');
 		soundOff.classList.remove('buttonSelectedBorder');
+		soundOff.setAttribute('isActive', 'false');
+		soundOn.setAttribute('isActive', 'true');
 	});
 
 	soundOff.addEventListener('click', function() {
 		soundOff.classList.add('buttonSelectedBorder');
 		soundOn.classList.remove('buttonSelectedBorder');
+		soundOn.setAttribute('isActive', 'false');
+		soundOff.setAttribute('isActive', 'true');
 	});
 
 	function startGame() {
