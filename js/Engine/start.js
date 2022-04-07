@@ -622,17 +622,17 @@ class StartGame {
 			this.audio5.volume = 0;
 			this.audio5.pause();
 			//add or remove a border in the soundon soundoff icon
-			// if (
-			// 	this.soundOn.getAttribute('isActive') === 'true' &&
-			// 	this.soundOff.getAttribute('isActive') === 'false'
-			// ) {
-			// 	this.soundOff.classList.add('buttonSelectedBorder');
-			// 	this.soundOn.classList.remove('buttonSelectedBorder');
-			// 	// this.soundOff.setAttribute('isActive', 'true');
-			// 	// this.soundOn.setAttribute('isActive', 'false');
-			// }
-			this.soundOff.classList.add('buttonSelectedBorder');
-			this.soundOn.classList.remove('buttonSelectedBorder');
+			if (
+				this.soundOn.getAttribute('isActive') === 'true' &&
+				this.soundOff.getAttribute('isActive') === 'false'
+			) {
+				this.soundOff.classList.add('buttonSelectedBorder');
+				this.soundOn.classList.remove('buttonSelectedBorder');
+				// this.soundOff.setAttribute('isActive', 'true');
+				// this.soundOn.setAttribute('isActive', 'false');
+			}
+			// this.soundOff.classList.add('buttonSelectedBorder');
+			// this.soundOn.classList.remove('buttonSelectedBorder');
 			//add pointer events class to prevent building in pause time
 			this.canvasBoard.classList.add('noPointerEvents');
 			//DIV pause show up
@@ -644,15 +644,18 @@ class StartGame {
 			this.audio1.volume = 0.1;
 			this.audio1.play();
 			//add or remove a border in the soundon soundoff icon
-			// if (
-			// 	this.soundOn.getAttribute('isActive') === 'false' &&
-			// 	this.soundOff.getAttribute('isActive') === 'true'
-			// ) {
-			// 	this.soundOff.classList.remove('buttonSelectedBorder');
-			// 	this.soundOn.classList.add('buttonSelectedBorder');
-			// }
-			this.soundOn.classList.add('buttonSelectedBorder');
-			this.soundOff.classList.remove('buttonSelectedBorder');
+			if (
+				this.soundOn.getAttribute('isActive') === 'false' &&
+				this.soundOff.getAttribute('isActive') === 'true'
+			) {
+				this.soundOff.classList.add('buttonSelectedBorder');
+				this.soundOn.classList.remove('buttonSelectedBorder');
+			} else {
+				this.soundOff.classList.remove('buttonSelectedBorder');
+				this.soundOn.classList.add('buttonSelectedBorder');
+			}
+			// this.soundOn.classList.add('buttonSelectedBorder');
+			// this.soundOff.classList.remove('buttonSelectedBorder');
 			//remove pointer events class to build again after pause
 			this.canvasBoard.classList.remove('noPointerEvents');
 			// we hide the pause menu
