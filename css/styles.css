@@ -251,29 +251,30 @@ html{
   -o-user-drag: none;
 }
 
-#restarButtonDiv{
-  /* border:1px solid red; */
+#endGameMenu{
   text-align: center;
-  width: 95vw;
   position: absolute;
-  margin-top: -380px;
-  margin-left:60px !important;
-
+  display: flex;
+  flex-direction: column;
+  width: 1200px;
+  align-items: center;
 }
 
-#restartButtonGame{
+#restartButtonEndGameMenu{
   color:yellow;
   background-color: rgb(7, 7, 110);
-  padding:15px 140px;
+  padding: 3px 64px;
   font-size:30px;
   border-radius: 10px;
   box-shadow: 5px 10px #000000;
   border:2px solid rgba(243, 219, 1, 0.979);
   cursor: pointer;
- 
+  margin-bottom: 15px;
+  max-width: 500px;
+  min-width: 310px;
 }
 
-#restartButtonGame:hover {
+#restartButtonEndGameMenu:hover {
   background-color: rgb(7, 7, 155);
 }
 
@@ -301,7 +302,7 @@ font-family: Play;
   cursor:pointer;
 }
 .hidden {
-  display: none;
+  display: none !important;
 }
 /* ------------------------------------------------------------------------------------------ */
 /* Trolls fangs and goblins / AKA v.2.0 */
@@ -477,4 +478,25 @@ font-family: Play;
 
 .smallerImg{
   width:100px;
+}
+
+#exitButtonEndGameMenu{
+  color:yellow;
+  background-color: rgb(7, 7, 110);
+  padding: 3px 64px;
+  font-size:30px;
+  border-radius: 10px;
+  box-shadow: 5px 10px #000000;
+  border:2px solid rgba(243, 219, 1, 0.979);
+  cursor: pointer;
+  max-width: 500px;
+  min-width: 310px;
+}
+
+#exitButtonEndGameMenu:hover {
+  background-color: rgb(7, 7, 155);
+}
+
+.smallerImgExitBtn{
+  width: 68px;
 }
