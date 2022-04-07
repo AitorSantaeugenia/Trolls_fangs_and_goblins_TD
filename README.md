@@ -39,11 +39,19 @@
 - ~~Better bottom UI~~
 - ~~Restart button (lvl restart)~~
 - Cheat button explanation
-- how do you turn this on
-- MSG when introducing a cheatcode
+- ~~Change width+height map (minions+path) on selecting lvl~~
+
+- When pause the game if it is muted, keep muted after continue
+- If we are muted and restart the game, keep muted after it
+- If we are muted in endgame Menu and we restart, keep muted
+- Change IMG menu with new maps
 - Instruction menu
 - Custom game menu
-- Change width+height map (minions+path) on selecting lvl
+- how do you turn this on
+- MSG when introducing a cheatcode
+- Show DIV with opacity when win/lose (same as pause menu)
+- Create hell map path
+- Create HARD and HELL maps backgrounds
 
 ```
 If you have any suggesitons, plz don't be shy and tell me here on github |or| aitorsantaeugenia@gmail.com
