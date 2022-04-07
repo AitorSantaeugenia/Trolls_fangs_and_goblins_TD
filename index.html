@@ -75,7 +75,7 @@
     <button id="instructionsBtn" class="btn noDrag modalBtn"><img src="./images/loadScreen/otherText/instructions.png"
         alt="Instructions button" class="smallerImg noDrag" style="width: 123px;"></button><br>
     <button id="customGameBtn" class="btn noDrag modalBtn"><img src="./images/loadScreen/otherText/customgame.png"
-        alt="Custom game button" class="smallerImg noDrag" style="width: 123px;"></button><br>
+        alt="Custom game button" class="smallerImg noDrag" style="width: 131px;"></button><br>
     <!-- <button id="optionsBtn" class="btn noDrag modalBtn"><img src="./images/loadScreen/otherText/options.png"
         alt="Options button" class="smallerImg"></button> -->
     <!-- <img id=" previewImage" src="./images/road.png"> -->
@@ -122,9 +122,9 @@
         <div class="lowerMenuTowers" id="gameMenu">
           <div class="soundOffOn">
             <img src="https://aitorsantaeugenia.github.io/TD_Project1/images/soundgreen.png" alt="Sound on"
-              id="yesSound" class="logoSoundSound buttonSelectedBorder">
+              id="yesSound" class="logoSoundSound buttonSelectedBorder" isActive="true">
             <img src="https://aitorsantaeugenia.github.io/TD_Project1/images/nosoundred.png" alt="Sound off"
-              id="noSound" class="logoSoundNoSound">
+              id="noSound" class="logoSoundNoSound" isActive="false">
           </div>
           <div class="turretSelector">
 
@@ -163,18 +163,21 @@
         </div>
       </div>
 
-
-
-
-      <div id="restarButtonDiv" class="hidden">
-        <p id="restartingTimerText"></p><br><br>
-        <button id="restartButtonGame" class="btn noDrag"><img
-            src="https://aitorsantaeugenia.github.io/TD_Project1/images/restart.png" alt="Restart button"></button>
+      <!-- hidden -->
+      <div id="endGameMenu" class="hidden">
+        <div id="restartingTimerDiv" style="margin-top:80px">
+          <p id="restartingTimerText"></p>
+        </div>
+        <div id="endGameButtonsMenuDiv" style="margin-top:40px">
+          <button id="restartButtonEndGameMenu" class="btn noDrag">
+            <img src="./images/loadScreen/otherText/restart.png" alt="Restart button" class="smallerImg noDrag"
+              style="margin-top: 5px;"></button>
+          <button id="exitButtonEndGameMenu" class="btn noDrag">
+            <img src="./images/loadScreen/otherText/exit.png" alt="Exit button" class="smallerImgExitBtn noDrag"
+              style="margin-top: 5px;"></button>
+        </div>
       </div>
-
     </div>
-
-
   </div>
 
   <style>
