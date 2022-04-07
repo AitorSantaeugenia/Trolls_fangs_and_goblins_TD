@@ -59,6 +59,9 @@ window.onload = function() {
 	//var to know when turret is selectedTrueEasy
 	var turretIsSelected = false;
 
+	//test with turret img here
+	//var turretIMG = new Image();
+
 	// Events
 	// event to know which lvl difficulty is selected and do some behaviour or another in canvas
 	document.addEventListener('click', function() {
@@ -219,6 +222,12 @@ window.onload = function() {
 		start.createTurret(getCursorPosition(canvas, event), turretSelected);
 	};
 
+	// //testing with range display
+	// canvas.onmousemove = (event) => {
+	// 	// start.createTurret(getCursorPosition(canvas, event), turretSelected);
+	// 	start.hoverTurret(getCursorPosition(canvas, event), turretSelected, turretIMG);
+	// };
+
 	//when clicking the INPUT to insert a cheatcode, selects the whole text, then you just need to start typing
 	//is not necessary since we implemented it at line #80, but it's a better behaviour than without it
 	cheatCodeInput.addEventListener('click', function() {
@@ -341,8 +350,8 @@ window.onload = function() {
 	// 	//let canvas = document.getElementById('canvas');
 	// 	const ctx = context;
 	// 	//console.log(ctx);
-	// 	let pageX = e.x;
-	// 	let pageY = e.y;
+	// 	let pageX = e.offsetX;
+	// 	let pageY = e.offsetY;
 	// 	//console.log(pageX, pageY);
 	// 	let towerSelected = turret;
 	// 	let turretIMG = new Image();
@@ -361,18 +370,19 @@ window.onload = function() {
 	// 	}
 
 	// 	//console.log(this.context);
+	// 	//console.log(turretIMG);
 	// 	//console.log(turretIMG.src);
 	// 	//console.log(turretIMG.src);
 	// 	ctx.fillStyle = 'rgba(255, 255, 255, .3)';
-	// 	//ctx.globalCompositeOperation = 'destination-out';
+	// 	//ctx.globalCompositeOperation = 'multiply';
 
 	// 	ctx.beginPath();
-	// 	context.lineWidth = 1;
+
 	// 	ctx.arc(pageX, pageY, 500, 0, Math.PI * 2, true);
-	// 	context.moveTo(pageX, pageY);
+	// 	ctx.drawImage(turretIMG, pageX, pageY, 104, 124);
 	// 	//context.lineTo(x2, y2);
 	// 	ctx.fill();
 
-	// 	//ctx.drawImage(turretIMG, pageX, pageY, 300, 300, 50, 50, 200, 200);
+	// 	//ctx.drawImage(turretIMG, 33, 71, 104, 124, 21, 20, 87, 104);
 	// });
 };

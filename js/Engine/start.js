@@ -336,6 +336,7 @@ class StartGame {
 		if (pos.click === 0) {
 			let turret = null;
 			let towerCost = 0;
+
 			if (!this.positionTower(pos)) {
 				if (type === 'sand') {
 					turret = new Turret(this.context, pos.x, pos.y, this.turretSizeW, this.turretSizeH);
@@ -777,4 +778,46 @@ class StartGame {
 		this.userHP = 35;
 		this.userGold = 500;
 	}
+
+	// //hovering turret and showing range
+	// hoverTurret(pos, type, turrIMG) {
+	// 	var towerSelected = type;
+	// 	var posX = pos.x;
+	// 	var posY = pos.y;
+	// 	var turretIMG = turrIMG;
+
+	// 	if (towerSelected === 'sand') {
+	// 		turretIMG.src = 'https://aitorsantaeugenia.github.io/TD_Project1/images/towers/sandTurret.png';
+	// 	} else if (towerSelected === 'catapult') {
+	// 		turretIMG.src = 'https://aitorsantaeugenia.github.io/TD_Project1/images/towers/stoneTurret.png';
+	// 	} else if (towerSelected === 'slow') {
+	// 		turretIMG.src = 'https://aitorsantaeugenia.github.io/TD_Project1/images/towers/freezeTurret.png';
+	// 	} else if (towerSelected === 'flame') {
+	// 		turretIMG.src = 'https://aitorsantaeugenia.github.io/TD_Project1/images/towers/flameTurret.png';
+	// 	}
+
+	// 	//console.log(turretIMG);
+	// 	//console.log(this.context);
+	// 	//console.log(this.context);
+	// 	//console.log(turretIMG);
+	// 	//console.log(turretIMG.src);
+	// 	//console.log(turretIMG.src);
+	// 	//console.log(posY);
+	// 	// if (towerSelected) {
+	// 	if (towerSelected) {
+	// 		// this.context.beginPath();
+	// 		//this.context.globalCompositeOperation = 'destination-over';
+	// 		// this.context.fillStyle = 'rgba(255, 0, 0, .3)';
+	// 		// this.context.arc(posX, posY, 250, 0, Math.PI * 2);
+	// 		// this.context.fill();
+
+	// 		// this.context.drawImage(turretIMG, posX, posY);
+	// 		// this.context.closePath();
+	// 		// //}
+	// 		this.context.beginPath();
+	// 		this.context.arc(posX, posY, 50, 0, 2 * Math.PI);
+	// 		this.context.stroke();
+	// 	}
+	// 	//context.lineTo(x2, y2);
+	// }
 }

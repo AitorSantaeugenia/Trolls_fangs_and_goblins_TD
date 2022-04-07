@@ -25,20 +25,31 @@ class Turret {
 	}
 
 	draw() {
+		//var context = this.context;
 		this.context.globalCompositeOperation = 'destination-over';
 		this.context.drawImage(this.img, this.x - this.w / 2, this.y - this.h / 2, this.w, this.h);
 
 		//this.context.fillStyle = this.collide === false ? 'rgba(255, 255, 255, .3)' : 'rgba(255, 0, 0, .3)';
-		// if ((this.selectionTurret = true)) {
-		// 	this.context.fillStyle = this.selectionTurret = true ? 'rgba(255, 255, 255, .3)' : 'rgba(255, 0, 0, .3)';
+		// if ((this.collide = true)) {
+		// 	this.context.fillStyle = 'rgba(255, 255, 255, .3)';
 		// 	this.context.beginPath();
 		// 	this.context.arc(this.x, this.y, this.range, 0, Math.PI * 2, true);
 		// 	this.context.fill();
+		// 	this.context.closePath();
 		// }
-		// this.context.fill();
-
+		this.drawRange();
 		this.bullets.forEach((projectile) => projectile.draw());
 		this.removeProjectilesHit();
+	}
+
+	drawRange() {
+		this.context.save();
+		this.context.beginPath();
+		this.context.arc(this.x, this.y, this.range, 0, Math.PI * 2);
+		this.context.strokeStyle = 'rgba(222, 255, 252, 0.4)';
+		this.context.lineWidth = 4;
+		this.context.stroke();
+		this.context.restore();
 	}
 
 	move() {
