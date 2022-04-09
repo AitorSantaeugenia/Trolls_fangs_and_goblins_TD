@@ -11,7 +11,7 @@ class StartGame {
 		this.waveIndex = 0;
 		this.waveEnemies = 0;
 		//Game sounds and Themes
-		//we change audio1 inside #75 function, for each lvl there is a different theme
+		//we change audio1 inside #83 function, for each lvl there is a different theme
 		this.audio1 = '';
 		this.audio2 = document.getElementById('victoryMusic');
 		this.audio3 = document.getElementById('defeatMusic');
@@ -58,6 +58,14 @@ class StartGame {
 		this.timeleft = 10;
 		//countdown variable for winning or losing game MENU
 		this.downloadTimer = '';
+		this.placeHolderImg = new Image();
+		this.towersInPath = new Turret();
+
+		//we specify the range of the turret here instead of tower.js
+		this.rangeTurret = 0;
+
+		//turret selected = name of turret
+		this.turretSelected = '';
 
 		this.towerCosts = {
 			sand: 70,
@@ -214,6 +222,8 @@ class StartGame {
 	run() {
 		if (this.gameStatus === 'true') {
 			this.clearCanvas();
+			//we remove pointer events to select turrets again (after reseting the game when it ended))
+			this.canvasBoard.classList.remove('noPointerEvents');
 			this.intervalId = requestAnimationFrame(() => this.run());
 			this.checkSound();
 			this.waves = new Wave(this.context, this.path, this.minonWidth, this.minionHeight);
@@ -309,6 +319,7 @@ class StartGame {
 		});
 	}
 
+	//Function to remove the enemy
 	removeEnemy() {
 		this.goldFromEnemy();
 		this.enemies = this.enemies.filter((enemy) => {
@@ -316,7 +327,7 @@ class StartGame {
 		});
 	}
 
-	// Turrets
+	// Function to detect the enemy
 	enemyInRange() {
 		this.towers.forEach((turret) => {
 			this.enemies.forEach((enemy) => {
@@ -332,6 +343,113 @@ class StartGame {
 		});
 	}
 
+	//Function that draw a placeholder of turret and range while hovering canvas
+	drawPlaceholderTurretAndRange(pos, turretSelected) {
+		var posX = pos.x;
+		var posY = pos.y;
+		var pos = pos;
+
+		//turret range declared, later we give a valor
+		var turretRangeIs = 0;
+
+		//we check (true, false) if we are trying to build over the path
+		var isHittingPath = this.towersInPath.turretInPath(
+			this.path,
+			pos,
+			this.turretHitBox,
+			this.turretSizeW,
+			this.turretSizeH
+		);
+
+		//return of all turrets objects
+		var turrets = this.selectionTurretMenu();
+
+		//we check (true, false) if we are trying to build over another turret created before
+		var turretOverTurret = this.positionTower(pos);
+		//we adding a filter red/green to placeholder turret and range, this is declared here for later usage
+		var filterColor = '';
+
+		//we do this, because if we restart the game, the animationFrame in init.js #227 still working after reset
+		//we can prevent this behaviour with this
+		if (
+			turrets.sandTurret.classList.contains('turretSelectedBorder') ||
+			turrets.cataTurret.classList.contains('turretSelectedBorder') ||
+			turrets.slowTurret.classList.contains('turretSelectedBorder') ||
+			turrets.flameTurret.classList.contains('turretSelectedBorder')
+		) {
+			this.turretSelected = turretSelected;
+		} else {
+			this.turretSelected = '';
+		}
+
+		//it will trigger while ONE turret is selected
+		//we need to specify here again the range, because when we do at 424 in the
+		//createTurret() function, the range is decided when we do a onmousedown, we need this before that (onmousemove)
+		if (this.turretSelected && this.userGold >= 70) {
+			if (this.turretSelected === 'sand') {
+				turretRangeIs = this.getTurretRange(this.turretSelected);
+				this.placeHolderImg.src = '../../images/towers/sandTurret.png';
+			} else if (this.turretSelected === 'catapult') {
+				turretRangeIs = this.getTurretRange(this.turretSelected);
+				this.placeHolderImg.src = '../../images/towers/stoneTurret.png';
+			} else if (this.turretSelected === 'slow') {
+				turretRangeIs = this.getTurretRange(this.turretSelected);
+				this.placeHolderImg.src = '../../images/towers/freezeTurret.png';
+			} else if (this.turretSelected === 'flame') {
+				turretRangeIs = this.getTurretRange(this.turretSelected);
+				this.placeHolderImg.src = '../../images/towers/flameTurret.png';
+			}
+
+			//draw the range of the turret
+			this.context.save();
+			this.context.beginPath();
+			this.context.arc(posX, posY, turretRangeIs, 0, Math.PI * 2);
+			this.context.globalCompositeOperation = 'source-over';
+			this.context.strokeStyle = 'rgba(147, 250, 165, 0.8)';
+			this.context.lineWidth = 4;
+			this.context.stroke();
+			this.context.restore();
+
+			//filter to red or green, red = can't build/green = can build
+			if (isHittingPath === false) {
+				if (turretOverTurret === false) {
+					if (this.turretSelected === 'sand' && this.userGold >= 70) {
+						filterColor = 'grayscale(100%) brightness(80%) sepia(300%) hue-rotate(50deg) saturate(500%)';
+					} else if (this.turretSelected === 'catapult' && this.userGold >= 150) {
+						filterColor = 'grayscale(100%) brightness(80%) sepia(300%) hue-rotate(50deg) saturate(500%)';
+					} else if (this.turretSelected === 'slow' && this.userGold >= 200) {
+						filterColor = 'grayscale(100%) brightness(80%) sepia(300%) hue-rotate(50deg) saturate(500%)';
+					} else if (this.turretSelected === 'flame' && this.userGold >= 300) {
+						filterColor = 'grayscale(100%) brightness(80%) sepia(300%) hue-rotate(50deg) saturate(500%)';
+					} else {
+						filterColor =
+							'grayscale(100%) brightness(40%) sepia(100%) hue-rotate(-50deg) saturate(600%) contrast(0.8)';
+					}
+				} else if (turretOverTurret === true) {
+					filterColor =
+						'grayscale(100%) brightness(40%) sepia(100%) hue-rotate(-50deg) saturate(600%) contrast(0.8)';
+				}
+			} else {
+				filterColor =
+					'grayscale(100%) brightness(40%) sepia(100%) hue-rotate(-50deg) saturate(600%) contrast(0.8)';
+			}
+
+			//draw a placeholder turret
+			this.context.save();
+			this.context.globalCompositeOperation = 'source-over';
+			this.context.filter = filterColor;
+			this.context.drawImage(
+				this.placeHolderImg,
+				posX - this.turretSizeW / 2,
+				posY - this.turretSizeW / 2,
+				this.turretSizeW,
+				this.turretSizeH
+			);
+			this.context.restore();
+		}
+	}
+
+	//Function to create turret when clicking with left-mouse button
 	createTurret(pos, type) {
 		if (pos.click === 0) {
 			let turret = null;
@@ -339,10 +457,20 @@ class StartGame {
 
 			if (!this.positionTower(pos)) {
 				if (type === 'sand') {
-					turret = new Turret(this.context, pos.x, pos.y, this.turretSizeW, this.turretSizeH);
+					this.rangeTurret = this.getTurretRange(type);
+					turret = new Turret(
+						this.context,
+						pos.x,
+						pos.y,
+						this.turretSizeW,
+						this.turretSizeH,
+						this.rangeTurret
+					);
 					towerCost = turret.returnPrice();
 					if (this.userGold >= towerCost) {
-						if (!turret.turretInPath(this.path, pos, this.turretHitBox)) {
+						if (
+							!turret.turretInPath(this.path, pos, this.turretHitBox, this.turretSizeW, this.turretSizeH)
+						) {
 							this.towers.push(turret);
 							this.userGold -= towerCost;
 							if (this.soundOn.classList.contains('buttonSelectedBorder')) {
@@ -362,10 +490,20 @@ class StartGame {
 						}
 					}
 				} else if (type === 'slow') {
-					turret = new SlowTurret(this.context, pos.x, pos.y, this.turretSizeW, this.turretSizeH);
+					this.rangeTurret = this.getTurretRange(type);
+					turret = new SlowTurret(
+						this.context,
+						pos.x,
+						pos.y,
+						this.turretSizeW,
+						this.turretSizeH,
+						this.rangeTurret
+					);
 					towerCost = turret.returnPrice();
 					if (this.userGold >= towerCost) {
-						if (!turret.turretInPath(this.path, pos, this.turretHitBox)) {
+						if (
+							!turret.turretInPath(this.path, pos, this.turretHitBox, this.turretSizeW, this.turretSizeH)
+						) {
 							this.towers.push(turret);
 							this.userGold -= towerCost;
 							if (this.soundOn.classList.contains('buttonSelectedBorder')) {
@@ -385,10 +523,20 @@ class StartGame {
 						}
 					}
 				} else if (type === 'flame') {
-					turret = new FlameTurret(this.context, pos.x, pos.y, this.turretSizeW, this.turretSizeH);
+					this.rangeTurret = this.getTurretRange(type);
+					turret = new FlameTurret(
+						this.context,
+						pos.x,
+						pos.y,
+						this.turretSizeW,
+						this.turretSizeH,
+						this.rangeTurret
+					);
 					towerCost = turret.returnPrice();
 					if (this.userGold >= towerCost) {
-						if (!turret.turretInPath(this.path, pos, this.turretHitBox)) {
+						if (
+							!turret.turretInPath(this.path, pos, this.turretHitBox, this.turretSizeW, this.turretSizeH)
+						) {
 							this.towers.push(turret);
 							this.userGold -= towerCost;
 							if (this.soundOn.classList.contains('buttonSelectedBorder')) {
@@ -408,10 +556,20 @@ class StartGame {
 						}
 					}
 				} else if (type === 'catapult') {
-					turret = new CatapultTurret(this.context, pos.x, pos.y, this.turretSizeW, this.turretSizeH);
+					this.rangeTurret = this.getTurretRange(type);
+					turret = new CatapultTurret(
+						this.context,
+						pos.x,
+						pos.y,
+						this.turretSizeW,
+						this.turretSizeH,
+						this.rangeTurret
+					);
 					towerCost = turret.returnPrice();
 					if (this.userGold >= towerCost) {
-						if (!turret.turretInPath(this.path, pos, this.turretHitBox)) {
+						if (
+							!turret.turretInPath(this.path, pos, this.turretHitBox, this.turretSizeW, this.turretSizeH)
+						) {
 							this.towers.push(turret);
 							this.userGold -= towerCost;
 							if (this.soundOn.classList.contains('buttonSelectedBorder')) {
@@ -435,6 +593,19 @@ class StartGame {
 		}
 	}
 
+	//function that gets the range of every turret
+	getTurretRange(turret) {
+		if (turret === 'sand') {
+			return 255;
+		} else if (turret === 'catapult') {
+			return 450;
+		} else if (turret === 'slow') {
+			return 255;
+		} else if (turret === 'flame') {
+			return 450;
+		}
+	}
+
 	positionTower(pos) {
 		for (let i = 0; i <= this.towers.length - 1; i++) {
 			if (
@@ -447,7 +618,7 @@ class StartGame {
 		return false;
 	}
 
-	// Player
+	// function to show player hp
 	playerHP() {
 		const HP = document.getElementById('hpPlayer');
 		HP.innerText = this.userHP;
@@ -462,36 +633,36 @@ class StartGame {
 		gold.innerText = '$' + this.userGold;
 	}
 
-	//Utils and game winner
+	//function to know wich turret is selected in lower menu
 	checkTurretSelected(turret) {
-		let turretSelected = turret;
+		this.turretSelected = turret;
 
-		const sandTurret = document.getElementById('sandTurret');
-		const cataTurret = document.getElementById('cataTurret');
-		const slowTurret = document.getElementById('slowTurret');
-		const flameTurret = document.getElementById('flameTurret');
-		if (turretSelected == 'sand') {
-			sandTurret.classList.add('turretSelectedBorder');
-			cataTurret.classList.remove('turretSelectedBorder');
-			slowTurret.classList.remove('turretSelectedBorder');
-			flameTurret.classList.remove('turretSelectedBorder');
-		} else if (turretSelected == 'catapult') {
-			sandTurret.classList.remove('turretSelectedBorder');
-			cataTurret.classList.add('turretSelectedBorder');
-			slowTurret.classList.remove('turretSelectedBorder');
-			flameTurret.classList.remove('turretSelectedBorder');
-		} else if (turretSelected == 'slow') {
-			sandTurret.classList.remove('turretSelectedBorder');
-			cataTurret.classList.remove('turretSelectedBorder');
-			slowTurret.classList.add('turretSelectedBorder');
-			flameTurret.classList.remove('turretSelectedBorder');
-		} else if (turretSelected == 'flame') {
-			sandTurret.classList.remove('turretSelectedBorder');
-			cataTurret.classList.remove('turretSelectedBorder');
-			slowTurret.classList.remove('turretSelectedBorder');
-			flameTurret.classList.add('turretSelectedBorder');
+		var turrets = this.selectionTurretMenu();
+
+		if (this.turretSelected == 'sand') {
+			turrets.sandTurret.classList.add('turretSelectedBorder');
+			turrets.cataTurret.classList.remove('turretSelectedBorder');
+			turrets.slowTurret.classList.remove('turretSelectedBorder');
+			turrets.flameTurret.classList.remove('turretSelectedBorder');
+		} else if (this.turretSelected == 'catapult') {
+			turrets.sandTurret.classList.remove('turretSelectedBorder');
+			turrets.cataTurret.classList.add('turretSelectedBorder');
+			turrets.slowTurret.classList.remove('turretSelectedBorder');
+			turrets.flameTurret.classList.remove('turretSelectedBorder');
+		} else if (this.turretSelected == 'slow') {
+			turrets.sandTurret.classList.remove('turretSelectedBorder');
+			turrets.cataTurret.classList.remove('turretSelectedBorder');
+			turrets.slowTurret.classList.add('turretSelectedBorder');
+			turrets.flameTurret.classList.remove('turretSelectedBorder');
+		} else if (this.turretSelected == 'flame') {
+			turrets.sandTurret.classList.remove('turretSelectedBorder');
+			turrets.cataTurret.classList.remove('turretSelectedBorder');
+			turrets.slowTurret.classList.remove('turretSelectedBorder');
+			turrets.flameTurret.classList.add('turretSelectedBorder');
 		}
 	}
+
+	//function for when we win the game (cheat = ezwin calls this)
 	gameWin() {
 		//wining sound reset to 0
 		this.audio2.currentTime = 0;
@@ -500,6 +671,10 @@ class StartGame {
 			clearInterval(this.downloadTimer);
 			this.timeleft = 10;
 		}
+
+		//add no pointer events class to prevent bugs or behaviours
+		this.canvasBoard.classList.add('noPointerEvents');
+
 		//We stop the game
 		window.cancelAnimationFrame(this.intervalId);
 		this.restartTextCd.innerText = 'Exiting game in 10 seconds';
@@ -515,6 +690,8 @@ class StartGame {
 		}
 		//We clear the map
 		this.clearCanvas();
+		//we reset everything to default to prevent multiple bugs or behaviours
+		this.defaultSetupGame();
 		//We show the winer/loser logo
 		this.context.drawImage(this.winner, 125, -55, 950, 420);
 
@@ -531,6 +708,8 @@ class StartGame {
 			this.timeleft -= 1;
 		}, 1000);
 	}
+
+	//function when we lose the game (cheat = 4lose calls this)
 	gameLost() {
 		//defeat sound reset to 0
 		this.audio3.currentTime = 0;
@@ -539,12 +718,17 @@ class StartGame {
 			this.timeleft = 10;
 		}
 
+		//add no pointer events class to prevent bugs or behaviours
+		this.canvasBoard.classList.add('noPointerEvents');
+
 		window.cancelAnimationFrame(this.intervalId);
 		this.restartTextCd.innerText = 'Exiting game in 10 seconds';
 		this.endGameMenuDiv.classList.remove('hidden');
 
 		//We clear the map
 		this.clearCanvas();
+		//we reset everything to default to prevent multiple bugs or behaviours
+		this.defaultSetupGame();
 		//We show the winer/loser logo
 		this.context.drawImage(this.loser, 295, -10, 600, 300);
 		this.audio1.pause();
@@ -570,9 +754,13 @@ class StartGame {
 			this.timeleft -= 1;
 		}, 1000);
 	}
+
+	//function to reload the game to its own main page - called in win/lose menu
 	exitGame() {
 		location.reload();
 	}
+
+	//Utils functions
 	checkGameContinue() {
 		return this.userHP <= 0 ? false : true;
 	}
@@ -584,29 +772,26 @@ class StartGame {
 		this.userGold += 1000;
 		this.playerGold();
 	}
+
 	// cheatUnlockedTurret() {
 	// 	this.context.font = '30px Play';
 	// 	this.context.fillStyle = 'red';
 	// 	this.context.fillText('You have unlocked the OP turret', 500, 500);
 	// }
-	//soundOFF soundON UI and change the border
+
+	//Function to check soundOFF soundON UI and change the border
 	checkSound() {
 		if (this.soundOn.classList.contains('buttonSelectedBorder')) {
 			this.audio1.volume = 0.1;
 			this.audio1.play();
 			this.audio1.loop = true;
-			// this.soundOn.setAttribute('isActive', 'true');
-			// this.soundOff.setAttribute('isActive', 'false');
 		} else if (this.soundOff.classList.contains('buttonSelectedBorder')) {
 			this.audio1.volume = 0;
 			this.audio1.pause();
-			// this.soundOff.setAttribute('isActive', 'true');
-			// this.soundOn.setAttribute('isActive', 'false');
 		}
 	}
-	// paused game menu
-	//selectedTrueEasy.setAttribute('activationLvl', 'true');
-	//selectedTrueEasy.getAttribute('activationlvl') === 'true')
+
+	//Function to pause the game clicking ESC key
 	pauseGame() {
 		if (this.gameStatus === 'true') {
 			//game paused
@@ -622,6 +807,7 @@ class StartGame {
 			this.audio4.pause();
 			this.audio5.volume = 0;
 			this.audio5.pause();
+
 			//add or remove a border in the soundon soundoff icon
 			if (
 				this.soundOn.getAttribute('isActive') === 'true' &&
@@ -629,11 +815,8 @@ class StartGame {
 			) {
 				this.soundOff.classList.add('buttonSelectedBorder');
 				this.soundOn.classList.remove('buttonSelectedBorder');
-				// this.soundOff.setAttribute('isActive', 'true');
-				// this.soundOn.setAttribute('isActive', 'false');
 			}
-			// this.soundOff.classList.add('buttonSelectedBorder');
-			// this.soundOn.classList.remove('buttonSelectedBorder');
+
 			//add pointer events class to prevent building in pause time
 			this.canvasBoard.classList.add('noPointerEvents');
 			//DIV pause show up
@@ -655,8 +838,7 @@ class StartGame {
 				this.soundOff.classList.remove('buttonSelectedBorder');
 				this.soundOn.classList.add('buttonSelectedBorder');
 			}
-			// this.soundOn.classList.add('buttonSelectedBorder');
-			// this.soundOff.classList.remove('buttonSelectedBorder');
+
 			//remove pointer events class to build again after pause
 			this.canvasBoard.classList.remove('noPointerEvents');
 			// we hide the pause menu
@@ -664,15 +846,13 @@ class StartGame {
 		}
 	}
 
-	// restart level selected
+	// Function to restart level (menu pause or win/lose menu after game)
 	restartLvl() {
 		this.gameStatus = 'true';
 		this.endGameMenuDiv.classList.add('hidden');
 		clearInterval(this.intervalId);
 		//we hide the pause menu to instant restart of the lvl
 		this.pauseMenu.style.visibility = 'hidden';
-		//we remove pointer events to select turrets again (after paused menu, where it's disabled to prevent it)
-		this.canvasBoard.classList.remove('noPointerEvents');
 		//we play audio again
 		this.audio1.volume = 0.1;
 		this.audio2.pause();
@@ -688,7 +868,7 @@ class StartGame {
 		this.defaultSetupGame();
 		this.run();
 	}
-	//print campfire
+	//Function to print campfire
 	campFireCanvas(x, y) {
 		var ctx = canvas.getContext('2d');
 		var x = x;
@@ -751,7 +931,7 @@ class StartGame {
 		ctx.bezierCurveTo(x - 25, y + 12.5, x + 75, y + 12.5, x + 25, flamelety);
 		ctx.fill();
 	}
-	//clear the canvas for a reset or game win/ game end
+	//Function that clear the canvas
 	clearCanvas() {
 		this.context.clearRect(0, 0, this.context.canvas.width, this.context.canvas.height);
 	}
@@ -759,18 +939,17 @@ class StartGame {
 	//when the game is reset (endgame menu or pause menu), if game was muted, it stay muted and turrets lose their classes
 	//we also reset game properties such as HP, gold, etc
 	defaultSetupGame() {
-		const sandTurret = document.getElementById('sandTurret');
-		const cataTurret = document.getElementById('cataTurret');
-		const slowTurret = document.getElementById('slowTurret');
-		const flameTurret = document.getElementById('flameTurret');
+		var turrets = this.selectionTurretMenu();
 
-		sandTurret.classList.remove('turretSelectedBorder');
-		cataTurret.classList.remove('turretSelectedBorder');
-		slowTurret.classList.remove('turretSelectedBorder');
-		flameTurret.classList.remove('turretSelectedBorder');
+		//we remove the border in all towers in the selection menu
+		turrets.sandTurret.classList.remove('turretSelectedBorder');
+		turrets.cataTurret.classList.remove('turretSelectedBorder');
+		turrets.slowTurret.classList.remove('turretSelectedBorder');
+		turrets.flameTurret.classList.remove('turretSelectedBorder');
 
 		//game properties reset
 		this.waves = [];
+		this.turretSelected = '';
 		this.waveIndex = 0;
 		this.waveEnemies = 0;
 		this.enemies = [];
@@ -779,45 +958,18 @@ class StartGame {
 		this.userGold = 500;
 	}
 
-	// //hovering turret and showing range
-	// hoverTurret(pos, type, turrIMG) {
-	// 	var towerSelected = type;
-	// 	var posX = pos.x;
-	// 	var posY = pos.y;
-	// 	var turretIMG = turrIMG;
+	//Function to return the ID of all turrets, we use this quite a lot
+	selectionTurretMenu() {
+		const sandTurret = document.getElementById('sandTurret');
+		const cataTurret = document.getElementById('cataTurret');
+		const slowTurret = document.getElementById('slowTurret');
+		const flameTurret = document.getElementById('flameTurret');
 
-	// 	if (towerSelected === 'sand') {
-	// 		turretIMG.src = 'https://aitorsantaeugenia.github.io/TD_Project1/images/towers/sandTurret.png';
-	// 	} else if (towerSelected === 'catapult') {
-	// 		turretIMG.src = 'https://aitorsantaeugenia.github.io/TD_Project1/images/towers/stoneTurret.png';
-	// 	} else if (towerSelected === 'slow') {
-	// 		turretIMG.src = 'https://aitorsantaeugenia.github.io/TD_Project1/images/towers/freezeTurret.png';
-	// 	} else if (towerSelected === 'flame') {
-	// 		turretIMG.src = 'https://aitorsantaeugenia.github.io/TD_Project1/images/towers/flameTurret.png';
-	// 	}
-
-	// 	//console.log(turretIMG);
-	// 	//console.log(this.context);
-	// 	//console.log(this.context);
-	// 	//console.log(turretIMG);
-	// 	//console.log(turretIMG.src);
-	// 	//console.log(turretIMG.src);
-	// 	//console.log(posY);
-	// 	// if (towerSelected) {
-	// 	if (towerSelected) {
-	// 		// this.context.beginPath();
-	// 		//this.context.globalCompositeOperation = 'destination-over';
-	// 		// this.context.fillStyle = 'rgba(255, 0, 0, .3)';
-	// 		// this.context.arc(posX, posY, 250, 0, Math.PI * 2);
-	// 		// this.context.fill();
-
-	// 		// this.context.drawImage(turretIMG, posX, posY);
-	// 		// this.context.closePath();
-	// 		// //}
-	// 		this.context.beginPath();
-	// 		this.context.arc(posX, posY, 50, 0, 2 * Math.PI);
-	// 		this.context.stroke();
-	// 	}
-	// 	//context.lineTo(x2, y2);
-	// }
+		return {
+			sandTurret,
+			cataTurret,
+			slowTurret,
+			flameTurret
+		};
+	}
 }
