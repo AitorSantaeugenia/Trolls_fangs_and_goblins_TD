@@ -19,6 +19,7 @@
   <audio src="./sounds/Songs/twistedTreelineSong.mp3" id="twistedTreelineSong"></audio>
   <audio src="./sounds/Songs/powerofthehordeSong.mp3" id="pothSong"></audio>
   <audio src="./sounds/GameSounds/defeat.mp3" id="defeatMusic"></audio>
+  <audio src="./sounds/GameSounds/inevitable.mp3" id="thanosInevitable"></audio>
 </head>
 
 <body>
@@ -95,6 +96,15 @@
       <!-- CANVAS DIV CONTAINER -->
       <div class="canvasDiv">
         <div id="canvasAndUIContainer" style="position: relative;">
+          <!-- Testing with TOP UI-->
+          <div id="topUIMenu">
+            <div class="soundOffOn">
+              <img src="https://aitorsantaeugenia.github.io/TD_Project1/images/soundgreen.png" alt="Sound on"
+                id="yesSound" class="logoSoundSound buttonSelectedBorder" isActive="true">
+              <img src="https://aitorsantaeugenia.github.io/TD_Project1/images/nosoundred.png" alt="Sound off"
+                id="noSound" class="logoSoundNoSound" isActive="false">
+            </div>
+          </div>
           <canvas id="canvas" width="1200" height="700"></canvas>
           <!-- <canvas id="canvasNormal" width="1200" height="700" class="hidden"></canvas>
           <canvas id="canvasHard" width="1200" height="700" class="hidden"></canvas>
@@ -120,12 +130,7 @@
         </div>
         <!-- UI CONTAINER -->
         <div class="lowerMenuTowers" id="gameMenu">
-          <div class="soundOffOn">
-            <img src="https://aitorsantaeugenia.github.io/TD_Project1/images/soundgreen.png" alt="Sound on"
-              id="yesSound" class="logoSoundSound buttonSelectedBorder" isActive="true">
-            <img src="https://aitorsantaeugenia.github.io/TD_Project1/images/nosoundred.png" alt="Sound off"
-              id="noSound" class="logoSoundNoSound" isActive="false">
-          </div>
+
           <div class="turretSelector">
 
             <div class="costGold">
@@ -149,15 +154,26 @@
             </div>
 
             <div class="turretsMenuToPick">
-              <img id="sandTurret" class="turretToSelect"
-                src="https://aitorsantaeugenia.github.io/TD_Project1/images/towers/sandTurret.png">
-              <img id="cataTurret" class="turretToSelect"
-                src="https://aitorsantaeugenia.github.io/TD_Project1/images/towers/stoneTurret.png">
-              <img id="slowTurret" class="turretToSelect"
-                src="https://aitorsantaeugenia.github.io/TD_Project1/images/towers/freezeTurret.png">
-              <img id="flameTurret" class="turretToSelect hidden"
-                src="https://aitorsantaeugenia.github.io/TD_Project1/images/towers/flameTurret.png">
-
+              <div>
+                <img id="sandTurret" class="turretToSelect"
+                  src="https://aitorsantaeugenia.github.io/TD_Project1/images/towers/sandTurret.png">
+                <img id="cataTurret" class="turretToSelect"
+                  src="https://aitorsantaeugenia.github.io/TD_Project1/images/towers/stoneTurret.png">
+                <img id="slowTurret" class="turretToSelect"
+                  src="https://aitorsantaeugenia.github.io/TD_Project1/images/towers/freezeTurret.png">
+                <img id="flameTurret" class="turretToSelect hidden"
+                  src="https://aitorsantaeugenia.github.io/TD_Project1/images/towers/flameTurret.png">
+              </div>
+              <div>
+                <img id="sandTurret2" class="turretToSelect"
+                  src="https://aitorsantaeugenia.github.io/TD_Project1/images/towers/sandTurret.png">
+                <img id="cataTurret2" class="turretToSelect"
+                  src="https://aitorsantaeugenia.github.io/TD_Project1/images/towers/stoneTurret.png">
+                <img id="slowTurret2" class="turretToSelect"
+                  src="https://aitorsantaeugenia.github.io/TD_Project1/images/towers/freezeTurret.png">
+                <img id="flameTurret2" class="turretToSelect hidden"
+                  src="https://aitorsantaeugenia.github.io/TD_Project1/images/towers/flameTurret.png">
+              </div>
             </div>
           </div>
         </div>
@@ -180,9 +196,9 @@
     </div>
   </div>
 
-  <div id="instructionsUI" stle="border: 1px solid red; font-size:200px; width:100vw; height:100vh">
+  <!-- <div id="instructionsUI" stle="border: 1px solid red; font-size:200px; width:100vw; height:100vh">
     asdasd
-  </div>
+  </div> -->
 
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Press+Start+2P&display=swap');
