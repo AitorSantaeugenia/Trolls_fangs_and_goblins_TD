@@ -18,6 +18,7 @@ class StartGame {
 		this.audio4 = document.getElementById('jobDoneSound');
 		this.audio5 = document.getElementById('liveLessSound');
 		this.audio6 = document.getElementById('moreGoldSound');
+		this.audio7 = document.getElementById('thanosInevitable');
 
 		//Path
 		this.board = '';
@@ -37,6 +38,7 @@ class StartGame {
 
 		//v.02
 		this.gameStatus = 'true';
+		this.pauseStatus = 'false';
 		this.canvasBoard = document.getElementById('canvas');
 		//div pause
 		this.pauseMenu = document.getElementById('overCanvasPauseMenu');
@@ -66,6 +68,10 @@ class StartGame {
 
 		//turret selected = name of turret
 		this.turretSelected = '';
+
+		//we will prevent the cheatCode input to being use in pause or win/lose scenarios
+		this.cheatCodeInput = document.getElementById('inputCheatCode');
+		this.textDefault = 'Insert cheatcode ...';
 
 		this.towerCosts = {
 			sand: 70,
@@ -224,6 +230,10 @@ class StartGame {
 			this.clearCanvas();
 			//we remove pointer events to select turrets again (after reseting the game when it ended))
 			this.canvasBoard.classList.remove('noPointerEvents');
+			//while we are preventing cheating in pause or win/lose scenarios, we allow it again when game start
+			this.cheatCodeInput.disabled = false;
+			//pause status = false
+			this.pauseStatus = 'false';
 			this.intervalId = requestAnimationFrame(() => this.run());
 			this.checkSound();
 			this.waves = new Wave(this.context, this.path, this.minonWidth, this.minionHeight);
@@ -672,6 +682,14 @@ class StartGame {
 			this.timeleft = 10;
 		}
 
+		//game paused
+		this.gameStatus = 'false';
+
+		//in case we used this cheat, we mute it
+		this.audio7.volume = 0;
+		this.audio7.currentTime = 0;
+		this.audio7.pause();
+
 		//add no pointer events class to prevent bugs or behaviours
 		this.canvasBoard.classList.add('noPointerEvents');
 
@@ -680,6 +698,10 @@ class StartGame {
 		this.restartTextCd.innerText = 'Exiting game in 10 seconds';
 		this.endGameMenuDiv.classList.remove('hidden');
 		this.audio1.pause();
+
+		//we prevent cheating when the game is finished
+		this.cheatCodeInput.value = this.textDefault;
+		this.cheatCodeInput.disabled = true;
 
 		if (this.soundOn.classList.contains('buttonSelectedBorder')) {
 			this.audio2.volume = 0.1;
@@ -718,8 +740,20 @@ class StartGame {
 			this.timeleft = 10;
 		}
 
+		//game paused
+		this.gameStatus = 'false';
+
+		//in case we used this cheat, we mute it
+		this.audio7.volume = 0;
+		this.audio7.currentTime = 0;
+		this.audio7.pause();
+
 		//add no pointer events class to prevent bugs or behaviours
 		this.canvasBoard.classList.add('noPointerEvents');
+
+		//we prevent cheating when the game is finished
+		this.cheatCodeInput.value = this.textDefault;
+		this.cheatCodeInput.disabled = true;
 
 		window.cancelAnimationFrame(this.intervalId);
 		this.restartTextCd.innerText = 'Exiting game in 10 seconds';
@@ -788,6 +822,21 @@ class StartGame {
 		} else if (this.soundOff.classList.contains('buttonSelectedBorder')) {
 			this.audio1.volume = 0;
 			this.audio1.pause();
+			this.audio2.volume = 0;
+			this.audio2.pause();
+			this.audio3.volume = 0;
+			this.audio3.pause();
+			this.audio4.currentTime = 0;
+			this.audio4.volume = 0;
+			this.audio4.pause();
+			this.audio5.volume = 0;
+			this.audio5.pause();
+			this.audio6.currentTime = 0;
+			this.audio6.volume = 0;
+			this.audio6.pause();
+			this.audio7.currentTime = 0;
+			this.audio7.volume = 0;
+			this.audio7.pause();
 		}
 	}
 
@@ -803,10 +852,24 @@ class StartGame {
 			this.audio2.pause();
 			this.audio3.volume = 0;
 			this.audio3.pause();
+			this.audio4.currentTime = 0;
 			this.audio4.volume = 0;
 			this.audio4.pause();
 			this.audio5.volume = 0;
 			this.audio5.pause();
+			this.audio6.currentTime = 0;
+			this.audio6.volume = 0;
+			this.audio6.pause();
+			this.audio7.currentTime = 0;
+			this.audio7.volume = 0;
+			this.audio7.pause();
+
+			//we return true while we are in this screen
+			this.pauseStatus = 'true';
+
+			//we prevent cheating while game is paused
+			this.cheatCodeInput.value = this.textDefault;
+			this.cheatCodeInput.disabled = true;
 
 			//add or remove a border in the soundon soundoff icon
 			if (
@@ -827,6 +890,10 @@ class StartGame {
 			this.run();
 			this.audio1.volume = 0.1;
 			this.audio1.play();
+
+			//we prevent cheating while game is paused
+			this.cheatCodeInput.disabled = false;
+
 			//add or remove a border in the soundon soundoff icon
 			if (
 				this.soundOn.getAttribute('isActive') === 'false' &&
@@ -971,5 +1038,113 @@ class StartGame {
 			slowTurret,
 			flameTurret
 		};
+	}
+
+	thanosSnap() {
+		//console.log('snap');
+		//this.enemies.forEach((enemy) => console.log(enemy));
+
+		if (this.soundOn.classList.contains('buttonSelectedBorder')) {
+			this.audio7.volume = 0.1;
+			this.audio7.play();
+			this.audio1.loop = true;
+		} else if (this.soundOff.classList.contains('buttonSelectedBorder')) {
+			this.audio7.volume = 0;
+			this.audio7.pause();
+		}
+
+		setTimeout(() => {
+			this.enemies.forEach((enemy) => this.killAllShownEnemies(enemy));
+		}, 3200);
+
+		// console.log(this.enemies[0].img.currentSrc);
+		// console.log(this.enemies[0].img.currentLoopIndex);
+		// console.log(this.enemies[0].img.frames);
+		//----------------------------------------------
+		// startAnimation();
+		// const imageBox = document.querySelector('#image');
+		// const image = document.querySelector('#image img');
+		// const btn = document.querySelector('.btn');
+		// var isPlay = false; //是否触发了动画
+		// btn.onclick = function() {};
+		// function startAnimation() {
+		// 	image.classList.remove('quickFade');
+		// 	snap(imageBox);
+		// }
+		// const snap = (target) => {
+		// 	isPlay = true;
+		// 	const canvasCount = 20;
+		// 	const ctx = canvas.getContext('2d');
+		// 	const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+		// 	const pixelArr = imageData.data;
+		// 	const data = imageData.data.slice(0).fill(0);
+		// 	let imageDataArray = Array.from({ length: canvasCount }, (e) => data.slice(0));
+		// 	for (let i = 0; i < pixelArr.length; i += 4) {
+		// 		const p = Math.floor(i / pixelArr.length * canvasCount);
+		// 		const a = imageDataArray[weightedRandomDistrib(p, canvasCount)];
+		// 		a[i] = pixelArr[i];
+		// 		a[i + 1] = pixelArr[i + 1];
+		// 		a[i + 2] = pixelArr[i + 2];
+		// 		a[i + 3] = pixelArr[i + 3];
+		// 	}
+		// 	for (let i = 0; i < canvasCount; i++) {
+		// 		const c = newCanvasFromImageData(imageDataArray[i], canvas.width, canvas.height);
+		// 		c.classList.add('dust');
+		// 		setTimeout(() => {
+		// 			animateTransform(c, 200, -100, chance.integer({ min: -25, max: 25 }), 2000);
+		// 			c.classList.add('blur');
+		// 			setTimeout(() => {
+		// 				c.remove();
+		// 			}, 2050);
+		// 		}, 70 * i);
+		// 		target.appendChild(c);
+		// 	}
+		// 	Array.from(target.querySelectorAll(':not(.dust)')).map((el) => {
+		// 		el.classList.add('quickFade');
+		// 	});
+		// };
+		// function weightedRandomDistrib(peak, count) {
+		// 	const prob = [],
+		// 		seq = [];
+		// 	for (let i = 0; i < count; i++) {
+		// 		prob.push(Math.pow(count - Math.abs(peak - i), 6));
+		// 		seq.push(i);
+		// 	}
+		// 	return chance.weighted(seq, prob);
+		// }
+		// function animateTransform(elem, sx, sy, angle, duration) {
+		// 	elem.animate(
+		// 		[
+		// 			{ transform: 'rotate(0) translate(0, 0)' },
+		// 			{
+		// 				transform: 'rotate(' + angle + 'deg) translate(' + sx + 'px,' + sy + 'px)'
+		// 			}
+		// 		],
+		// 		{
+		// 			duration: duration,
+		// 			easing: 'ease-in'
+		// 		}
+		// 	);
+		// }
+		// function newCanvasFromImageData(imageDataArray, w, h) {
+		// 	const canvas = document.createElement('canvas');
+		// 	canvas.width = w;
+		// 	canvas.height = h;
+		// 	const tempCtx = canvas.getContext('2d');
+		// 	tempCtx.putImageData(new ImageData(imageDataArray, w, h), 0, 0);
+		// 	return canvas;
+		// }
+	}
+
+	killAllShownEnemies(enemy) {
+		return (enemy.minionHp = 0);
+	}
+
+	checkGameStatus() {
+		return this.gameStatus;
+	}
+
+	checkPauseStatus() {
+		return this.pauseStatus;
 	}
 }
