@@ -54,7 +54,6 @@ window.onload = function() {
 
 	//canvas for mousemove
 	const canvas = document.getElementById('canvas');
-	const context = canvas.getContext('2d');
 
 	// Events
 	// event to know which lvl difficulty is selected and do some behaviour or another in canvas
@@ -103,6 +102,9 @@ window.onload = function() {
 			} else if (textToUpper === 'whosyourdaddy') {
 				// start.cheatUnlockedTurret();
 				flameTurret.classList.remove('hidden');
+				document.getElementById('inputCheatCode').value = textDefault;
+			} else if (textToUpper === 'thanos') {
+				start.thanosSnap();
 				document.getElementById('inputCheatCode').value = textDefault;
 			} else {
 				document.getElementById('inputCheatCode').value = textDefault;
@@ -179,8 +181,16 @@ window.onload = function() {
 
 	// PAUSE GAME
 	document.addEventListener('keydown', (e) => {
-		if (e.code === 'Escape') {
-			start.pauseGame();
+		//this will prevent to call PAUSE when game is false (like win/lose scenarios)
+		let gameStatus = start.checkGameStatus();
+		let pauseStatus = start.checkPauseStatus();
+
+		//we do this, because now we can click ESC while in pause menu to continue playing but preventing (pressing ESC)
+		//when winning or losing the game
+		if ((gameStatus === 'true' && pauseStatus === 'false') || (gameStatus === 'false' && pauseStatus === 'true')) {
+			if (e.code === 'Escape') {
+				start.pauseGame();
+			}
 		}
 	});
 
