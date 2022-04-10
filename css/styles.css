@@ -64,7 +64,7 @@ html{
 }
 
 .turretsMenuToPick{
-  margin-bottom: 95px;
+  /* margin-bottom: 95px; */
   margin-left: 84px;
 }
 
@@ -174,7 +174,7 @@ html{
   /* justify-content: center; */
   /* border: 1px solid red; */
   margin: 0 auto !important;
-  background-image: url("../images/lowerMenuv2.png") !important;
+  background-image: url("../images/menuUI/lowerMenuv2.png") !important;
   background-repeat: no-repeat;
   background-position: bottom;
   margin-top: -228px !important;
@@ -289,7 +289,7 @@ font-family: Play;
   width: 22px !important;
   height: 22px !important;
   position: absolute;
-  margin-top:-40px;
+  margin-top: -45px;
   margin-left:14px;
   cursor:pointer;
 }
@@ -426,7 +426,8 @@ font-family: Play;
 
 .soundOffOn{
   position:absolute;
-  top:-410px;
+  top:50px;
+  left: 14px;
 }
 
 .noPointerEvents{
@@ -499,4 +500,21 @@ font-family: Play;
 
 .smallerImgExitBtn{
   width: 68px;
+}
+
+#topUIMenu{
+  position: absolute;
+    /* border: 1px solid red; */
+    font-size: 20px;
+    color: red;
+    z-index: 1;
+    width: 1200px;
+    background-image: url(../images/menuUI/topUI_reverse_v2_2.png);
+    height: 82px;
+    background-repeat: no-repeat;
+    /* top: 0; */
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
 }
