@@ -193,10 +193,10 @@ html{
 }
 
 #cheatCodes{
-  /* border:1px solid black; */
+  /* border: 1px solid black; */ 
   position: absolute;
-  margin-top: -674px;
-  width:100vw;
+  margin-top: -603px;
+  /* width: 100vw; */
   text-align: center;
   font-family: Play;
   z-index: 100;
@@ -211,11 +211,11 @@ html{
 }
 
 #cheatCodes input{
-  width: 600px;
+  width: 362px;
   height:30px;
   border:hidden;
   color:lawngreen;
-  background-color: black;
+  background-color: rgb(0, 0, 0);
   
 }
 
@@ -225,6 +225,7 @@ html{
 
 .inputContainer{
   color:lawngreen;
+  border: 1px solid lawngreen;
 }
 .preventDrag{
   -webkit-user-drag: none;
