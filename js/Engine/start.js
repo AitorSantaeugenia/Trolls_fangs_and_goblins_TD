@@ -73,10 +73,13 @@ class StartGame {
 		this.cheatCodeInput = document.getElementById('inputCheatCode');
 		this.textDefault = 'Insert cheatcode ...';
 
-		//trying Thanos guantlet
-		this.thanos = new Image();
+		// //trying Thanos guantlet
+		// this.thanos = new Image();
+		// this.thanos.frames = 0;
+		// this.frameCount = 0;
+		// this.thanos.currentLoopIndex = 0;
 
-		//adfadfasdfasfsdfsff fggggggggggggggggggggggggggggggg
+		//Text for enemies and waves, now not in canvas but in top UI menu
 		this.wavesRemaining = document.getElementById('wavesRemaining');
 		this.enemiesRemaining = document.getElementById('enemiesRemaining');
 
@@ -1061,6 +1064,10 @@ class StartGame {
 		}
 
 		//after 3,2 seconds we call those two functions, killing all the enemies and showing a dust effect
+		//now we show also the guantlet snap
+		setTimeout(() => {
+			showGuantlet();
+		}, 2500);
 		setTimeout(() => {
 			renderDust(this.enemies);
 			this.enemies.forEach((enemy) => this.killAllShownEnemies(enemy));
@@ -1078,4 +1085,49 @@ class StartGame {
 	checkPauseStatus() {
 		return this.pauseStatus;
 	}
+}
+
+function showGuantlet() {
+	drawGuantlet();
+	updateGuantlet();
+
+	if (frameCount > 48) {
+		cancelAnimationFrame(showGuantlet);
+		frameCount = 0;
+	} else {
+		requestAnimationFrame(showGuantlet);
+	}
+}
+
+//trying Thanos guantlet animation
+var thanos = new Image();
+thanos.frames = 48;
+var frameCount = 0;
+
+function updateGuantlet() {
+	frameCount++;
+}
+
+function drawGuantlet() {
+	thanos.src = './../../images/thanos_snap.png';
+
+	var canvas = document.getElementById('canvas');
+	var context = canvas.getContext('2d');
+
+	context.globalCompositeOperation = 'source-over';
+	context.drawImage(
+		thanos,
+		frameCount * 3840 / 48,
+		10,
+		80,
+		500,
+		//x
+		520,
+		//y
+		280,
+		//width
+		100,
+		//height
+		500
+	);
 }
