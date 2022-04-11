@@ -538,8 +538,15 @@ font-family: Play;
 
 #uiTopMenuSecond{
   width:400px;
+  text-align:center;
 }
 
 #uiTopMenuThird{
   width:400px;
+}
+
+#cheatCodesText{
+  font-family: 'Permanent Marker',normal;
+  font-size:20px;
+  margin-top: 5px;
 }

@@ -724,7 +724,7 @@ class StartGame {
 		//we reset everything to default to prevent multiple bugs or behaviours
 		this.defaultSetupGame();
 		//We show the winer/loser logo
-		this.context.drawImage(this.winner, 125, -55, 950, 420);
+		this.context.drawImage(this.winner, 200, 50, 800, 300);
 
 		//10 seconds, refresh or click
 		this.downloadTimer = setInterval(() => {
@@ -773,7 +773,7 @@ class StartGame {
 		//we reset everything to default to prevent multiple bugs or behaviours
 		this.defaultSetupGame();
 		//We show the winer/loser logo
-		this.context.drawImage(this.loser, 295, -10, 600, 300);
+		this.context.drawImage(this.loser, 298, 70, 600, 250);
 		this.audio1.pause();
 
 		if (this.soundOn.classList.contains('buttonSelectedBorder')) {
