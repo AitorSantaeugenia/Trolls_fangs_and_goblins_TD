@@ -1109,7 +1109,7 @@ function updateGuantlet() {
 }
 
 function drawGuantlet() {
-	thanos.src = './../../images/thanos_snap.png';
+	thanos.src = './../../images/effects/thanos_snap.png';
 
 	var canvas = document.getElementById('canvas');
 	var context = canvas.getContext('2d');
