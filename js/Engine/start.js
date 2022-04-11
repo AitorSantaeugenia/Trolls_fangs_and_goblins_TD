@@ -73,6 +73,13 @@ class StartGame {
 		this.cheatCodeInput = document.getElementById('inputCheatCode');
 		this.textDefault = 'Insert cheatcode ...';
 
+		//trying Thanos guantlet
+		this.thanos = new Image();
+
+		//adfadfasdfasfsdfsff fggggggggggggggggggggggggggggggg
+		this.wavesRemaining = document.getElementById('wavesRemaining');
+		this.enemiesRemaining = document.getElementById('enemiesRemaining');
+
 		this.towerCosts = {
 			sand: 70,
 			slow: 200
@@ -294,10 +301,9 @@ class StartGame {
 		let numberWave = this.waveIndex + 1;
 		let wavesOf = this.waves.wave.length;
 		let numberEnemiesInWave = this.enemies.length;
-		this.context.font = '30px Play';
-		this.context.fillStyle = 'red';
-		this.context.fillText(`Wave ${numberWave} of ${wavesOf}`, 50, 50, 300);
-		this.context.fillText(`Enemies: ${numberEnemiesInWave}`, 995, 50, 300);
+
+		this.wavesRemaining.innerText = `Wave ${numberWave} of ${wavesOf}`;
+		this.enemiesRemaining.innerText = `Enemies: ${numberEnemiesInWave}`;
 	}
 
 	goldFromEnemy() {
@@ -941,6 +947,7 @@ class StartGame {
 		var x = x;
 		var y = y;
 
+		ctx.globalCompositeOperation = 'source-over';
 		ctx.fillStyle = 'rgb(51, 26, 0)';
 		ctx.strokeStyle = 'rgba(250,100,0, 0.75)';
 
@@ -1041,8 +1048,8 @@ class StartGame {
 	}
 
 	thanosSnap() {
-		//console.log('snap');
-		//this.enemies.forEach((enemy) => console.log(enemy));
+		//we want to test if we can show Thanos guantlet
+		// this.thanos.src = '../../images/thanos_snap.png';
 
 		if (this.soundOn.classList.contains('buttonSelectedBorder')) {
 			this.audio7.volume = 0.1;
@@ -1053,87 +1060,11 @@ class StartGame {
 			this.audio7.pause();
 		}
 
+		//after 3,2 seconds we call those two functions, killing all the enemies and showing a dust effect
 		setTimeout(() => {
+			renderDust(this.enemies);
 			this.enemies.forEach((enemy) => this.killAllShownEnemies(enemy));
 		}, 3200);
-
-		// console.log(this.enemies[0].img.currentSrc);
-		// console.log(this.enemies[0].img.currentLoopIndex);
-		// console.log(this.enemies[0].img.frames);
-		//----------------------------------------------
-		// startAnimation();
-		// const imageBox = document.querySelector('#image');
-		// const image = document.querySelector('#image img');
-		// const btn = document.querySelector('.btn');
-		// var isPlay = false; //是否触发了动画
-		// btn.onclick = function() {};
-		// function startAnimation() {
-		// 	image.classList.remove('quickFade');
-		// 	snap(imageBox);
-		// }
-		// const snap = (target) => {
-		// 	isPlay = true;
-		// 	const canvasCount = 20;
-		// 	const ctx = canvas.getContext('2d');
-		// 	const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-		// 	const pixelArr = imageData.data;
-		// 	const data = imageData.data.slice(0).fill(0);
-		// 	let imageDataArray = Array.from({ length: canvasCount }, (e) => data.slice(0));
-		// 	for (let i = 0; i < pixelArr.length; i += 4) {
-		// 		const p = Math.floor(i / pixelArr.length * canvasCount);
-		// 		const a = imageDataArray[weightedRandomDistrib(p, canvasCount)];
-		// 		a[i] = pixelArr[i];
-		// 		a[i + 1] = pixelArr[i + 1];
-		// 		a[i + 2] = pixelArr[i + 2];
-		// 		a[i + 3] = pixelArr[i + 3];
-		// 	}
-		// 	for (let i = 0; i < canvasCount; i++) {
-		// 		const c = newCanvasFromImageData(imageDataArray[i], canvas.width, canvas.height);
-		// 		c.classList.add('dust');
-		// 		setTimeout(() => {
-		// 			animateTransform(c, 200, -100, chance.integer({ min: -25, max: 25 }), 2000);
-		// 			c.classList.add('blur');
-		// 			setTimeout(() => {
-		// 				c.remove();
-		// 			}, 2050);
-		// 		}, 70 * i);
-		// 		target.appendChild(c);
-		// 	}
-		// 	Array.from(target.querySelectorAll(':not(.dust)')).map((el) => {
-		// 		el.classList.add('quickFade');
-		// 	});
-		// };
-		// function weightedRandomDistrib(peak, count) {
-		// 	const prob = [],
-		// 		seq = [];
-		// 	for (let i = 0; i < count; i++) {
-		// 		prob.push(Math.pow(count - Math.abs(peak - i), 6));
-		// 		seq.push(i);
-		// 	}
-		// 	return chance.weighted(seq, prob);
-		// }
-		// function animateTransform(elem, sx, sy, angle, duration) {
-		// 	elem.animate(
-		// 		[
-		// 			{ transform: 'rotate(0) translate(0, 0)' },
-		// 			{
-		// 				transform: 'rotate(' + angle + 'deg) translate(' + sx + 'px,' + sy + 'px)'
-		// 			}
-		// 		],
-		// 		{
-		// 			duration: duration,
-		// 			easing: 'ease-in'
-		// 		}
-		// 	);
-		// }
-		// function newCanvasFromImageData(imageDataArray, w, h) {
-		// 	const canvas = document.createElement('canvas');
-		// 	canvas.width = w;
-		// 	canvas.height = h;
-		// 	const tempCtx = canvas.getContext('2d');
-		// 	tempCtx.putImageData(new ImageData(imageDataArray, w, h), 0, 0);
-		// 	return canvas;
-		// }
 	}
 
 	killAllShownEnemies(enemy) {
