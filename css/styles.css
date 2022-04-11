@@ -505,17 +505,41 @@ font-family: Play;
 
 #topUIMenu{
   position: absolute;
-    /* border: 1px solid red; */
-    font-size: 20px;
+    display:flex;
+    flex-direction:row;
+    font-size: 25px;
     color: red;
     z-index: 1;
     width: 1200px;
     background-image: url(../images/menuUI/topUI_reverse_v2_2.png);
     height: 82px;
     background-repeat: no-repeat;
-    /* top: 0; */
     -webkit-user-drag: none;
     -khtml-user-drag: none;
     -moz-user-drag: none;
     -o-user-drag: none;
+}
+
+#uiTopMenuFirst{
+  width:400px;
+}
+
+#wavesRemaining{
+  font-family: 'Permanent Marker',normal;
+  margin-left: 145px;
+  margin-top: 4px;
+}
+
+#enemiesRemaining{
+  font-family: 'Permanent Marker',normal;
+  margin-left: 145px;
+  margin-top: -10px;
+}
+
+#uiTopMenuSecond{
+  width:400px;
+}
+
+#uiTopMenuThird{
+  width:400px;
 }
