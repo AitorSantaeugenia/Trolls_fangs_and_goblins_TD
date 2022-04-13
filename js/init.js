@@ -49,6 +49,16 @@ window.onload = function() {
 	//exit button
 	const exitButtonFromPause = document.getElementById('toMenuPauseBtn');
 
+	//STARTING MENU - buttons
+	//instructions button in starting Menu
+	const instructionButton = document.getElementById('instructionsBtn');
+	const instructionsUI = document.getElementById('instructionsUI');
+	const instructionsBtnExit = document.getElementById('instructionsBtnExit');
+	//custom game buttons in starting menu
+	const customGameBtn = document.getElementById('customGameBtn');
+	const customGameUI = document.getElementById('customGameUI');
+	const customGameUIBtn = document.getElementById('customGameUIBtn');
+
 	//game difficulty - default Easy
 	let gameDifficulty = 'Easy';
 
@@ -301,4 +311,20 @@ window.onload = function() {
 	function startGame() {
 		start.run(audio1, audio2, audio3, audio4, audio5);
 	}
+
+	instructionButton.addEventListener('click', function() {
+		instructionsUI.classList.remove('hidden');
+	});
+
+	instructionsBtnExit.addEventListener('click', function() {
+		instructionsUI.classList.add('hidden');
+	});
+
+	customGameBtn.addEventListener('click', function() {
+		customGameUI.classList.remove('hidden');
+	});
+
+	customGameUIBtn.addEventListener('click', function() {
+		customGameUI.classList.add('hidden');
+	});
 };
