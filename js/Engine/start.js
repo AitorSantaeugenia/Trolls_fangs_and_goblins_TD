@@ -82,6 +82,8 @@ class StartGame {
 		//Text for enemies and waves, now not in canvas but in top UI menu
 		this.wavesRemaining = document.getElementById('wavesRemaining');
 		this.enemiesRemaining = document.getElementById('enemiesRemaining');
+		//This var make the campfire smaller by dividing
+		this.divisorCampfire = 1;
 
 		this.towerCosts = {
 			sand: 70,
@@ -120,6 +122,7 @@ class StartGame {
 			this.canvas.style.backgroundImage = 'url(./images/maps/mapOne.png)';
 			//selecting songtrack
 			this.audio1 = document.getElementById('backgroundMusic');
+			this.divisorCampfire = 1;
 		} else if (selectedTrueNormal.getAttribute('activationlvl') === 'true') {
 			this.gameDifficulty = 'Normal';
 			this.path = [
@@ -146,6 +149,7 @@ class StartGame {
 			this.canvas.style.backgroundImage = 'url(./images/maps/mapTwoSpooky.png)';
 			//selecting songtrack
 			this.audio1 = document.getElementById('twistedTreelineSong');
+			this.divisorCampfire = 1;
 		} else if (selectedTrueHard.getAttribute('activationlvl') === 'true') {
 			this.gameDifficulty = 'Hard';
 			this.path = [
@@ -182,6 +186,7 @@ class StartGame {
 			this.canvas.style.backgroundImage = 'url(./images/maps/mapThreeSnowBiome.png)';
 			//selecting songtrack
 			this.audio1 = document.getElementById('backgroundMusic');
+			this.divisorCampfire = 2;
 		} else if (selectedTrueHell.getAttribute('activationlvl') === 'true') {
 			this.gameDifficulty = 'Hell';
 			this.path = [
@@ -216,6 +221,7 @@ class StartGame {
 			this.canvas.style.backgroundImage = 'url(./images/maps/mapOne.png)';
 			//selecting songtrack
 			this.audio1 = document.getElementById('pothSong');
+			this.divisorCampfire = 1;
 		} else {
 			this.gameDifficulty = 'Easy';
 			this.path = [ [ 0, 350 ], [ 1200, 350 ] ]; // Path1 as default
@@ -234,6 +240,7 @@ class StartGame {
 			this.canvas.style.backgroundImage = 'url(./images/maps/mapOne.png)';
 			//selecting songtrack
 			this.audio1 = document.getElementById('backgroundMusic');
+			this.divisorCampfire = 1;
 		}
 	}
 
@@ -959,55 +966,97 @@ class StartGame {
 		ctx.save();
 
 		ctx.beginPath();
-		ctx.moveTo(x + 5, y);
-		ctx.lineTo(x + 5, y);
-		ctx.lineTo(x + 50, y + 17.5);
-		ctx.lineTo(x + 45, y + 25);
-		ctx.lineTo(x, y + 7.5);
+		ctx.moveTo(x + 5 / this.divisorCampfire, y);
+		ctx.lineTo(x + 5 / this.divisorCampfire, y);
+		ctx.lineTo(x + 50 / this.divisorCampfire, y + 17.5 / this.divisorCampfire);
+		ctx.lineTo(x + 45 / this.divisorCampfire, y + 25 / this.divisorCampfire);
+		ctx.lineTo(x, y + 7.5 / this.divisorCampfire);
 		ctx.closePath();
 		ctx.fill();
 
 		ctx.beginPath();
-		ctx.moveTo(x + 45, y);
-		ctx.lineTo(x + 45, y);
-		ctx.lineTo(x + 50, y + 7.5);
-		ctx.lineTo(x + 5, y + 25);
-		ctx.lineTo(x, y + 17.5);
+		ctx.moveTo(x + 45 / this.divisorCampfire, y);
+		ctx.lineTo(x + 45 / this.divisorCampfire, y);
+		ctx.lineTo(x + 50 / this.divisorCampfire, y + 7.5 / this.divisorCampfire);
+		ctx.lineTo(x + 5 / this.divisorCampfire, y + 25 / this.divisorCampfire);
+		ctx.lineTo(x, y + 17.5 / this.divisorCampfire);
 		ctx.closePath();
 		ctx.fill();
 
 		ctx.fillStyle = 'rgb(255, 153, 0, 0.60)';
-		var startY = y - (Math.floor(Math.random() * 10) + 10);
+		var startY = y - (Math.floor(Math.random() * 10) + 10 / this.divisorCampfire);
 
 		ctx.beginPath();
 		ctx.moveTo(x, startY);
-		ctx.bezierCurveTo(x + 12.5, y, x + 25, y, x + 25, y - Math.floor(Math.random() * 25));
-		ctx.bezierCurveTo(x + 25, y, x + 37.5, y, x + 50, y - (Math.floor(Math.random() * 10) + 10));
-		ctx.quadraticCurveTo(x + 25, y + 37.5, x, startY);
+		ctx.bezierCurveTo(
+			x + 12.5 / this.divisorCampfire,
+			y,
+			x + 25 / this.divisorCampfire,
+			y,
+			x + 25 / this.divisorCampfire,
+			y - Math.floor(Math.random() * 25 / this.divisorCampfire)
+		);
+		ctx.bezierCurveTo(
+			x + 25 / this.divisorCampfire,
+			y,
+			x + 37.5 / this.divisorCampfire,
+			y,
+			x + 50 / this.divisorCampfire,
+			y - (Math.floor(Math.random() * 10) + 10 / this.divisorCampfire)
+		);
+		ctx.quadraticCurveTo(x + 25 / this.divisorCampfire, y + 37.5 / this.divisorCampfire, x, startY);
 		ctx.fill();
 
-		var flamelety = y - (Math.floor(Math.random() * 12.5) + 25);
+		var flamelety = y - (Math.floor(Math.random() * 12.5) + 25 / this.divisorCampfire);
 		ctx.beginPath();
-		ctx.moveTo(x + 12.5, flamelety);
-		ctx.bezierCurveTo(x - 25, y + 12.5, x + 50, y + 12.5, x + 12.5, flamelety);
+		ctx.moveTo(x + 12.5 / this.divisorCampfire, flamelety);
+		ctx.bezierCurveTo(
+			x - 25 / this.divisorCampfire,
+			y + 12.5 / this.divisorCampfire,
+			x + 50 / this.divisorCampfire,
+			y + 12.5 / this.divisorCampfire,
+			x + 12.5 / this.divisorCampfire,
+			flamelety
+		);
 		ctx.fill();
 
-		flamelety = y - (Math.floor(Math.random() * 12.5) + 25);
+		flamelety = y - (Math.floor(Math.random() * 12.5) + 25 / this.divisorCampfire);
 		ctx.beginPath();
-		ctx.moveTo(x + 37.5, flamelety);
-		ctx.bezierCurveTo(x, y + 12.5, x + 75, y + 12.5, x + 37.5, flamelety);
+		ctx.moveTo(x + 37.5 / this.divisorCampfire, flamelety);
+		ctx.bezierCurveTo(
+			x,
+			y + 12.5 / this.divisorCampfire,
+			x + 75 / this.divisorCampfire,
+			y + 12.5 / this.divisorCampfire,
+			x + 37.5 / this.divisorCampfire,
+			flamelety
+		);
 		ctx.fill();
 
-		flamelety = y - (Math.floor(Math.random() * 12.5) + 37.5);
+		flamelety = y - (Math.floor(Math.random() * 12.5) + 37.5 / this.divisorCampfire);
 		ctx.beginPath();
-		ctx.moveTo(x + 25, flamelety);
-		ctx.bezierCurveTo(x - 25, y + 12.5, x + 75, y + 12.5, x + 25, flamelety);
+		ctx.moveTo(x + 25 / this.divisorCampfire, flamelety);
+		ctx.bezierCurveTo(
+			x - 25 / this.divisorCampfire,
+			y + 12.5 / this.divisorCampfire,
+			x + 75 / this.divisorCampfire,
+			y + 12.5 / this.divisorCampfire,
+			x + 25 / this.divisorCampfire,
+			flamelety
+		);
 		ctx.fill();
 
-		flamelety = y - (Math.floor(Math.random() * 12.5) + 25);
+		flamelety = y - (Math.floor(Math.random() * 12.5) + 25 / this.divisorCampfire);
 		ctx.beginPath();
-		ctx.moveTo(x + 25, flamelety);
-		ctx.bezierCurveTo(x - 25, y + 12.5, x + 75, y + 12.5, x + 25, flamelety);
+		ctx.moveTo(x + 25 / this.divisorCampfire, flamelety);
+		ctx.bezierCurveTo(
+			x - 25 / this.divisorCampfire,
+			y + 12.5 / this.divisorCampfire,
+			x + 75 / this.divisorCampfire,
+			y + 12.5 / this.divisorCampfire,
+			x + 25 / this.divisorCampfire,
+			flamelety
+		);
 		ctx.fill();
 	}
 	//Function that clear the canvas
