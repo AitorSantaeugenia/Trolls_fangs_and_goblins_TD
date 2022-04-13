@@ -23,8 +23,9 @@
   - Lvl 4 - Nightmare - 50 waves (or change this to Lvl3 and make a DIY lvl)
     - New path, new map, new tema, new enemies with boss.
 - ~~Modal for menu selection~~
-- Modal as instructions at the start of the game, clicking a button
-- Better menu for sound on/off
+- Create ranked with nick+points
+- Show ranked in endgame
+- ~~Better menu for sound on/off~~
 - Better buttons / better sound on || off button
 - ~~If ESC, pause game and show menu"options"~~
 - ~~Centered vw & vh canvas~~
@@ -38,20 +39,27 @@
 - ~~Background transitions for menu ??~~ || Nope
 - ~~Better bottom UI~~
 - ~~Restart button (lvl restart)~~
-- Cheat button explanation
+- ~~Cheat button explanation~~
 - ~~Change width+height map (minions+path) on selecting lvl~~
 
-- When pause the game if it is muted, keep muted after continue
-- If we are muted and restart the game, keep muted after it
-- If we are muted in endgame Menu and we restart, keep muted
+- ~~When pause the game if it is muted, keep muted after continue~~
+- ~~If we are muted and restart the game, keep muted after it~~
+- ~~If we are muted in endgame Menu and we restart, keep muted~~
 - Change IMG menu with new maps
 - Instruction menu
 - Custom game menu
-- how do you turn this on
+- how do you turn this on (maybe, too much frames)
 - MSG when introducing a cheatcode
 - Show DIV with opacity when win/lose (same as pause menu)
 - Create hell map path
 - Create HARD and HELL maps backgrounds
+- Create ranked map, infinity map
+- Add points system
+  - x100 x minions killed (300 if it's boss)
+  - x100 after x min played
+- Bug background when resize
+- Not responsive, but solve some problems that happen when resizing
+- If endgame, stop frameanimaterequests
 
 ```
 If you have any suggesitons, plz don't be shy and tell me here on github |or| aitorsantaeugenia@gmail.com
