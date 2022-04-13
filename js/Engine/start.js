@@ -176,6 +176,8 @@ class StartGame {
 			this.turretHitBox = 20;
 			this.minonWidth = 30;
 			this.minionHeight = 30;
+			this.campfireX = 1115;
+			this.campfireY = 203;
 			//background img
 			this.canvas.style.backgroundImage = 'url(./images/maps/mapThreeSnowBiome.png)';
 			//selecting songtrack
