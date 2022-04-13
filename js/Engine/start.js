@@ -106,7 +106,7 @@ class StartGame {
 			this.gameDifficulty = 'Easy';
 			this.path = [ [ 0, 350 ], [ 1200, 350 ] ]; // Path1
 			//path floor
-			this.pathFloor = './images/terrain/floor.png';
+			this.pathFloor = './images/terrain/grass.png';
 			this.board = new Waypoint(this.context, this.path, 20, this.pathFloor);
 			//size of turrets & hitbox
 			this.turretSizeW = 60;
@@ -117,7 +117,7 @@ class StartGame {
 			this.campfireX = 455;
 			this.campfireY = 490;
 			//background img
-			this.canvas.style.backgroundImage = 'url(./images/background.png)';
+			this.canvas.style.backgroundImage = 'url(./images/maps/mapOne.png)';
 			//selecting songtrack
 			this.audio1 = document.getElementById('backgroundMusic');
 		} else if (selectedTrueNormal.getAttribute('activationlvl') === 'true') {
@@ -133,7 +133,7 @@ class StartGame {
 				[ 1200, 255.5 ]
 			];
 			//path floor
-			this.pathFloor = './images/terrain/Floor2.png';
+			this.pathFloor = './images/terrain/stone.png';
 			this.board = new Waypoint(this.context, this.path, 20, this.pathFloor);
 			this.turretSizeW = 40;
 			this.turretSizeH = 50;
@@ -143,7 +143,7 @@ class StartGame {
 			this.campfireX = 740;
 			this.campfireY = 490;
 			//background img
-			this.canvas.style.backgroundImage = 'url(./images/background2.png)';
+			this.canvas.style.backgroundImage = 'url(./images/maps/mapTwoSpooky.png)';
 			//selecting songtrack
 			this.audio1 = document.getElementById('twistedTreelineSong');
 		} else if (selectedTrueHard.getAttribute('activationlvl') === 'true') {
@@ -169,7 +169,7 @@ class StartGame {
 				[ 1200, 250 ]
 			];
 			//path floor
-			this.pathFloor = './images/terrain/floor.png';
+			this.pathFloor = './images/terrain/iceBox.png';
 			this.board = new Waypoint(this.context, this.path, 20, this.pathFloor);
 			this.turretSizeW = 40;
 			this.turretSizeH = 50;
@@ -177,7 +177,7 @@ class StartGame {
 			this.minonWidth = 30;
 			this.minionHeight = 30;
 			//background img
-			this.canvas.style.backgroundImage = 'url(./images/background.png)';
+			this.canvas.style.backgroundImage = 'url(./images/maps/mapThreeSnowBiome.png)';
 			//selecting songtrack
 			this.audio1 = document.getElementById('backgroundMusic');
 		} else if (selectedTrueHell.getAttribute('activationlvl') === 'true') {
@@ -203,7 +203,7 @@ class StartGame {
 				[ 1200, 250 ]
 			];
 			//path floor
-			this.pathFloor = './images/terrain/floor.png';
+			this.pathFloor = './images/terrain/grass.png';
 			this.board = new Waypoint(this.context, this.path, 20, this.pathFloor);
 			this.turretSizeW = 40;
 			this.turretSizeH = 50;
@@ -211,14 +211,14 @@ class StartGame {
 			this.minonWidth = 30;
 			this.minionHeight = 30;
 			//background img
-			this.canvas.style.backgroundImage = 'url(./images/background.png)';
+			this.canvas.style.backgroundImage = 'url(./images/maps/mapOne.png)';
 			//selecting songtrack
 			this.audio1 = document.getElementById('pothSong');
 		} else {
 			this.gameDifficulty = 'Easy';
 			this.path = [ [ 0, 350 ], [ 1200, 350 ] ]; // Path1 as default
 			//path floor
-			this.pathFloor = './images/terrain/floor.png';
+			this.pathFloor = './images/terrain/grass.png';
 			this.board = new Waypoint(this.context, this.path, 20, this.pathFloor);
 			//default size of turrets
 			this.turretSizeW = 60;
@@ -229,7 +229,7 @@ class StartGame {
 			this.campfireX = 455;
 			this.campfireY = 490;
 			//background img
-			this.canvas.style.backgroundImage = 'url(./images/background.png)';
+			this.canvas.style.backgroundImage = 'url(./images/maps/mapOne.png)';
 			//selecting songtrack
 			this.audio1 = document.getElementById('backgroundMusic');
 		}
