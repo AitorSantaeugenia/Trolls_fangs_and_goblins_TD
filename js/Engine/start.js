@@ -39,6 +39,7 @@ class StartGame {
 		//v.02
 		this.gameStatus = 'true';
 		this.pauseStatus = 'false';
+		this.gameStarted = 'false';
 		this.canvasBoard = document.getElementById('canvas');
 		//div pause
 		this.pauseMenu = document.getElementById('overCanvasPauseMenu');
@@ -246,6 +247,8 @@ class StartGame {
 
 	run() {
 		if (this.gameStatus === 'true') {
+			//change var that game started to true
+			this.gameStarted = 'true';
 			this.clearCanvas();
 			//we remove pointer events to select turrets again (after reseting the game when it ended))
 			this.canvasBoard.classList.remove('noPointerEvents');
@@ -1135,6 +1138,10 @@ class StartGame {
 
 	checkPauseStatus() {
 		return this.pauseStatus;
+	}
+
+	checkGameStarted() {
+		return this.gameStarted;
 	}
 }
 

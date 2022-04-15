@@ -189,15 +189,30 @@ window.onload = function() {
 		}
 	});
 
-	// PAUSE GAME
+	// PAUSE GAME - HIDE UIs
+	//if game started, clickin ESC show us the PAUSE GAME UI
+	//if game didn't start, we use ESC to hide instructions/customGameUI, preventing some bugs with the third var gameStarted
 	document.addEventListener('keydown', (e) => {
 		//this will prevent to call PAUSE when game is false (like win/lose scenarios)
 		let gameStatus = start.checkGameStatus();
 		let pauseStatus = start.checkPauseStatus();
+		//this var prevents us to click ESC while in Starting menu
+		let gameStarted = start.checkGameStarted();
+
+		//if game didn't start and we click ESC, we just hide two menu UI (instructions & customgame)
+		//if we are in instructions/customgame UIs, then we can click ESC to hide it too
+		if (gameStarted === 'false') {
+			instructionsUI.classList.add('hidden');
+			customGameUI.classList.add('hidden');
+		}
 
 		//we do this, because now we can click ESC while in pause menu to continue playing but preventing (pressing ESC)
-		//when winning or losing the game
-		if ((gameStatus === 'true' && pauseStatus === 'false') || (gameStatus === 'false' && pauseStatus === 'true')) {
+		//when winning or losing the game, AAAAND we also added gameStarted to prevent hitting ESC on starting menu while game is not playing
+		//this prevents us some bugs
+		if (
+			(gameStatus === 'true' && pauseStatus === 'false' && gameStarted === 'true') ||
+			(gameStatus === 'false' && pauseStatus === 'true' && gameStarted === 'true')
+		) {
 			if (e.code === 'Escape') {
 				start.pauseGame();
 			}
