@@ -480,7 +480,7 @@ font-family: Play;
 }
 
 .smallerImg{
-  width:100px;
+  width:110px;
 }
 
 #exitButtonEndGameMenu{
@@ -582,4 +582,30 @@ font-family: Play;
   align-items: center;
   /* visibility: hidden; */
   color:white;
+}
+
+.doubleBtnDiv{
+  display:flex;
+}
+
+.marginAuto{
+  margin:0 auto;
+}
+
+.buttonsStartingMenu{
+  display: flex;
+  flex-direction: column;
+  margin-top:25px;
+}
+
+.btnUIstartingMenu{
+  margin-top:20px;
+}
+
+.margin-leftDivBtn{
+  margin-left:20px;
+}
+
+.smallerImgBtn{
+  width: 175px;
 }
