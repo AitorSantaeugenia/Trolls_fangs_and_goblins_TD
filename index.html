@@ -111,7 +111,7 @@
       <!-- CANVAS DIV CONTAINER -->
       <div class="canvasDiv">
         <div id="canvasAndUIContainer" style="position: relative;">
-          <!-- Testing with TOP UI-->
+          <!-- TOP UI MENU -->
           <div id="topUIMenu">
             <div class="soundOffOn">
               <img src="https://aitorsantaeugenia.github.io/TD_Project1/images/soundgreen.png" alt="Sound on"
@@ -128,10 +128,8 @@
             </div>
             <div id="uiTopMenuThird"></div>
           </div>
+          <!-- CANVAS -->
           <canvas id="canvas" width="1200" height="700"></canvas>
-          <!-- <canvas id="canvasNormal" width="1200" height="700" class="hidden"></canvas>
-          <canvas id="canvasHard" width="1200" height="700" class="hidden"></canvas>
-          <canvas id="canvasHell" width="1200" height="700" class="hidden"></canvas> -->
           <div id="overCanvasPauseMenu">
             <p class="pauseFont">Game paused</p>
             <button id="continuePauseBtn" class="btn noDrag pauseBtn"><img
@@ -140,9 +138,6 @@
             <button id="restartPauseBtn" class="btn noDrag pauseBtn"><img
                 src="./images/loadScreen/otherText/restart.png" alt="Restart button" class="noDrag"
                 style="width: 89px;"></button>
-            <!-- <button id="optionsPauseBtn" class="btn noDrag pauseBtn"><img
-                src="./images/loadScreen/otherText/options.png" alt="Options button" class="smallerImg noDrag"
-                style="width: 85px;"></button> -->
             <button id="instructionsPauseBtn" class="btn noDrag pauseBtn"><img
                 src="./images/loadScreen/otherText/instructions.png" alt="Instructions button" class="noDrag"
                 style="width: 139px"></button>
@@ -220,22 +215,51 @@
     </div>
   </div>
 
-  <div id="instructionsUI" class="hidden">
+  <!-- INSTRUCTIONS MENU UI -->
+  <div id="instructionsGameUI" class="hidden">
+    <div class="closeIcoX">
+      <img src="./images/menuUI/icons/close_ico.png" alt="Close button" class="xButtonClose noDrag"
+        id="closeXBtnInstructions">
+    </div>
     <div>Instructions
     </div>
     <div>
-      <button id="instructionsBtnExit" class="btn noDrag modalBtn"><img src="./images/loadScreen/otherText/close.png"
-          alt="Close button" class="smallerImgExitBtn noDrag"></button><br>
+      <button id="instructionsGameCloseBtn" class="btn noDrag modalBtn"><img
+          src="./images/loadScreen/otherText/close.png" alt="Close button"
+          class="smallerImgExitBtn noDrag"></button><br>
     </div>
   </div>
-
+  <!-- CUSTOM GAME MENU UI -->
   <div id="customGameUI" class="hidden">
-    Custom Game
-    <button id="customGameUIStartingBTN" class="btn noDrag modalBtn" style="margin-bottom:20px"><img
-        src="./images/loadScreen/otherText/start.png" alt="Start button" class="smallerImgExitBtn noDrag"></button>
-    <button id="customGameUIBtn" class="btn noDrag modalBtn"><img src="./images/loadScreen/otherText/close.png"
-        alt="Close button" class="smallerImgExitBtn noDrag"></button>
-
+    <div class="closeIcoX">
+      <img src="./images/menuUI/icons/close_ico.png" alt="Close button" class="xButtonClose noDrag"
+        id="closeXBtnCustom">
+    </div>
+    <div>
+      Custom Game
+    </div>
+    <div>
+      <button id="customGameUIStartingBTN" class="btn noDrag modalBtn" style="margin-bottom:20px"><img
+          src="./images/loadScreen/otherText/start.png" alt="Start button" class="smallerImgExitBtn noDrag"></button>
+      <button id="customGameCloseBtn" class="btn noDrag modalBtn"><img src="./images/loadScreen/otherText/close.png"
+          alt="Close button" class="smallerImgExitBtn noDrag"></button>
+    </div>
+  </div>
+  <!-- CUSTOM GAME MENU UI -->
+  <div id="rankedGameUI" class="hidden">
+    <div class="closeIcoX">
+      <img src="./images/menuUI/icons/close_ico.png" alt="Close button" class="xButtonClose noDrag"
+        id="closeXBtnRanked">
+    </div>
+    <div>
+      Ranked Game
+    </div>
+    <div>
+      <button id="rankedGameUIStartingBTN" class="btn noDrag modalBtn" style="margin-bottom:20px"><img
+          src="./images/loadScreen/otherText/start.png" alt="Start button" class="smallerImgExitBtn noDrag"></button>
+      <button id="rankedGameCloseBtn" class="btn noDrag modalBtn"><img src="./images/loadScreen/otherText/close.png"
+          alt="Close button" class="smallerImgExitBtn noDrag"></button>
+    </div>
   </div>
 
   <style>
