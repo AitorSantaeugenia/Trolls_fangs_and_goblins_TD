@@ -52,12 +52,19 @@ window.onload = function() {
 	//STARTING MENU - buttons
 	//instructions button in starting Menu
 	const instructionButton = document.getElementById('instructionsBtn');
-	const instructionsUI = document.getElementById('instructionsUI');
-	const instructionsBtnExit = document.getElementById('instructionsBtnExit');
+	const instructionsGameUI = document.getElementById('instructionsGameUI');
+	const instructionsGameCloseBtn = document.getElementById('instructionsGameCloseBtn');
+	const closeXBtnInstructions = document.getElementById('closeXBtnInstructions');
 	//custom game buttons in starting menu
 	const customGameBtn = document.getElementById('customGameBtn');
 	const customGameUI = document.getElementById('customGameUI');
-	const customGameUIBtn = document.getElementById('customGameUIBtn');
+	const customGameCloseBtn = document.getElementById('customGameCloseBtn');
+	const closeXBtnCustom = document.getElementById('closeXBtnCustom');
+	//ranked buttons in starting menu
+	const rankedGameBtn = document.getElementById('rankedGameBtn');
+	const rankedGameUI = document.getElementById('rankedGameUI');
+	const rankedGameCloseBtn = document.getElementById('rankedGameCloseBtn');
+	const closeXBtnRanked = document.getElementById('closeXBtnRanked');
 
 	//game difficulty - default Easy
 	let gameDifficulty = 'Easy';
@@ -202,8 +209,9 @@ window.onload = function() {
 		//if game didn't start and we click ESC, we just hide two menu UI (instructions & customgame)
 		//if we are in instructions/customgame UIs, then we can click ESC to hide it too
 		if (gameStarted === 'false') {
-			instructionsUI.classList.add('hidden');
+			instructionsGameUI.classList.add('hidden');
 			customGameUI.classList.add('hidden');
+			rankedGameUI.classList.add('hidden');
 		}
 
 		//we do this, because now we can click ESC while in pause menu to continue playing but preventing (pressing ESC)
@@ -326,20 +334,41 @@ window.onload = function() {
 	function startGame() {
 		start.run(audio1, audio2, audio3, audio4, audio5);
 	}
-
+	//instructions game menu
 	instructionButton.addEventListener('click', function() {
-		instructionsUI.classList.remove('hidden');
+		instructionsGameUI.classList.remove('hidden');
 	});
 
-	instructionsBtnExit.addEventListener('click', function() {
-		instructionsUI.classList.add('hidden');
+	instructionsGameCloseBtn.addEventListener('click', function() {
+		instructionsGameUI.classList.add('hidden');
 	});
-
+	//custom game menu
 	customGameBtn.addEventListener('click', function() {
 		customGameUI.classList.remove('hidden');
 	});
 
-	customGameUIBtn.addEventListener('click', function() {
+	customGameCloseBtn.addEventListener('click', function() {
 		customGameUI.classList.add('hidden');
+	});
+	//ranked game menu
+	rankedGameBtn.addEventListener('click', function() {
+		rankedGameUI.classList.remove('hidden');
+	});
+
+	rankedGameCloseBtn.addEventListener('click', function() {
+		rankedGameUI.classList.add('hidden');
+	});
+
+	//x button in top of UIs
+	closeXBtnInstructions.addEventListener('click', function() {
+		instructionsGameUI.classList.add('hidden');
+	});
+
+	closeXBtnCustom.addEventListener('click', function() {
+		customGameUI.classList.add('hidden');
+	});
+
+	closeXBtnRanked.addEventListener('click', function() {
+		rankedGameUI.classList.add('hidden');
 	});
 };
