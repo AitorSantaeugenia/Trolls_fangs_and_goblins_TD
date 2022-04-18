@@ -28,9 +28,9 @@ class StartGame {
 		this.userHP = 35;
 		this.userGold = 500;
 		this.loser = new Image();
-		this.loser.src = 'https://aitorsantaeugenia.github.io/TD_Project1/images/defeat.png';
+		this.loser.src = './../../images/utils/defeat.png';
 		this.winner = new Image();
-		this.winner.src = 'https://aitorsantaeugenia.github.io/TD_Project1/images/victory.png';
+		this.winner.src = './../../images/utils/victory.png';
 		this.endGameMenuDiv = document.getElementById('endGameMenu');
 		this.restartTextCd = document.getElementById('restartingTimerText');
 		this.soundOn = document.getElementById('yesSound');
