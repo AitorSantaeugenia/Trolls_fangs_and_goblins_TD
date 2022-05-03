@@ -136,8 +136,7 @@ html{
 }
 
 .startingMenu {
-  /* background: url("https://aitorsantaeugenia.github.io/TD_Project1/images/loadingScreen1.png"); */
-  background-size: 100%;
+  background-size: 100vw;
   height: 100vh !important;
   display: flex;
   flex-direction: column;
@@ -298,10 +297,7 @@ font-family: Play;
 .titleSubtitle{
  flex-direction: column;
  text-align: center;
-  /* margin-left:40%; */
-  /* height:100%; */
-  /* margin-top:50px; */
-  margin-bottom:30px;
+ margin-bottom:30px;
 }
 
 .selectionLevel{
@@ -629,4 +625,27 @@ font-family: Play;
 
 .xButtonClose:hover{
   filter: sepia(100%) hue-rotate(190deg) saturate(500%);
+}
+
+.xButtonClose:hover ~ .attentionHover{
+  display: block !important;
+}
+
+/* Instructions UI */
+.instructionsP{
+  font-size:30px;
+  border-left: 1px solid red;
+  padding-left:30px;
+}
+
+.small20pxText{
+  font-size:20px;
+}
+
+.attentionHover{
+  position: absolute;
+  margin-right: 70px;
+  line-height: 55px;
+  background-color: #8f8e8e40;
+  padding: 0 20px 0 20px;
 }
