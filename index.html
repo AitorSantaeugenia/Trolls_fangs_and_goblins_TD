@@ -18,7 +18,7 @@
   <audio src="./sounds/GameSounds/victorySound.mp3" id="victoryMusic"></audio>
   <audio src="./sounds/Songs/twistedTreelineSong.mp3" id="twistedTreelineSong"></audio>
   <audio src="./sounds/Songs/powerofthehordeSong.mp3" id="pothSong"></audio>
-  <audio src="./sounds/GameSounds/defeat.mp3" id="defeatMusic"></audio>
+  <audio src="./sounds/Songs/deadSong.mp3" id="defeatMusic"></audio>
   <audio src="./sounds/GameSounds/inevitable.mp3" id="thanosInevitable"></audio>
 </head>
 
@@ -142,6 +142,11 @@
                 alt="To menu button" class="noDrag" style="width: 90px;"></button>
 
           </div>
+          <!-- Easter egg, losing screen - coffin dancers -->
+          <div id="divCoffinDancers">
+            <img src="./images/utils/deathcoffingif.gif" alt="coffingGifDancers" id="coffinDancers" class="hidden">
+          </div>
+
         </div>
         <!-- UI CONTAINER -->
         <div class="lowerMenuTowers" id="gameMenu">
@@ -170,24 +175,16 @@
 
             <div class="turretsMenuToPick">
               <div>
-                <img id="sandTurret" class="turretToSelect"
-                  src="https://aitorsantaeugenia.github.io/TD_Project1/images/towers/sandTurret.png">
-                <img id="cataTurret" class="turretToSelect"
-                  src="https://aitorsantaeugenia.github.io/TD_Project1/images/towers/stoneTurret.png">
-                <img id="slowTurret" class="turretToSelect"
-                  src="https://aitorsantaeugenia.github.io/TD_Project1/images/towers/freezeTurret.png">
-                <img id="flameTurret2" class="turretToSelect"
-                  src="https://aitorsantaeugenia.github.io/TD_Project1/images/towers/freezeTurret.png">
+                <img id="sandTurret" class="turretToSelect" src="./images/towers/sandTurret.png">
+                <img id="cataTurret" class="turretToSelect" src="./images/towers/stoneTurret.png">
+                <img id="slowTurret" class="turretToSelect" src="./images/towers/freezeTurret.png">
+                <img id="flameTurret2" class="turretToSelect" src="./images/towers/freezeTurret.png">
               </div>
               <div>
-                <img id="sandTurret2" class="turretToSelect"
-                  src="https://aitorsantaeugenia.github.io/TD_Project1/images/towers/sandTurret.png">
-                <img id="cataTurret2" class="turretToSelect"
-                  src="https://aitorsantaeugenia.github.io/TD_Project1/images/towers/stoneTurret.png">
-                <img id="slowTurret2" class="turretToSelect"
-                  src="https://aitorsantaeugenia.github.io/TD_Project1/images/towers/freezeTurret.png">
-                <img id="flameTurret" class="turretToSelect hidden"
-                  src="https://aitorsantaeugenia.github.io/TD_Project1/images/towers/flameTurret.png">
+                <img id="sandTurret2" class="turretToSelect" src="./images/towers/sandTurret.png">
+                <img id="cataTurret2" class="turretToSelect" src="./images/towers/stoneTurret.png">
+                <img id="slowTurret2" class="turretToSelect" src="./images/towers/freezeTurret.png">
+                <img id="flameTurret" class="turretToSelect hidden" src="./images/towers/flameTurret.png">
 
               </div>
             </div>
