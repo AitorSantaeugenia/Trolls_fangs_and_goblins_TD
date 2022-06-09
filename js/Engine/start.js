@@ -35,6 +35,8 @@ class StartGame {
     this.restartTextCd = document.getElementById("restartingTimerText");
     this.soundOn = document.getElementById("yesSound");
     this.soundOff = document.getElementById("noSound");
+    //new easter egg
+    this.deathCoffinDance = document.getElementById("coffinDancers");
 
     //v.02
     this.gameStatus = "true";
@@ -863,8 +865,7 @@ class StartGame {
     this.context.drawImage(this.loser, 298, 70, 600, 250);
     this.audio1.pause();
     //adding new image - easter egg coffin dancers
-    const deathCoffinDance = document.getElementById("coffinDancers");
-    deathCoffinDance.classList.remove("hidden");
+    this.deathCoffinDance.classList.remove("hidden");
 
     if (this.soundOn.classList.contains("buttonSelectedBorder")) {
       this.audio3.volume = 0.1;
@@ -1017,6 +1018,7 @@ class StartGame {
   restartLvl() {
     this.gameStatus = "true";
     this.endGameMenuDiv.classList.add("hidden");
+    this.deathCoffinDance.classList.add("hidden");
     clearInterval(this.intervalId);
     //we hide the pause menu to instant restart of the lvl
     this.pauseMenu.style.visibility = "hidden";
