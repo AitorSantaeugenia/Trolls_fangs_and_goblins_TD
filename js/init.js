@@ -11,13 +11,8 @@ window.onload = function () {
   const slowTurret = document.getElementById("slowTurret");
   const flameTurret = document.getElementById("flameTurret");
   const priceTurret = document.getElementById("idGoldTurretCost");
-  //audios
-  const audio1 = document.getElementById("backgroundMusic");
-  const audio2 = document.getElementById("victoryMusic");
-  const audio3 = document.getElementById("defeatMusic");
-  const audio4 = document.getElementById("jobDone");
-  const audio5 = document.getElementById("liveLessMusic");
-  const audio = document.getElementById("newGameSound");
+  //audio
+  const audio1 = "./sounds/GameSounds/newgame.mp3";
 
   let soundOn = document.getElementById("yesSound");
   let soundOff = document.getElementById("noSound");
@@ -79,6 +74,8 @@ window.onload = function () {
 
   //canvas for mousemove
   const canvas = document.getElementById("canvas");
+
+  //all audios
 
   // Events
   // event to know which lvl difficulty is selected and do some behaviour or another in canvas
@@ -295,8 +292,7 @@ window.onload = function () {
     canvasContainer.classList.remove("hidden");
     gameInterface.classList.add("hidden");
     gameMenu.classList.remove("hidden");
-    audio.play();
-    audio.volume = 0.1;
+    soundGo(audio1, true);
     startGame();
   });
 
@@ -347,7 +343,7 @@ window.onload = function () {
   });
 
   function startGame() {
-    start.run(audio1, audio2, audio3, audio4, audio5);
+    start.run();
   }
   //instructions game menu
   instructionButton.addEventListener("click", function () {
@@ -387,3 +383,15 @@ window.onload = function () {
     rankedGameUI.classList.add("hidden");
   });
 };
+
+function soundGo(newAudio, boolean) {
+  if (boolean === true) {
+    var audio = new Audio(newAudio);
+    audio.volume = 0.1;
+    audio.play();
+  } else {
+    var audio = new Audio(newAudio);
+    audio.volume = 0;
+    audio.pause();
+  }
+}
