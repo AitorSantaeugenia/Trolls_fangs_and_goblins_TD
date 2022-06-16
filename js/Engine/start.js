@@ -16,7 +16,7 @@ class StartGame {
     this.audio2 = document.getElementById("victoryMusic");
     this.audio3 = document.getElementById("defeatMusic");
     this.audio4 = document.getElementById("jobDoneSound");
-    this.audio5 = document.getElementById("liveLessSound");
+    this.audio5 = "./sounds/GameSounds/liveless.mp3";
     this.audio6 = document.getElementById("moreGoldSound");
     this.audio7 = document.getElementById("thanosInevitable");
 
@@ -362,16 +362,16 @@ class StartGame {
 
   enemyEnding() {
     this.enemies.forEach((enemy) => {
+      let soundValue = "";
       if (enemy.endingObjective()) {
         this.userHP -= 1;
         if (this.soundOn.classList.contains("buttonSelectedBorder")) {
-          this.audio5.volume = 0.1;
-          this.audio5.play();
+          soundGo(this.audio5, true);
         } else if (this.soundOff.classList.contains("buttonSelectedBorder")) {
-          this.audio5.volume = 0;
-          this.audio5.pause();
+          soundGo(this.audio5, false);
         }
       }
+      // soundGo(this.audio5, soundValue);
     });
   }
 
@@ -921,23 +921,7 @@ class StartGame {
       this.audio1.play();
       this.audio1.loop = true;
     } else if (this.soundOff.classList.contains("buttonSelectedBorder")) {
-      this.audio1.volume = 0;
-      this.audio1.pause();
-      this.audio2.volume = 0;
-      this.audio2.pause();
-      this.audio3.volume = 0;
-      this.audio3.pause();
-      this.audio4.currentTime = 0;
-      this.audio4.volume = 0;
-      this.audio4.pause();
-      this.audio5.volume = 0;
-      this.audio5.pause();
-      this.audio6.currentTime = 0;
-      this.audio6.volume = 0;
-      this.audio6.pause();
-      this.audio7.currentTime = 0;
-      this.audio7.volume = 0;
-      this.audio7.pause();
+      this.stopAudio();
     }
   }
 
@@ -947,23 +931,7 @@ class StartGame {
       //game paused
       this.gameStatus = "false";
       //we stop all the audios to prevent bugs
-      this.audio1.volume = 0;
-      this.audio1.pause();
-      this.audio2.volume = 0;
-      this.audio2.pause();
-      this.audio3.volume = 0;
-      this.audio3.pause();
-      this.audio4.currentTime = 0;
-      this.audio4.volume = 0;
-      this.audio4.pause();
-      this.audio5.volume = 0;
-      this.audio5.pause();
-      this.audio6.currentTime = 0;
-      this.audio6.volume = 0;
-      this.audio6.pause();
-      this.audio7.currentTime = 0;
-      this.audio7.volume = 0;
-      this.audio7.pause();
+      this.stopAudio();
 
       //we return true while we are in this screen
       this.pauseStatus = "true";
@@ -1238,6 +1206,23 @@ class StartGame {
 
   checkGameStarted() {
     return this.gameStarted;
+  }
+
+  stopAudio() {
+    document.querySelectorAll("audio").forEach((el) => {
+      if (
+        el.id === "backgroundMusic" ||
+        el.id === "twistedTreelineSong" ||
+        el.id === "pothSong"
+      ) {
+        el.volume = 0;
+        el.pause();
+      } else {
+        el.currentTime = 0;
+        el.volume = 0;
+        el.pause();
+      }
+    });
   }
 }
 
