@@ -10,10 +10,12 @@
   hollymolly - 1000 gold
   ezwin - instant win
   4lose - instant lose
+  thanos - snap?
 ```
 [Try it](https://aitorsantaeugenia.github.io/TD_Project1/) || https://aitorsantaeugenia.github.io/TD_Project1/
 
 # TO-DO
+- Fix sound bugs (gameOver, winGame)
 - Chose levels (4 levels), if you start with first level > 2º > 3º > 4º.
   - Lvl 1 - Easy - 5 waves
   - Lvl 2 - Easy with con. - 10 waves
