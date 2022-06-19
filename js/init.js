@@ -387,6 +387,9 @@ window.onload = function () {
   });
 };
 
+//Audios created dinamically for endGame sound minions and jobdone (creating turret)
+//we push to an array, and then shift, we shift if lenght is === 2 because we need to stop the first one
+//If the audio is created dinamically, and we click the mute button, if it's the first audio created, it won't work, that's why we shift when length === 2
 function soundGoEnemy(newAudio, boolean) {
   if (boolean === true) {
     audioEnemy.push(new Audio(newAudio));

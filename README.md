@@ -15,7 +15,7 @@
 [Try it](https://aitorsantaeugenia.github.io/TD_Project1/) || https://aitorsantaeugenia.github.io/TD_Project1/
 
 # TO-DO
-- Fix sound bugs (gameOver, winGame)
+- ~~Fix sound bugs (gameOver, winGame)~~
 - Chose levels (4 levels), if you start with first level > 2º > 3º > 4º.
   - Lvl 1 - Easy - 5 waves
   - Lvl 2 - Easy with con. - 10 waves
@@ -52,7 +52,7 @@
 - Custom game menu
 - how do you turn this on (maybe, too much frames)
 - MSG when introducing a cheatcode
-- Show DIV with opacity when win/lose (same as pause menu)
+- ~~Show DIV with opacity when win/lose (same as pause menu)~~
 - Create hell map path
 - Create HARD and HELL maps backgrounds
 - Create ranked map, infinity map
@@ -61,7 +61,7 @@
   - x100 after x min played
 - Bug background when resize
 - Not responsive, but solve some problems that happen when resizing
-- If endgame, stop frameanimaterequests
+- ~~If endgame, stop frameanimaterequests~~
 
 ```
 If you have any suggesitons, plz don't be shy and tell me here on github |or| aitorsantaeugenia@gmail.com
