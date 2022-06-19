@@ -1,3 +1,7 @@
+//all audios
+const audioEnemy = [];
+const audioJobDone = [];
+
 window.onload = function () {
   const gameInterface = document.getElementById("startingMenu");
 
@@ -12,7 +16,7 @@ window.onload = function () {
   const flameTurret = document.getElementById("flameTurret");
   const priceTurret = document.getElementById("idGoldTurretCost");
   //audio
-  const audio1 = "./sounds/GameSounds/newgame.mp3";
+  const audio1 = document.getElementById("startingGameAudio");
 
   let soundOn = document.getElementById("yesSound");
   let soundOff = document.getElementById("noSound");
@@ -74,8 +78,6 @@ window.onload = function () {
 
   //canvas for mousemove
   const canvas = document.getElementById("canvas");
-
-  //all audios
 
   // Events
   // event to know which lvl difficulty is selected and do some behaviour or another in canvas
@@ -292,7 +294,8 @@ window.onload = function () {
     canvasContainer.classList.remove("hidden");
     gameInterface.classList.add("hidden");
     gameMenu.classList.remove("hidden");
-    soundGo(audio1, true);
+    audio1.volume = 0.1;
+    audio1.play();
     startGame();
   });
 
@@ -384,14 +387,50 @@ window.onload = function () {
   });
 };
 
-function soundGo(newAudio, boolean) {
+function soundGoEnemy(newAudio, boolean) {
   if (boolean === true) {
-    var audio = new Audio(newAudio);
-    audio.volume = 0.1;
-    audio.play();
+    audioEnemy.push(new Audio(newAudio));
+    audioEnemy.forEach((element) => {
+      element.volume = 0.1;
+      element.play();
+    });
   } else {
-    var audio = new Audio(newAudio);
-    audio.volume = 0;
-    audio.pause();
+    audioEnemy.push(new Audio(newAudio));
+    audioEnemy.forEach((element) => {
+      element.volume = 0;
+      element.pause();
+    });
+  }
+
+  //we add this to prevent the first audio to play
+  //if we do a shift before length > 2 (lenght ===1) we can't stop it if we mute the game
+  if (audioEnemy.length === 2) {
+    audioEnemy[0].volume = 0;
+    audioEnemy[0].pause();
+    audioEnemy.shift();
+  }
+}
+
+function soundGoJobDone(newAudio, boolean) {
+  if (boolean === true) {
+    audioJobDone.push(new Audio(newAudio));
+    audioJobDone.forEach((element) => {
+      element.volume = 0.1;
+      element.play();
+    });
+  } else {
+    audioJobDone.push(new Audio(newAudio));
+    audioJobDone.forEach((element) => {
+      element.volume = 0;
+      element.pause();
+    });
+  }
+
+  //we add this to prevent the first audio to play
+  //if we do a shift before length > 2 (lenght ===1) we can't stop it if we mute the game
+  if (audioJobDone.length === 2) {
+    audioJobDone[0].volume = 0;
+    audioJobDone[0].pause();
+    audioJobDone.shift();
   }
 }

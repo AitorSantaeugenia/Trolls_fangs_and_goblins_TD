@@ -15,7 +15,7 @@ class StartGame {
     this.audio1 = "";
     this.audio2 = document.getElementById("victoryMusic");
     this.audio3 = document.getElementById("defeatMusic");
-    this.audio4 = document.getElementById("jobDoneSound");
+    this.audio4 = "./sounds/GameSounds/jobdone.mp3";
     this.audio5 = "./sounds/GameSounds/liveless.mp3";
     this.audio6 = document.getElementById("moreGoldSound");
     this.audio7 = document.getElementById("thanosInevitable");
@@ -366,9 +366,9 @@ class StartGame {
       if (enemy.endingObjective()) {
         this.userHP -= 1;
         if (this.soundOn.classList.contains("buttonSelectedBorder")) {
-          soundGo(this.audio5, true);
+          soundGoEnemy(this.audio5, true);
         } else if (this.soundOff.classList.contains("buttonSelectedBorder")) {
-          soundGo(this.audio5, false);
+          soundGoEnemy(this.audio5, false);
         }
       }
       // soundGo(this.audio5, soundValue);
@@ -543,13 +543,11 @@ class StartGame {
               this.towers.push(turret);
               this.userGold -= towerCost;
               if (this.soundOn.classList.contains("buttonSelectedBorder")) {
-                this.audio4.volume = 0.1;
-                this.audio4.play();
+                soundGoJobDone(this.audio4, true);
               } else if (
                 this.soundOff.classList.contains("buttonSelectedBorder")
               ) {
-                this.audio4.volume = 0;
-                this.audio4.pause();
+                soundGoJobDone(this.audio4, false);
               }
             }
           } else {
@@ -586,13 +584,11 @@ class StartGame {
               this.towers.push(turret);
               this.userGold -= towerCost;
               if (this.soundOn.classList.contains("buttonSelectedBorder")) {
-                this.audio4.volume = 0.1;
-                this.audio4.play();
+                soundGoJobDone(this.audio4, true);
               } else if (
                 this.soundOff.classList.contains("buttonSelectedBorder")
               ) {
-                this.audio4.volume = 0;
-                this.audio4.pause();
+                soundGoJobDone(this.audio4, false);
               }
             }
           } else {
@@ -629,13 +625,11 @@ class StartGame {
               this.towers.push(turret);
               this.userGold -= towerCost;
               if (this.soundOn.classList.contains("buttonSelectedBorder")) {
-                this.audio4.volume = 0.1;
-                this.audio4.play();
+                soundGoJobDone(this.audio4, true);
               } else if (
                 this.soundOff.classList.contains("buttonSelectedBorder")
               ) {
-                this.audio4.volume = 0;
-                this.audio4.pause();
+                soundGoJobDone(this.audio4, false);
               }
             }
           } else {
@@ -672,13 +666,11 @@ class StartGame {
               this.towers.push(turret);
               this.userGold -= towerCost;
               if (this.soundOn.classList.contains("buttonSelectedBorder")) {
-                this.audio4.volume = 0.1;
-                this.audio4.play();
+                soundGoJobDone(this.audio4, true);
               } else if (
                 this.soundOff.classList.contains("buttonSelectedBorder")
               ) {
-                this.audio4.volume = 0;
-                this.audio4.pause();
+                soundGoJobDone(this.audio4, false);
               }
             }
           } else {
@@ -1209,6 +1201,22 @@ class StartGame {
   }
 
   stopAudio() {
+    //Stop audios enemy reaching ending
+    audioEnemy.forEach((element) => {
+      element.pause();
+      element.volume = 0;
+      element.currentTime = 0;
+    });
+
+    //Stop audios when creating a turret: "job done"
+    audioJobDone.forEach((element) => {
+      element.pause();
+      element.volume = 0;
+      element.currentTime = 0;
+    });
+
+    //Stop all the audios not created dinamically (HTML ones)
+    //with a condition, that if it's the main level song, we don't play it from start
     document.querySelectorAll("audio").forEach((el) => {
       if (
         el.id === "backgroundMusic" ||
