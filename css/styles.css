@@ -12,6 +12,7 @@ html{
   background-image: url(./../images/utils/loadingScreen.png);
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: 50% 25%;
 }
 
 .startingMenu > p {
@@ -368,6 +369,7 @@ font-family: Play;
   font-family: 'Permanent Marker', cursive;
   border:3px solid red;
   cursor: pointer;
+  font-size: 2.5vw;
 }
 
 .tooltiptext{
@@ -660,4 +662,50 @@ font-family: Play;
   top: 46%;
   left:72%;
   right:0;
+}
+
+/* Trying responsive design */
+.gameTitle{
+  min-width: 70%;
+  max-width: 90%;
+}
+
+.logoGameTitle{
+  min-width: 40%;
+  max-width: 40%;
+}
+
+@media only screen and (max-width: 912px) {
+  .selectionLevel {
+   flex-direction: column;
+  }
+
+  .levelSelection{
+    max-width: 50vw;
+    min-width: 40vw;
+  }
+
+  .tooltip .tooltiptext{
+    max-width: 50vw;
+    min-width: 40vw;
+    margin-left:-20.8vw;
+    font-size:5vw;
+  }
+
+  .startingMenu{
+    height: fit-content !important;
+  }
+
+  .doubleBtnDiv{
+    flex-direction: column;
+  }
+
+  .margin-leftDivBtn{
+    margin-left:0px;
+    margin-top:20px;
+  }
+  .titleSubtitle{
+    margin-top:6vh;
+  }
+
 }
