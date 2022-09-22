@@ -76,12 +76,6 @@ class StartGame {
     this.cheatCodeInput = document.getElementById("inputCheatCode");
     this.textDefault = "Insert cheatcode ...";
 
-    // //trying Thanos guantlet
-    // this.thanos = new Image();
-    // this.thanos.frames = 0;
-    // this.frameCount = 0;
-    // this.thanos.currentLoopIndex = 0;
-
     //Text for enemies and waves, now not in canvas but in top UI menu
     this.wavesRemaining = document.getElementById("wavesRemaining");
     this.enemiesRemaining = document.getElementById("enemiesRemaining");
