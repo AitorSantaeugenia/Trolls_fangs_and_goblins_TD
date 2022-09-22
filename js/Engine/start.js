@@ -64,6 +64,8 @@ class StartGame {
     //countdown variable for winning or losing game MENU
     this.downloadTimer = "";
     this.placeHolderImg = new Image();
+    this.castleImage = new Image();
+    this.castleImage.src = "../../images/utils/hell_castle.png";
     this.towersInPath = new Turret();
 
     //we specify the range of the turret here instead of tower.js
@@ -275,6 +277,11 @@ class StartGame {
   }
 
   draw() {
+    if (this.gameDifficulty === "Hell") {
+      this.context.globalCompositeOperation = "destination-over";
+      this.context.drawImage(this.castleImage, 1100, 220, 200, 200);
+    }
+
     if (this.checkGameContinue()) {
       this.board.draw();
       this.move();
