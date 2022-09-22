@@ -197,44 +197,40 @@ class StartGame {
     } else if (selectedTrueHell.getAttribute("activationlvl") === "true") {
       this.gameDifficulty = "Hell";
       this.path = [
-        [0, 100], //Path3
+        [0, 100], //Path4
         [100, 100],
-        [100, 500],
-        [250, 500],
-        [250, 100],
-        [400, 100],
-        [400, 500],
-        [550, 500],
-        [550, 100],
-        [700, 100],
-        [700, 500],
-        [850, 500],
-        [850, 100],
-        [1000, 100],
+        [1170, 100],
+        [1170, 200],
+        [80, 200],
+        [80, 500],
         [1000, 500],
-        [1150, 500],
-        [1150, 250],
-        [1200, 250],
+        [1000, 300],
+        [200, 300],
+        [200, 400],
+        [1200, 400],
       ];
       //path floor
-      this.pathFloor = "./images/terrain/grass.png";
+      this.pathFloor = "./images/terrain/lava.png";
       this.board = new Waypoint(this.context, this.path, 20, this.pathFloor);
-      this.turretSizeW = 40;
-      this.turretSizeH = 50;
+      this.turretSizeW = 30;
+      this.turretSizeH = 40;
       this.turretHitBox = 20;
       this.minonWidth = 30;
       this.minionHeight = 30;
       //background img
-      this.canvas.style.backgroundImage = "url(./images/maps/mapOne.png)";
+      this.canvas.style.backgroundImage = "url(./images/maps/mapFourHell.png)";
       //selecting songtrack
       this.audio1 = document.getElementById("pothSong");
-      this.divisorCampfire = 1;
+      this.divisorCampfire = 4;
+      this.campfireX = 1100;
+      this.campfireY = 470;
     } else {
+      // Path1 as default
       this.gameDifficulty = "Easy";
       this.path = [
         [0, 350],
         [1200, 350],
-      ]; // Path1 as default
+      ];
       //path floor
       this.pathFloor = "./images/terrain/grass.png";
       this.board = new Waypoint(this.context, this.path, 20, this.pathFloor);
