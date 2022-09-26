@@ -15,52 +15,54 @@
 [Try it](https://aitorsantaeugenia.github.io/TD_Project1/) || https://aitorsantaeugenia.github.io/TD_Project1/
 
 # TO-DO
-- ~~Fix sound bugs (gameOver, winGame)~~
-- Chose levels (4 levels), if you start with first level > 2º > 3º > 4º.
-  - Lvl 1 - Easy - 5 waves
-  - Lvl 2 - Easy with con. - 10 waves
-    - New path, new map, new tema, new enemies with boss.
-  - Lvl 3 - Hard - 15 waves
-    - New path, new map, new tema, new enemies with boss.
-  - Lvl 4 - Nightmare - 50 waves (or change this to Lvl3 and make a DIY lvl)
-    - New path, new map, new tema, new enemies with boss.
-- ~~Modal for menu selection~~
-- Create ranked with nick+points
-- Show ranked in endgame
-- ~~Better menu for sound on/off~~
-- Better buttons / better sound on || off button
-- ~~If ESC, pause game and show menu"options"~~
-- ~~Centered vw & vh canvas~~
+- Create HARD and HELL maps backgrounds
+- Change IMG menu with new maps
 - Boss round and enemies with different stats (class enemy)
-  - Better game balance
-- Refractor code (and clear functions, classes, comments)
-- Drops of coins
 - 2 more towers 
   - AOE
   - POISON
+- Chose levels (4 levels), if you start with first level > 2º > 3º > 4º.
+  - Lvl 1 - Easy - 5 waves
+  - Lvl 2 - Easy with con. - 10 waves with boss*wave/final boss
+    - New path, new map, new tema, new enemies with boss.
+  - Lvl 3 - Hard - 15 waves with boss*wave/final boss
+    - New path, new map, new tema, new enemies with boss.
+  - Lvl 4 - Nightmare - 50 waves (or change this to Lvl3 and make a DIY lvl) with boss*wave/final boss
+    - New path, new map, new theme, new enemies with boss.
+- Instruction menu
+- Custom game menu
+- MSG when introducing a cheatcode
+- Better game balance
+- Bug background when resize
+- Not responsive, but solve some problems that happen when resizing
+- Refractor code (and clear functions, classes, comments)
+
+Maybe:
+- Better buttons / better sound on || off button
+- Create ranked with nick+points
+- Create ranked map, infinity map
+- Add points system
+- x100 x minions killed (300 if it's boss)
+- x100 after x min played
+- Show ranked in endgame
+- how do you turn this on (maybe, too much frames)
+- Drops of coins
+
+- ~~Create hell map path~~
+- ~~Fix sound bugs (gameOver, winGame)~~V
+- ~~If ESC, pause game and show menu"options"~~
+- ~~Centered vw & vh canvas~~
 - ~~Background transitions for menu ??~~ || Nope
+- ~~Better menu for sound on/off~~
 - ~~Better bottom UI~~
 - ~~Restart button (lvl restart)~~
 - ~~Cheat button explanation~~
 - ~~Change width+height map (minions+path) on selecting lvl~~
-
+- ~~Modal for menu selection~
 - ~~When pause the game if it is muted, keep muted after continue~~
 - ~~If we are muted and restart the game, keep muted after it~~
 - ~~If we are muted in endgame Menu and we restart, keep muted~~
-- Change IMG menu with new maps
-- Instruction menu
-- Custom game menu
-- how do you turn this on (maybe, too much frames)
-- MSG when introducing a cheatcode
 - ~~Show DIV with opacity when win/lose (same as pause menu)~~
-- Create hell map path
-- Create HARD and HELL maps backgrounds
-- Create ranked map, infinity map
-- Add points system
-  - x100 x minions killed (300 if it's boss)
-  - x100 after x min played
-- Bug background when resize
-- Not responsive, but solve some problems that happen when resizing
 - ~~If endgame, stop frameanimaterequests~~
 
 ```
