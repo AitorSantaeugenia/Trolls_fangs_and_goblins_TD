@@ -13,6 +13,7 @@ class Minons extends Enemy {
     this.gold = 15;
     this.minionHp = 300;
     this.speed = 1.4;
+    this.offSetMinion = 0;
     // Image red enemy.png
     this.randomImage = Math.trunc(Math.random() * 15);
     this.img = new Image();
@@ -95,7 +96,7 @@ class Minons extends Enemy {
   }
 
   draw() {
-    this.context.globalCompositeOperation = "source-over";
+    //this.context.globalCompositeOperation = "source-over";
     this.context.drawImage(
       this.img,
       (this.img.currentLoopIndex * this.img.width) / this.img.frames,
@@ -103,7 +104,7 @@ class Minons extends Enemy {
       this.swidth,
       this.sheight,
       this.x - this.w / 2,
-      this.y - this.h / 2,
+      this.y - this.h / 2 - this.offSetMinion,
       this.w,
       this.h
     );
@@ -187,7 +188,8 @@ class Minons extends Enemy {
   }
 
   endingObjective() {
-    return this.x + this.w / 2 > this.context.canvas.width;
+    //return this.x + this.w / 2 > this.context.canvas.width;
+    return this.x + this.w / 2 > 1200;
   }
 
   isDead() {
