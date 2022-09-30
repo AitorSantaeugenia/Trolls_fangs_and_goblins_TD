@@ -25,8 +25,8 @@ class StartGame {
     this.enemies = [];
     this.towers = [];
     this.framesCounter = 0;
-    this.userHP = 35;
-    this.userGold = 500;
+    // this.userHP = 35;
+    // this.userGold = 500;
     this.loser = new Image();
     this.loser.src = "./../../images/utils/defeat.png";
     this.winner = new Image();
@@ -105,6 +105,8 @@ class StartGame {
 
     if (selectedTrueEasy.getAttribute("activationlvl") === "true") {
       this.gameDifficulty = "Easy";
+      this.userHP = 30;
+      this.userGold = 800;
       this.path = [
         [0, 350],
         [1200, 350],
@@ -127,6 +129,8 @@ class StartGame {
       this.divisorCampfire = 1;
     } else if (selectedTrueNormal.getAttribute("activationlvl") === "true") {
       this.gameDifficulty = "Normal";
+      this.userHP = 20;
+      this.userGold = 600;
       this.path = [
         [0, 255.5], //Path2
         [120, 255.5],
@@ -154,6 +158,8 @@ class StartGame {
       this.divisorCampfire = 1;
     } else if (selectedTrueHard.getAttribute("activationlvl") === "true") {
       this.gameDifficulty = "Hard";
+      this.userHP = 20;
+      this.userGold = 500;
       this.path = [
         [0, 100], //Path3
         [100, 100],
@@ -192,11 +198,13 @@ class StartGame {
       this.divisorCampfire = 2;
     } else if (selectedTrueHell.getAttribute("activationlvl") === "true") {
       this.gameDifficulty = "Hell";
+      this.userHP = 10;
+      this.userGold = 500;
       this.path = [
         [0, 100], //Path4
         [100, 100],
-        [1170, 100],
-        [1170, 200],
+        [1120, 100],
+        [1120, 200],
         [80, 200],
         [80, 500],
         [1000, 500],
@@ -223,6 +231,8 @@ class StartGame {
     } else {
       // Path1 as default
       this.gameDifficulty = "Easy";
+      this.userHP = 30;
+      this.userGold = 800;
       this.path = [
         [0, 350],
         [1200, 350],
@@ -263,7 +273,8 @@ class StartGame {
         this.context,
         this.path,
         this.minonWidth,
-        this.minionHeight
+        this.minionHeight,
+        this.gameDifficulty
       );
       this.enemyInfo();
       this.playerHP();
