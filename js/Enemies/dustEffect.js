@@ -134,6 +134,6 @@ function renderDust(enemyPosition) {
   //we reset the alpha
   alpha = 1;
 
-  //we remder foreach enemy, so the position is the correct one and not variable
+  //we render foreach enemy, so the position is the correct one and not variable
   enemyPosition.forEach((enemy) => renderParticle(enemy));
 }
