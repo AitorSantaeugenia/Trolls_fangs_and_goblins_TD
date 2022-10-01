@@ -1,9 +1,10 @@
 class projectileTurret {
-  constructor(context, posX, posY, reachX, reachY, turretType) {
+  constructor(context, posX, posY, reachX, reachY, turretType, mode) {
     this.context = context;
     //Width - Height
     this.posY = posY;
     this.posX = posX;
+    this.gameDifficulty = mode;
     //Hiting reach position
     this.reachX = reachX;
     this.reachY = reachY;
@@ -21,16 +22,43 @@ class projectileTurret {
     this.img.src = this.img.type[turretType];
     //Width - Height
     if (this.turretType === "sand") {
-      this.w = 12;
-      this.h = 12;
+      if (this.gameDifficulty === "Hell") {
+        this.w = 8;
+        this.h = 8;
+      } else {
+        this.w = 12;
+        this.h = 12;
+      }
     } else if (this.turretType === "slow") {
-      this.w = 12;
-      this.h = 12;
-      this.speed = 10;
+      if (this.gameDifficulty === "Hell") {
+        this.w = 8;
+        this.h = 8;
+        this.speed = 10;
+      } else {
+        this.w = 12;
+        this.h = 12;
+        this.speed = 10;
+      }
     } else if (this.turretType === "flame") {
-      this.w = 15;
-      this.h = 15;
-      this.speed = 40;
+      if (this.gameDifficulty === "Hell") {
+        this.w = 10;
+        this.h = 10;
+        this.speed = 10;
+      } else {
+        this.w = 12;
+        this.h = 12;
+        this.speed = 10;
+      }
+    } else if (this.turretType === "catapult") {
+      if (this.gameDifficulty === "Hell") {
+        this.w = 12;
+        this.h = 12;
+        this.speed = 8;
+      } else {
+        this.w = 20;
+        this.h = 20;
+        this.speed = 8;
+      }
     } else {
       this.w = 20;
       this.h = 20;
