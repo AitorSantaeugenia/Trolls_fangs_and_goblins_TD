@@ -1,5 +1,5 @@
 class Turret {
-  constructor(context, x, y, w, h, r) {
+  constructor(context, x, y, w, h, r, mode) {
     this.context = context;
     this.x = x;
     this.y = y;
@@ -21,6 +21,7 @@ class Turret {
     //we add canvas
     this.canvas = document.getElementById("canvas");
     this.placed = false;
+    this.gameDifficulty = mode;
   }
 
   draw() {
@@ -80,7 +81,8 @@ class Turret {
       this.y,
       enemy.x,
       enemy.y,
-      this.type
+      this.type,
+      this.gameDifficulty
     );
 
     if (inRange) {
@@ -111,7 +113,7 @@ class Turret {
 
 //Catapult turret
 class CatapultTurret extends Turret {
-  constructor(context, x, y, w, h, r) {
+  constructor(context, x, y, w, h, r, mode) {
     super(context, x, y);
     this.w = w;
     this.h = h;
@@ -120,6 +122,7 @@ class CatapultTurret extends Turret {
     this.range = r;
     this.type = "catapult";
     this.bullets = [];
+    this.gameDifficulty = mode;
 
     this.img = new Image();
     this.img.src = "./images/towers/stoneTurret.png";
@@ -128,7 +131,7 @@ class CatapultTurret extends Turret {
 
 //Torre slow
 class SlowTurret extends Turret {
-  constructor(context, x, y, w, h, r) {
+  constructor(context, x, y, w, h, r, mode) {
     super(context, x, y);
     this.w = w;
     this.h = h;
@@ -138,6 +141,7 @@ class SlowTurret extends Turret {
     this.type = "slow";
     this.slow = 0.3;
     this.bullets = [];
+    this.gameDifficulty = mode;
 
     this.img = new Image();
     this.img.src = "./images/towers/freezeTurret.png";
@@ -146,7 +150,7 @@ class SlowTurret extends Turret {
 
 //Torre heavy
 class FlameTurret extends Turret {
-  constructor(context, x, y, w, h, r) {
+  constructor(context, x, y, w, h, r, mode) {
     super(context, x, y);
     this.w = w;
     this.h = h;
@@ -155,6 +159,7 @@ class FlameTurret extends Turret {
     this.range = r;
     this.type = "flame";
     this.bullets = [];
+    this.gameDifficulty = mode;
 
     this.img = new Image();
     this.img.src = "./images/towers/flameTurret.png";
