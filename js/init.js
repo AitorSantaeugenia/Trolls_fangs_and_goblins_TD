@@ -354,6 +354,13 @@ window.onload = function () {
   });
 
   instructionsGameCloseBtn.addEventListener("click", function () {
+    //adding this feature to hide the slider once clicking the close button
+    let panel = document.getElementsByClassName("panel");
+    for (let i = 0; i < panel.length; i++) {
+      if (panel[i].style.display === "contents") {
+        panel[i].style.display = "none";
+      }
+    }
     instructionsGameUI.classList.add("hidden");
   });
   //custom game menu
@@ -436,4 +443,19 @@ function soundGoJobDone(newAudio, boolean) {
     audioJobDone[0].pause();
     audioJobDone.shift();
   }
+}
+//Acordion for instructions menu
+let acc = document.getElementsByClassName("accordion");
+let i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function () {
+    this.classList.toggle("active");
+    let panel = this.nextElementSibling;
+    if (panel.style.display === "contents") {
+      panel.style.display = "none";
+    } else {
+      panel.style.display = "contents";
+    }
+  });
 }
