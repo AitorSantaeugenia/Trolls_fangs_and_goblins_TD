@@ -10,10 +10,11 @@ class Dragon extends Minons {
     this.speed = 1.4;
     this.gold = 50;
     this.minionHp = 500;
+    this.minionHpOffset = 500;
 
     this.swidth = 300;
     this.sheight = 300;
-    this.varHPBAR = -20;
+    this.varHPBAR = -30;
     this.offSetMinion = 20;
 
     // img

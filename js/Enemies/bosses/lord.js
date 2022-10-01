@@ -10,10 +10,11 @@ class Lord extends Minons {
     this.speed = 1.8;
     this.gold = 100;
     this.minionHp = 2000;
+    this.minionHpOffset = 2000;
 
     this.swidth = 300;
     this.sheight = 300;
-    this.varHPBAR = -20;
+    this.varHPBAR = -7;
     this.offSetMinion = 7;
 
     // img

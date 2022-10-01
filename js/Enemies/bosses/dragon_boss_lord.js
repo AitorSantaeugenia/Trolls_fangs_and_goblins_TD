@@ -1,4 +1,4 @@
-class DragonBossLord extends Minons {
+class DragonLordBoss extends Minons {
   constructor(context, path, width, height) {
     super(context, path, width, height);
     this.x = this.path[0][0];
@@ -7,13 +7,14 @@ class DragonBossLord extends Minons {
     this.h = 100;
 
     // Stats
-    this.speed = 1;
+    this.speed = 1.2;
     this.gold = 500;
-    this.minionHp = 10000;
+    this.minionHp = 20000;
+    this.minionHpOffset = 20000;
 
     this.swidth = 300;
     this.sheight = 300;
-    this.varHPBAR = -20;
+    this.varHPBAR = -30;
     this.offSetMinion = 20;
 
     // img
