@@ -9,7 +9,7 @@ class Wave {
     this.minionHeight = mHeight;
     //mode
     this.gameDifficulty = difficulty;
-    // Waves
+    // Waves dependant of the difficulty level
     if (this.gameDifficulty === "Easy") {
       this.wave = [
         this.getWave1(),
@@ -68,7 +68,6 @@ class Wave {
         new Minons(this.context, this.path, this.minionHeight, this.minionWidth)
       );
 
-      //context, path, width, height
       if (this.gameDifficulty === "Easy") {
         if (i % 10 === 0) {
           wave.push(
@@ -92,7 +91,26 @@ class Wave {
           );
         }
       } else if (this.gameDifficulty === "Hard") {
-        //HERE AITOR
+        if (i % 4 === 0) {
+          wave.push(
+            new Dragon(
+              this.context,
+              this.path,
+              this.minionWidth,
+              this.minionHeight
+            )
+          );
+        } else if (i % 3 === 0) {
+          wave.push(
+            new DragonBoss(
+              this.context,
+              this.path,
+              this.minionWidth,
+              this.minionHeight
+            )
+          );
+        }
+      } else if (this.gameDifficulty === "Hell") {
         if (i % 4 === 0) {
           wave.push(
             new Dragon(
@@ -103,10 +121,9 @@ class Wave {
             )
           );
         }
-      } else if (this.gameDifficulty === "Hell") {
-        if (i % 2 === 0) {
+        if (i % 5 === 0) {
           wave.push(
-            new DragonBossLord(
+            new QueenBoss(
               this.context,
               this.path,
               this.minionWidth,
@@ -138,7 +155,6 @@ class Wave {
         new Minons(this.context, this.path, this.minionHeight, this.minionWidth)
       );
 
-      //context, path, width, height
       if (this.gameDifficulty === "Easy") {
         if (i % 10 === 0) {
           wave.push(
@@ -171,11 +187,20 @@ class Wave {
               this.minionHeight
             )
           );
+        } else if (i % 3 === 0) {
+          wave.push(
+            new DragonBoss(
+              this.context,
+              this.path,
+              this.minionWidth,
+              this.minionHeight
+            )
+          );
         }
       } else if (this.gameDifficulty === "Hell") {
-        if (i % 5 === 0) {
+        if (i % 2 === 0) {
           wave.push(
-            new Dragon(
+            new QueenBoss(
               this.context,
               this.path,
               this.minionWidth,
@@ -207,7 +232,6 @@ class Wave {
         new Minons(this.context, this.path, this.minionHeight, this.minionWidth)
       );
 
-      //context, path, width, height
       if (this.gameDifficulty === "Easy") {
         if (i % 10 === 0) {
           wave.push(
@@ -233,7 +257,25 @@ class Wave {
       } else if (this.gameDifficulty === "Hard") {
         if (i % 5 === 0) {
           wave.push(
-            new Dragon(
+            new Lord(
+              this.context,
+              this.path,
+              this.minionWidth,
+              this.minionHeight
+            )
+          );
+        } else if (i % 3 === 0) {
+          wave.push(
+            new DragonBoss(
+              this.context,
+              this.path,
+              this.minionWidth,
+              this.minionHeight
+            )
+          );
+        } else if (i % 2 === 0) {
+          wave.push(
+            new QueenBoss(
               this.context,
               this.path,
               this.minionWidth,
@@ -242,9 +284,18 @@ class Wave {
           );
         }
       } else if (this.gameDifficulty === "Hell") {
-        if (i % 5 === 0) {
+        if (i === 1) {
           wave.push(
-            new Dragon(
+            new LordBoss(
+              this.context,
+              this.path,
+              this.minionWidth,
+              this.minionHeight
+            )
+          );
+        } else if (i % 3 === 0) {
+          wave.push(
+            new QueenBoss(
               this.context,
               this.path,
               this.minionWidth,
@@ -276,7 +327,6 @@ class Wave {
         new Minons(this.context, this.path, this.minionHeight, this.minionWidth)
       );
 
-      //context, path, width, height
       if (this.gameDifficulty === "Easy") {
         if (i % 2 === 0) {
           wave.push(
@@ -309,9 +359,24 @@ class Wave {
           );
         }
       } else if (this.gameDifficulty === "Hard") {
-        if (i % 5 === 0) {
+        if (i % 3 === 0) {
           wave.push(
-            new Dragon(
+            new DragonBoss(
+              this.context,
+              this.path,
+              this.minionWidth,
+              this.minionHeight
+            ),
+            new Lord(
+              this.context,
+              this.path,
+              this.minionWidth,
+              this.minionHeight
+            )
+          );
+        } else if (i % 2 === 0) {
+          wave.push(
+            new QueenBoss(
               this.context,
               this.path,
               this.minionWidth,
@@ -320,9 +385,33 @@ class Wave {
           );
         }
       } else if (this.gameDifficulty === "Hell") {
-        if (i % 5 === 0) {
+        if (i === 1) {
+          wave.push(
+            new LordBoss(
+              this.context,
+              this.path,
+              this.minionWidth,
+              this.minionHeight
+            )
+          );
+        } else if (i % 5 === 0) {
+          wave.push(
+            new Lord(
+              this.context,
+              this.path,
+              this.minionWidth,
+              this.minionHeight
+            )
+          );
+        } else if (i % 3 === 0) {
           wave.push(
             new Dragon(
+              this.context,
+              this.path,
+              this.minionWidth,
+              this.minionHeight
+            ),
+            new DragonBoss(
               this.context,
               this.path,
               this.minionWidth,
@@ -354,7 +443,6 @@ class Wave {
         new Minons(this.context, this.path, this.minionHeight, this.minionWidth)
       );
 
-      //context, path, width, height
       if (this.gameDifficulty === "Easy") {
         if (i % 10 === 0) {
           wave.push(
@@ -367,7 +455,7 @@ class Wave {
           );
         }
       } else if (this.gameDifficulty === "Normal") {
-        if (i % 5 === 0) {
+        if (i % 5 === 0 || i === 1) {
           wave.push(
             new LordBoss(
               this.context,
@@ -387,9 +475,33 @@ class Wave {
           );
         }
       } else if (this.gameDifficulty === "Hard") {
-        if (i % 5 === 0) {
+        if (i === 1) {
+          wave.push(
+            new LordBoss(
+              this.context,
+              this.path,
+              this.minionWidth,
+              this.minionHeight
+            )
+          );
+        } else if (i % 5 === 0) {
+          wave.push(
+            new Lord(
+              this.context,
+              this.path,
+              this.minionWidth,
+              this.minionHeight
+            )
+          );
+        } else if (i % 3 === 0) {
           wave.push(
             new Dragon(
+              this.context,
+              this.path,
+              this.minionWidth,
+              this.minionHeight
+            ),
+            new DragonBoss(
               this.context,
               this.path,
               this.minionWidth,
@@ -398,9 +510,36 @@ class Wave {
           );
         }
       } else if (this.gameDifficulty === "Hell") {
-        if (i % 5 === 0) {
+        if (i === 1) {
           wave.push(
-            new Dragon(
+            new LordBoss(
+              this.context,
+              this.path,
+              this.minionWidth,
+              this.minionHeight
+            )
+          );
+        } else if (i % 5 === 0) {
+          wave.push(
+            new Lord(
+              this.context,
+              this.path,
+              this.minionWidth,
+              this.minionHeight
+            )
+          );
+        } else if (i % 3 === 0) {
+          wave.push(
+            new DragonBoss(
+              this.context,
+              this.path,
+              this.minionWidth,
+              this.minionHeight
+            )
+          );
+        } else if (i % 2 === 0) {
+          wave.push(
+            new QueenBoss(
               this.context,
               this.path,
               this.minionWidth,
@@ -432,7 +571,6 @@ class Wave {
         new Minons(this.context, this.path, this.minionHeight, this.minionWidth)
       );
 
-      //context, path, width, height
       if (this.gameDifficulty === "Easy") {
         if (i % 10 === 0) {
           wave.push(
@@ -456,9 +594,33 @@ class Wave {
           );
         }
       } else if (this.gameDifficulty === "Hard") {
-        if (i % 5 === 0) {
+        if (i === 1) {
+          wave.push(
+            new SnowBoss(
+              this.context,
+              this.path,
+              this.minionWidth,
+              this.minionHeight
+            )
+          );
+        } else if (i % 5 === 0) {
+          wave.push(
+            new Lord(
+              this.context,
+              this.path,
+              this.minionWidth,
+              this.minionHeight
+            )
+          );
+        } else if (i % 3 === 0) {
           wave.push(
             new Dragon(
+              this.context,
+              this.path,
+              this.minionWidth,
+              this.minionHeight
+            ),
+            new DragonBoss(
               this.context,
               this.path,
               this.minionWidth,
@@ -467,9 +629,27 @@ class Wave {
           );
         }
       } else if (this.gameDifficulty === "Hell") {
-        if (i % 5 === 0) {
+        if (i === 1 || i % 10 === 0) {
           wave.push(
-            new Dragon(
+            new LordBoss(
+              this.context,
+              this.path,
+              this.minionWidth,
+              this.minionHeight
+            )
+          );
+        } else if (i % 2 === 0) {
+          wave.push(
+            new QueenBoss(
+              this.context,
+              this.path,
+              this.minionWidth,
+              this.minionHeight
+            )
+          );
+        } else if (i % 3 === 0) {
+          wave.push(
+            new Lord(
               this.context,
               this.path,
               this.minionWidth,
@@ -501,7 +681,6 @@ class Wave {
         new Minons(this.context, this.path, this.minionHeight, this.minionWidth)
       );
 
-      //context, path, width, height
       if (this.gameDifficulty === "Easy") {
         if (i % 10 === 0) {
           wave.push(
@@ -525,9 +704,57 @@ class Wave {
           );
         }
       } else if (this.gameDifficulty === "Hard") {
-        if (i % 5 === 0) {
+        if (i === 1) {
+          wave.push(
+            new SnowBoss(
+              this.context,
+              this.path,
+              this.minionWidth,
+              this.minionHeight
+            )
+          );
+        } else if (i % 10 === 0) {
+          wave.push(
+            new SnowBoss(
+              this.context,
+              this.path,
+              this.minionWidth,
+              this.minionHeight
+            ),
+            new LordBoss(
+              this.context,
+              this.path,
+              this.minionWidth,
+              this.minionHeight
+            )
+          );
+        } else if (i % 5 === 0) {
+          wave.push(
+            new Lord(
+              this.context,
+              this.path,
+              this.minionWidth,
+              this.minionHeight
+            )
+          );
+        } else if (i % 3 === 0) {
           wave.push(
             new Dragon(
+              this.context,
+              this.path,
+              this.minionWidth,
+              this.minionHeight
+            ),
+            new DragonBoss(
+              this.context,
+              this.path,
+              this.minionWidth,
+              this.minionHeight
+            )
+          );
+        } else if (i % 2 === 0) {
+          wave.push(
+            new QueenBoss(
               this.context,
               this.path,
               this.minionWidth,
@@ -536,9 +763,33 @@ class Wave {
           );
         }
       } else if (this.gameDifficulty === "Hell") {
-        if (i % 5 === 0) {
+        if (i === 1) {
           wave.push(
-            new Dragon(
+            new King(
+              this.context,
+              this.path,
+              this.minionWidth,
+              this.minionHeight
+            )
+          );
+        } else if (i % 3 === 0) {
+          wave.push(
+            new Lord(
+              this.context,
+              this.path,
+              this.minionWidth,
+              this.minionHeight
+            ),
+            new QueenBoss(
+              this.context,
+              this.path,
+              this.minionWidth,
+              this.minionHeight
+            )
+          );
+        } else if (i % 10 === 0) {
+          wave.push(
+            new LordBoss(
               this.context,
               this.path,
               this.minionWidth,
@@ -570,44 +821,34 @@ class Wave {
         new Minons(this.context, this.path, this.minionHeight, this.minionWidth)
       );
 
-      //context, path, width, height
-      if (this.gameDifficulty === "Easy") {
-        if (i % 10 === 0) {
+      if (this.gameDifficulty === "Hell") {
+        if (i === 1) {
           wave.push(
-            new Dragon(
+            new King(
               this.context,
               this.path,
               this.minionWidth,
               this.minionHeight
             )
           );
-        }
-      } else if (this.gameDifficulty === "Normal") {
-        if (i % 7 === 0) {
+        } else if (i % 3 === 0) {
           wave.push(
-            new Dragon(
+            new Lord(
+              this.context,
+              this.path,
+              this.minionWidth,
+              this.minionHeight
+            ),
+            new QueenBoss(
               this.context,
               this.path,
               this.minionWidth,
               this.minionHeight
             )
           );
-        }
-      } else if (this.gameDifficulty === "Hard") {
-        if (i % 5 === 0) {
+        } else if (i % 10 === 0) {
           wave.push(
-            new Dragon(
-              this.context,
-              this.path,
-              this.minionWidth,
-              this.minionHeight
-            )
-          );
-        }
-      } else if (this.gameDifficulty === "Hell") {
-        if (i % 5 === 0) {
-          wave.push(
-            new Dragon(
+            new LordBoss(
               this.context,
               this.path,
               this.minionWidth,
@@ -639,44 +880,46 @@ class Wave {
         new Minons(this.context, this.path, this.minionHeight, this.minionWidth)
       );
 
-      //context, path, width, height
-      if (this.gameDifficulty === "Easy") {
-        if (i % 10 === 0) {
+      if (this.gameDifficulty === "Hell") {
+        if (i === 5) {
           wave.push(
-            new Dragon(
+            new SnowBoss(
               this.context,
               this.path,
               this.minionWidth,
               this.minionHeight
             )
           );
-        }
-      } else if (this.gameDifficulty === "Normal") {
-        if (i % 7 === 0) {
+        } else if (i === 1) {
           wave.push(
-            new Dragon(
+            new King(
               this.context,
               this.path,
               this.minionWidth,
               this.minionHeight
             )
           );
-        }
-      } else if (this.gameDifficulty === "Hard") {
-        if (i % 5 === 0) {
+        } else if (i % 10 === 0) {
           wave.push(
-            new Dragon(
+            new LordBoss(
               this.context,
               this.path,
               this.minionWidth,
               this.minionHeight
             )
           );
-        }
-      } else if (this.gameDifficulty === "Hell") {
-        if (i % 5 === 0) {
+        } else if (i % 2 === 0) {
           wave.push(
-            new Dragon(
+            new QueenBoss(
+              this.context,
+              this.path,
+              this.minionWidth,
+              this.minionHeight
+            )
+          );
+        } else if (i % 3 === 0) {
+          wave.push(
+            new Lord(
               this.context,
               this.path,
               this.minionWidth,
@@ -704,48 +947,60 @@ class Wave {
     let wave = [];
     let countEnemies = this.waveCount;
     for (let i = 1; i <= countEnemies; i++) {
+      console.log(i);
       wave.push(
         new Minons(this.context, this.path, this.minionHeight, this.minionWidth)
       );
 
-      //context, path, width, height
-      if (this.gameDifficulty === "Easy") {
-        if (i % 10 === 0) {
+      if (this.gameDifficulty === "Hell") {
+        if (i === 1) {
           wave.push(
-            new Dragon(
+            new DragonLordBoss(
               this.context,
               this.path,
               this.minionWidth,
               this.minionHeight
             )
           );
-        }
-      } else if (this.gameDifficulty === "Normal") {
-        if (i % 7 === 0) {
+        } else if (i === 5) {
           wave.push(
-            new Dragon(
+            new DragonLordBoss(
               this.context,
               this.path,
               this.minionWidth,
               this.minionHeight
             )
           );
-        }
-      } else if (this.gameDifficulty === "Hard") {
-        if (i % 5 === 0) {
+        } else if (i % 5 === 0) {
           wave.push(
-            new Dragon(
+            new LordBoss(
               this.context,
               this.path,
               this.minionWidth,
               this.minionHeight
             )
           );
-        }
-      } else if (this.gameDifficulty === "Hell") {
-        if (i % 5 === 0) {
+        } else if (i % 6 === 0) {
           wave.push(
-            new Dragon(
+            new SnowBoss(
+              this.context,
+              this.path,
+              this.minionWidth,
+              this.minionHeight
+            )
+          );
+        } else if (i % 2 === 0) {
+          wave.push(
+            new QueenBoss(
+              this.context,
+              this.path,
+              this.minionWidth,
+              this.minionHeight
+            )
+          );
+        } else if (i % 3 === 0) {
+          wave.push(
+            new Lord(
               this.context,
               this.path,
               this.minionWidth,
