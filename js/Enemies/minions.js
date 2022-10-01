@@ -12,6 +12,7 @@ class Minons extends Enemy {
     //Enemy stats
     this.gold = 15;
     this.minionHp = 300;
+    this.minionHpOffset = 300;
     this.speed = 1.4;
     this.offSetMinion = 0;
     // Image red enemy.png
@@ -181,8 +182,8 @@ class Minons extends Enemy {
     new HPbar(
       this.context,
       this.x - this.w / 2 - this.varHPBAR,
-      this.y - this.h / 2 - 11,
-      (this.wHPBar * this.minionHp) / 300,
+      this.y - this.h / 2 - 11 - this.offSetMinion,
+      (this.wHPBar * this.minionHp) / this.minionHpOffset,
       8
     ).draw();
   }
