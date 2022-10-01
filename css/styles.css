@@ -707,5 +707,154 @@ font-family: Play;
   .titleSubtitle{
     margin-top:6vh;
   }
+}
 
+/* ------------------------------------------------------------------- */
+/* Acordion instructions Menu */
+.accordion {
+  /* background-color: #eee; */
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  transition: 0.4s;
+}
+
+.active, .accordion:hover {
+  background-color: #ccc; 
+}
+
+.panel {
+  padding: 0 18px;
+  display: none;
+  background-color: white;
+  overflow: hidden;
+}
+.acordion-panel{
+  width: 60%;
+  display: flex;
+  /* overflow: hidden; */
+  flex-direction: column;
+}
+
+.panel p{
+  color:black;
+  font-size:16px;
+  background-color:white;
+}
+/* ------------------------------------------------------------------- */
+/* Gallery slideshow for towers */
+.container{
+  font-size: 10px;
+  display: flex;
+  min-height: 300px;
+  flex-direction: row;
+}
+
+.wrapper {
+  width: 100%;
+  position: relative;
+}
+
+.slide {
+  height: 100%;
+  width: 100%;
+  background-color: #fff;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.slide:before {
+  content: "";
+  height: 0%;
+  background-color: #fff;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 5;
+  transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -webkit-transition: all 0.5s ease-in-out;
+}
+
+.slide-content {
+  width: 60%;
+  float: right;
+  padding: 10% 8% 0em 8%;
+  position: relative;
+}
+.slide-img {
+  width: 40%;
+  float: left;
+  position: relative;
+  height: 100%;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  background: aliceblue;
+}
+.slide-img :before {
+  content: "";
+  height: 0%;
+  background-color: #fff;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 5;
+  transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -webkit-transition: all 0.5s ease-in-out;
+}
+/* .button {
+  display: block;
+  overflow: hidden;
+  width: 100%;
+  margin-top: 4em;
+  transition: all 0.4s;
+  -ms-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  -webkit-transition: all 0.4s;
+} */
+.button-left {
+  float: left;
+ color: rgb(116 113 113);
+  font-size:20px;
+  cursor:pointer;
+}
+.button-right {
+  float: right;
+  text-align: right;
+  color: rgb(116 113 113);
+  font-size:20px;
+  cursor:pointer;
+}   
+.button-right:not(.inactive):hover, .button-left:not(.inactive):hover{
+  color:black;
+}
+
+.active :before {
+  content: "";
+  height: 100%;
+  background-color: #fff;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 5;
+}
+
+.inactive {
+  color: #ccc;
 }
