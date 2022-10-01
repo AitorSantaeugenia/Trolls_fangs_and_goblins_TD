@@ -382,6 +382,13 @@ window.onload = function () {
 
   //x button in top of UIs
   closeXBtnInstructions.addEventListener("click", function () {
+    //adding this feature to hide the slider once clicking the close button
+    let panel = document.getElementsByClassName("panel");
+    for (let i = 0; i < panel.length; i++) {
+      if (panel[i].style.display === "contents") {
+        panel[i].style.display = "none";
+      }
+    }
     instructionsGameUI.classList.add("hidden");
   });
 
@@ -457,5 +464,61 @@ for (i = 0; i < acc.length; i++) {
     } else {
       panel.style.display = "contents";
     }
+  });
+}
+
+//Testing with gallery
+var slide = document.querySelectorAll(".slide"),
+  button = document.querySelectorAll(".btnAcordionP"),
+  current = 0;
+
+slide[current].style.zIndex = 2;
+button[0].classList.add("inactive");
+button[button.length - 1].classList.add("inactive");
+button = document.querySelectorAll(".btnAcordionP:not(.inactive");
+
+for (element = 0; element < button.length; element++) {
+  button[element].addEventListener("click", function () {
+    for (i = 0; i < slide.length; i++) {
+      document.querySelectorAll(".slide-img")[i].classList.add("active");
+      document.querySelectorAll(".button")[i].style.color = "#00000038;";
+      document.querySelectorAll(".slide-content h2")[i].classList.add("active");
+      document.querySelectorAll(".slide-content p")[i].classList.add("active");
+      document.querySelectorAll(".slide-content a")[i].classList.add("active");
+    }
+
+    if (this.classList.contains("button-right")) {
+      current++;
+      if (current > slide.length - 1) {
+        current = slide.length - 1;
+      }
+    }
+    if (this.classList.contains("button-left")) {
+      current--;
+      if (current < 0) {
+        current = 0;
+      }
+    }
+
+    setTimeout(function () {
+      for (e = 0; e < slide.length; e++) {
+        slide[e].style.zIndex = "0";
+      }
+      slide[current].style.zIndex = "2";
+
+      for (i = 0; i < slide.length; i++) {
+        document.querySelectorAll(".slide-img")[i].classList.remove("active");
+        document.querySelectorAll(".button")[i].style.opacity = "1";
+        document
+          .querySelectorAll(".slide-content h2")
+          [i].classList.remove("active");
+        document
+          .querySelectorAll(".slide-content p")
+          [i].classList.remove("active");
+        document
+          .querySelectorAll(".slide-content a")
+          [i].classList.remove("active");
+      }
+    }, 1000);
   });
 }
