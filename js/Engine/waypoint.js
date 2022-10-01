@@ -24,14 +24,12 @@ class Waypoint {
       const axisY = this.path[i + 1][1] - this.path[i][1];
 
       if (axisX === 0) {
-        //Up-Down
         if (axisY > 0) {
           this.pathVerticalDown(i);
         } else {
           this.pathVerticalUp(i);
         }
       } else if (axisY === 0) {
-        // Left-Right
         if (axisX > 0) {
           this.pathHorizontalRight(i);
         } else {
