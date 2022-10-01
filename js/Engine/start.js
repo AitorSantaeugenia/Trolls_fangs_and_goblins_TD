@@ -25,8 +25,7 @@ class StartGame {
     this.enemies = [];
     this.towers = [];
     this.framesCounter = 0;
-    // this.userHP = 35;
-    // this.userGold = 500;
+
     this.loser = new Image();
     this.loser.src = "./../../images/utils/defeat.png";
     this.winner = new Image();
@@ -339,7 +338,7 @@ class StartGame {
         this.waveIndex === this.waves.wave.length - 1 &&
         this.enemies.length === 0
       ) {
-        //You win
+        //you win
         this.gameWin();
       }
     }
@@ -379,7 +378,6 @@ class StartGame {
           soundGoEnemy(this.audio5, false);
         }
       }
-      // soundGo(this.audio5, soundValue);
     });
   }
 
@@ -535,7 +533,8 @@ class StartGame {
             pos.y,
             this.turretSizeW,
             this.turretSizeH,
-            this.rangeTurret
+            this.rangeTurret,
+            this.gameDifficulty
           );
           towerCost = turret.returnPrice();
           if (this.userGold >= towerCost) {
@@ -576,7 +575,8 @@ class StartGame {
             pos.y,
             this.turretSizeW,
             this.turretSizeH,
-            this.rangeTurret
+            this.rangeTurret,
+            this.gameDifficulty
           );
           towerCost = turret.returnPrice();
           if (this.userGold >= towerCost) {
@@ -617,7 +617,8 @@ class StartGame {
             pos.y,
             this.turretSizeW,
             this.turretSizeH,
-            this.rangeTurret
+            this.rangeTurret,
+            this.gameDifficulty
           );
           towerCost = turret.returnPrice();
           if (this.userGold >= towerCost) {
@@ -658,7 +659,8 @@ class StartGame {
             pos.y,
             this.turretSizeW,
             this.turretSizeH,
-            this.rangeTurret
+            this.rangeTurret,
+            this.gameDifficulty
           );
           towerCost = turret.returnPrice();
           if (this.userGold >= towerCost) {
@@ -1169,9 +1171,6 @@ class StartGame {
   }
 
   thanosSnap() {
-    //we want to test if we can show Thanos guantlet
-    // this.thanos.src = '../../images/thanos_snap.png';
-
     if (this.soundOn.classList.contains("buttonSelectedBorder")) {
       this.audio7.volume = 0.5;
       this.audio7.play();
