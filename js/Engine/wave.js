@@ -9,7 +9,7 @@ class Wave {
     this.minionHeight = mHeight;
     //mode
     this.gameDifficulty = difficulty;
-    // Waves dependant of the difficulty level
+    // Waves dependent of the difficulty level
     if (this.gameDifficulty === "Easy") {
       this.wave = [
         this.getWave1(),
@@ -65,7 +65,13 @@ class Wave {
     let countEnemies = this.waveCount;
     for (let i = 1; i <= countEnemies; i++) {
       wave.push(
-        new Minons(this.context, this.path, this.minionHeight, this.minionWidth)
+        new Minons(
+          this.context,
+          this.path,
+          this.minionHeight,
+          this.minionWidth,
+          this.gameDifficulty
+        )
       );
 
       if (this.gameDifficulty === "Easy") {
@@ -152,7 +158,13 @@ class Wave {
     let countEnemies = this.waveCount;
     for (let i = 1; i <= countEnemies; i++) {
       wave.push(
-        new Minons(this.context, this.path, this.minionHeight, this.minionWidth)
+        new Minons(
+          this.context,
+          this.path,
+          this.minionHeight,
+          this.minionWidth,
+          this.gameDifficulty
+        )
       );
 
       if (this.gameDifficulty === "Easy") {
@@ -229,7 +241,13 @@ class Wave {
     let countEnemies = this.waveCount;
     for (let i = 1; i <= countEnemies; i++) {
       wave.push(
-        new Minons(this.context, this.path, this.minionHeight, this.minionWidth)
+        new Minons(
+          this.context,
+          this.path,
+          this.minionHeight,
+          this.minionWidth,
+          this.gameDifficulty
+        )
       );
 
       if (this.gameDifficulty === "Easy") {
@@ -324,7 +342,13 @@ class Wave {
     let countEnemies = this.waveCount;
     for (let i = 1; i <= countEnemies; i++) {
       wave.push(
-        new Minons(this.context, this.path, this.minionHeight, this.minionWidth)
+        new Minons(
+          this.context,
+          this.path,
+          this.minionHeight,
+          this.minionWidth,
+          this.gameDifficulty
+        )
       );
 
       if (this.gameDifficulty === "Easy") {
@@ -440,7 +464,13 @@ class Wave {
     let countEnemies = this.waveCount;
     for (let i = 1; i <= countEnemies; i++) {
       wave.push(
-        new Minons(this.context, this.path, this.minionHeight, this.minionWidth)
+        new Minons(
+          this.context,
+          this.path,
+          this.minionHeight,
+          this.minionWidth,
+          this.gameDifficulty
+        )
       );
 
       if (this.gameDifficulty === "Easy") {
@@ -568,7 +598,13 @@ class Wave {
     let countEnemies = this.waveCount;
     for (let i = 1; i <= countEnemies; i++) {
       wave.push(
-        new Minons(this.context, this.path, this.minionHeight, this.minionWidth)
+        new Minons(
+          this.context,
+          this.path,
+          this.minionHeight,
+          this.minionWidth,
+          this.gameDifficulty
+        )
       );
 
       if (this.gameDifficulty === "Easy") {
@@ -678,7 +714,13 @@ class Wave {
     let countEnemies = this.waveCount;
     for (let i = 1; i <= countEnemies; i++) {
       wave.push(
-        new Minons(this.context, this.path, this.minionHeight, this.minionWidth)
+        new Minons(
+          this.context,
+          this.path,
+          this.minionHeight,
+          this.minionWidth,
+          this.gameDifficulty
+        )
       );
 
       if (this.gameDifficulty === "Easy") {
@@ -818,7 +860,13 @@ class Wave {
     let countEnemies = this.waveCount;
     for (let i = 1; i <= countEnemies; i++) {
       wave.push(
-        new Minons(this.context, this.path, this.minionHeight, this.minionWidth)
+        new Minons(
+          this.context,
+          this.path,
+          this.minionHeight,
+          this.minionWidth,
+          this.gameDifficulty
+        )
       );
 
       if (this.gameDifficulty === "Hell") {
@@ -877,7 +925,13 @@ class Wave {
     let countEnemies = this.waveCount;
     for (let i = 1; i <= countEnemies; i++) {
       wave.push(
-        new Minons(this.context, this.path, this.minionHeight, this.minionWidth)
+        new Minons(
+          this.context,
+          this.path,
+          this.minionHeight,
+          this.minionWidth,
+          this.gameDifficulty
+        )
       );
 
       if (this.gameDifficulty === "Hell") {
@@ -947,9 +1001,14 @@ class Wave {
     let wave = [];
     let countEnemies = this.waveCount;
     for (let i = 1; i <= countEnemies; i++) {
-      console.log(i);
       wave.push(
-        new Minons(this.context, this.path, this.minionHeight, this.minionWidth)
+        new Minons(
+          this.context,
+          this.path,
+          this.minionHeight,
+          this.minionWidth,
+          this.gameDifficulty
+        )
       );
 
       if (this.gameDifficulty === "Hell") {
