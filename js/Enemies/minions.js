@@ -1,6 +1,6 @@
 //Enemy 1 - redDemon
 class Minons extends Enemy {
-  constructor(context, path, width, height) {
+  constructor(context, path, width, height, mode) {
     //Setters
     super(context, path);
     this.x = this.path[0][0];
@@ -9,6 +9,7 @@ class Minons extends Enemy {
     this.wHPBar = 35;
     this.pathIndex = 0;
     this.slow = false;
+    this.gameDifficulty = mode;
     //Enemy stats
     this.gold = 15;
     this.minionHp = 300;
@@ -18,21 +19,25 @@ class Minons extends Enemy {
     // Image red enemy.png
     this.randomImage = Math.trunc(Math.random() * 15);
     this.img = new Image();
-    this.img.src = `./images/enemies/sprites/${this.randomImage}.png`;
+    if (this.gameDifficulty === "Hell") {
+      this.img.src = `./images/enemies/Osprites/${this.randomImage}.png`;
+    } else {
+      this.img.src = `./images/enemies/sprites/${this.randomImage}.png`;
+    }
 
-    //tring out spritesheets
     this.canvas = document.querySelector("canvas");
 
     //minions properties
     this.frameCount = 0;
     this.w = width;
     this.h = height;
-    // this.width = width;
-    // this.height = height;
+
+    //image properties
     this.img.frames = 3;
     this.img.currentLoopIndex = 0;
     this.swidth = 0;
     this.sheight = 0;
+
     //center HPBAR
     this.varHPBAR = 0;
 
@@ -136,18 +141,18 @@ class Minons extends Enemy {
 
     if (distX > 0) {
       this.updateDirection("right");
-      this.x += this.speed * percentageX; // right
+      this.x += this.speed * percentageX;
     } else if (distX < 0) {
       this.updateDirection("left");
-      this.x -= this.speed * percentageX; // left
+      this.x -= this.speed * percentageX;
     }
 
     if (distY > 0) {
       this.updateDirection("down");
-      this.y += this.speed * percentageY; // down
+      this.y += this.speed * percentageY;
     } else if (distY < 0) {
       this.updateDirection("up");
-      this.y -= this.speed * percentageY; // up
+      this.y -= this.speed * percentageY;
     }
 
     // change to next waypoint after reaching one
@@ -189,7 +194,9 @@ class Minons extends Enemy {
   }
 
   endingObjective() {
+    //Sometimes we had an error with context, that's why we are not removing this line
     //return this.x + this.w / 2 > this.context.canvas.width;
+
     return this.x + this.w / 2 > 1200;
   }
 
