@@ -219,6 +219,14 @@ window.onload = function () {
       instructionsGameUI.classList.add("hidden");
       customGameUI.classList.add("hidden");
       rankedGameUI.classList.add("hidden");
+
+      //adding this feature to hide the slider once clicking the close button
+      let panel = document.getElementsByClassName("panel");
+      for (let i = 0; i < panel.length; i++) {
+        if (panel[i].style.display === "contents") {
+          panel[i].style.display = "none";
+        }
+      }
     }
 
     //we do this, because now we can click ESC while in pause menu to continue playing but preventing (pressing ESC)
@@ -481,10 +489,10 @@ for (element = 0; element < button.length; element++) {
   button[element].addEventListener("click", function () {
     for (i = 0; i < slide.length; i++) {
       document.querySelectorAll(".slide-img")[i].classList.add("active");
-      document.querySelectorAll(".button")[i].style.color = "#00000038;";
-      document.querySelectorAll(".slide-content h2")[i].classList.add("active");
-      document.querySelectorAll(".slide-content p")[i].classList.add("active");
-      document.querySelectorAll(".slide-content a")[i].classList.add("active");
+      document.querySelectorAll(".slide-button")[i].style.color = "#00000038;";
+      // document.querySelectorAll(".slide-content h2")[i].classList.add("active");
+      // document.querySelectorAll(".slide-content p")[i].classList.add("active");
+      // document.querySelectorAll(".slide-content a")[i].classList.add("active");
     }
 
     if (this.classList.contains("button-right")) {
@@ -508,16 +516,16 @@ for (element = 0; element < button.length; element++) {
 
       for (i = 0; i < slide.length; i++) {
         document.querySelectorAll(".slide-img")[i].classList.remove("active");
-        document.querySelectorAll(".button")[i].style.opacity = "1";
-        document
-          .querySelectorAll(".slide-content h2")
-          [i].classList.remove("active");
-        document
-          .querySelectorAll(".slide-content p")
-          [i].classList.remove("active");
-        document
-          .querySelectorAll(".slide-content a")
-          [i].classList.remove("active");
+        document.querySelectorAll(".slide-button")[i].style.opacity = "1";
+        // document
+        //   .querySelectorAll(".slide-content h2")
+        //   [i].classList.remove("active");
+        // document
+        //   .querySelectorAll(".slide-content p")
+        //   [i].classList.remove("active");
+        // document
+        //   .querySelectorAll(".slide-content a")
+        //   [i].classList.remove("active");
       }
     }, 1000);
   });
