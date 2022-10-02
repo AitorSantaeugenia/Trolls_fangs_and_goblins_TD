@@ -220,13 +220,9 @@ window.onload = function () {
       customGameUI.classList.add("hidden");
       rankedGameUI.classList.add("hidden");
 
-      //adding this feature to hide the slider once clicking the close button
-      let panel = document.getElementsByClassName("panel");
-      for (let i = 0; i < panel.length; i++) {
-        if (panel[i].style.display === "contents") {
-          panel[i].style.display = "none";
-        }
-      }
+      closePanel();
+
+      closeAccordion();
     }
 
     //we do this, because now we can click ESC while in pause menu to continue playing but preventing (pressing ESC)
@@ -362,13 +358,9 @@ window.onload = function () {
   });
 
   instructionsGameCloseBtn.addEventListener("click", function () {
-    //adding this feature to hide the slider once clicking the close button
-    let panel = document.getElementsByClassName("panel");
-    for (let i = 0; i < panel.length; i++) {
-      if (panel[i].style.display === "contents") {
-        panel[i].style.display = "none";
-      }
-    }
+    closePanel();
+
+    closeAccordion();
     instructionsGameUI.classList.add("hidden");
   });
   //custom game menu
@@ -390,13 +382,10 @@ window.onload = function () {
 
   //x button in top of UIs
   closeXBtnInstructions.addEventListener("click", function () {
-    //adding this feature to hide the slider once clicking the close button
-    let panel = document.getElementsByClassName("panel");
-    for (let i = 0; i < panel.length; i++) {
-      if (panel[i].style.display === "contents") {
-        panel[i].style.display = "none";
-      }
-    }
+    closePanel();
+
+    closeAccordion();
+
     instructionsGameUI.classList.add("hidden");
   });
 
@@ -475,8 +464,9 @@ for (i = 0; i < acc.length; i++) {
   });
 }
 
-//Testing with gallery
-var slide = document.querySelectorAll(".slide"),
+//Testing with gallery - we need to refractor this for sure
+// Tower gallery -----------------------------------------------------------------------
+let slide = document.querySelectorAll(".slide"),
   button = document.querySelectorAll(".btnAcordionP"),
   current = 0;
 
@@ -490,9 +480,6 @@ for (element = 0; element < button.length; element++) {
     for (i = 0; i < slide.length; i++) {
       document.querySelectorAll(".slide-img")[i].classList.add("active");
       document.querySelectorAll(".slide-button")[i].style.color = "#00000038;";
-      // document.querySelectorAll(".slide-content h2")[i].classList.add("active");
-      // document.querySelectorAll(".slide-content p")[i].classList.add("active");
-      // document.querySelectorAll(".slide-content a")[i].classList.add("active");
     }
 
     if (this.classList.contains("button-right")) {
@@ -513,20 +500,116 @@ for (element = 0; element < button.length; element++) {
         slide[e].style.zIndex = "0";
       }
       slide[current].style.zIndex = "2";
-
       for (i = 0; i < slide.length; i++) {
         document.querySelectorAll(".slide-img")[i].classList.remove("active");
         document.querySelectorAll(".slide-button")[i].style.opacity = "1";
-        // document
-        //   .querySelectorAll(".slide-content h2")
-        //   [i].classList.remove("active");
-        // document
-        //   .querySelectorAll(".slide-content p")
-        //   [i].classList.remove("active");
-        // document
-        //   .querySelectorAll(".slide-content a")
-        //   [i].classList.remove("active");
       }
     }, 1000);
   });
+}
+// Minions gallery -----------------------------------------------------------------------
+let slideMinion = document.querySelectorAll(".slideMin"),
+  buttonMinion = document.querySelectorAll(".btnAcordionMin"),
+  currentMin = 0;
+
+slideMinion[currentMin].style.zIndex = 2;
+buttonMinion[0].classList.add("inactive");
+buttonMinion[buttonMinion.length - 1].classList.add("inactive");
+buttonMinion = document.querySelectorAll(".btnAcordionMin:not(.inactive");
+
+for (element = 0; element < buttonMinion.length; element++) {
+  buttonMinion[element].addEventListener("click", function () {
+    for (i = 0; i < slideMinion.length; i++) {
+      document.querySelectorAll(".slide-img-min")[i].classList.add("active");
+      document.querySelectorAll(".slide-button-min")[i].style.color =
+        "#00000038;";
+    }
+
+    if (this.classList.contains("button-right-min")) {
+      currentMin++;
+      if (currentMin > slideMinion.length - 1) {
+        currentMin = slideMinion.length - 1;
+      }
+    }
+    if (this.classList.contains("button-left-min")) {
+      currentMin--;
+      if (currentMin < 0) {
+        currentMin = 0;
+      }
+    }
+
+    setTimeout(function () {
+      for (e = 0; e < slideMinion.length; e++) {
+        slideMinion[e].style.zIndex = "0";
+      }
+      slideMinion[currentMin].style.zIndex = "2";
+      for (i = 0; i < slideMinion.length; i++) {
+        document
+          .querySelectorAll(".slide-img-min")
+          [i].classList.remove("active");
+        document.querySelectorAll(".slide-button-min")[i].style.opacity = "1";
+      }
+    }, 1000);
+  });
+}
+// Levels gallery -----------------------------------------------------------------------
+let slideLevel = document.querySelectorAll(".slideLevel"),
+  buttonLevel = document.querySelectorAll(".btnAcordionLvl"),
+  currentLvl = 0;
+
+slideLevel[currentLvl].style.zIndex = 2;
+buttonLevel[0].classList.add("inactive");
+buttonLevel[buttonLevel.length - 1].classList.add("inactive");
+buttonLevel = document.querySelectorAll(".btnAcordionLvl:not(.inactive");
+
+for (element = 0; element < buttonLevel.length; element++) {
+  buttonLevel[element].addEventListener("click", function () {
+    for (i = 0; i < slideLevel.length; i++) {
+      document.querySelectorAll(".slide-img-lvl")[i].classList.add("active");
+      document.querySelectorAll(".slide-button-lvl")[i].style.color =
+        "#00000038;";
+    }
+
+    if (this.classList.contains("button-right-lvl")) {
+      currentLvl++;
+      if (currentLvl > slideLevel.length - 1) {
+        currentLvl = slideLevel.length - 1;
+      }
+    }
+    if (this.classList.contains("button-left-lvl")) {
+      currentLvl--;
+      if (currentLvl < 0) {
+        currentLvl = 0;
+      }
+    }
+
+    setTimeout(function () {
+      for (e = 0; e < slideLevel.length; e++) {
+        slideLevel[e].style.zIndex = "0";
+      }
+      slideLevel[currentLvl].style.zIndex = "2";
+      for (i = 0; i < slideLevel.length; i++) {
+        document
+          .querySelectorAll(".slide-img-lvl")
+          [i].classList.remove("active");
+        document.querySelectorAll(".slide-button-lvl")[i].style.opacity = "1";
+      }
+    }, 1000);
+  });
+}
+//Remove the classes added previously in the accordion if it closes sudently by clicking the X button, the close button, or ESC key
+function closeAccordion() {
+  for (i = 0; i < acc.length; i++) {
+    acc[i].classList.remove("active");
+  }
+}
+
+//Closes the panel if we click the X button, the close button, or ESC key
+function closePanel() {
+  let panel = document.getElementsByClassName("panel");
+  for (let i = 0; i < panel.length; i++) {
+    if (panel[i].style.display === "contents") {
+      panel[i].style.display = "none";
+    }
+  }
 }
