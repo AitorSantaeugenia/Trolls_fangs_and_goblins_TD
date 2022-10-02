@@ -635,9 +635,10 @@ font-family: Play;
 
 /* Instructions UI */
 .instructionsP{
-  font-size:30px;
-  border-left: 1px solid red;
-  padding-left:30px;
+  font-size:40px;
+  padding:10px;
+  font-family: 'Permanent Marker', cursive;
+  color:rgb(248, 248, 248);
 }
 
 .small20pxText{
@@ -708,12 +709,15 @@ font-family: Play;
     margin-top:6vh;
   }
 }
+.closeButtonInstructionsUI{
+  margin-top:20px;
+}
 
 /* ------------------------------------------------------------------- */
 /* Acordion instructions Menu */
 .accordion {
   /* background-color: #eee; */
-  color: #444;
+  color:rgb(7, 7, 155);
   cursor: pointer;
   padding: 18px;
   width: 100%;
@@ -722,6 +726,12 @@ font-family: Play;
   outline: none;
   font-size: 15px;
   transition: 0.4s;
+  font-family: 'Permanent Marker', cursive;
+}
+
+.hover-text-accordion{
+  color:rgb(141, 17, 17);
+  float:right;
 }
 
 .active, .accordion:hover {
@@ -737,8 +747,28 @@ font-family: Play;
 .acordion-panel{
   width: 60%;
   display: flex;
-  /* overflow: hidden; */
+  overflow: hidden;
   flex-direction: column;
+}
+
+.slide-content-h2{
+  font-size:30px;
+  color:rgb(7, 7, 155);
+  font-family: 'Permanent Marker', cursive;
+  margin-bottom: 10px
+}
+
+.slide-content-ul{
+  font-size:16px;
+  color:rgb(7, 7, 155);
+  padding: 15px;
+}
+
+.slide-content-quote{
+  font-style: italic;
+  color:rgb(116 113 113);
+  font-size:13px;
+  margin-bottom:10px;
 }
 
 .panel p{
@@ -746,12 +776,16 @@ font-family: Play;
   font-size:16px;
   background-color:white;
 }
+
+.slide-button{
+  margin-top:20px;
+}
 /* ------------------------------------------------------------------- */
 /* Gallery slideshow for towers */
 .container{
   font-size: 10px;
   display: flex;
-  min-height: 300px;
+  min-height: 350px;
   flex-direction: row;
 }
 
@@ -789,7 +823,7 @@ font-family: Play;
 .slide-content {
   width: 60%;
   float: right;
-  padding: 10% 8% 0em 8%;
+  padding: 3% 8% 0em 8%;
   position: relative;
 }
 .slide-img {
@@ -801,6 +835,7 @@ font-family: Play;
   align-content: center;
   justify-content: center;
   background: aliceblue;
+  align-items: center;
 }
 .slide-img :before {
   content: "";
@@ -816,6 +851,11 @@ font-family: Play;
   -ms-transition: all 0.5s ease-in-out;
   -moz-transition: all 0.5s ease-in-out;
   -webkit-transition: all 0.5s ease-in-out;
+}
+
+.slide-img img{
+  max-width: 10rem;
+  max-height: 10rem;
 }
 /* .button {
   display: block;
@@ -844,7 +884,7 @@ font-family: Play;
   color:black;
 }
 
-.active :before {
+/* .active :before {
   content: "";
   height: 100%;
   background-color: #fff;
@@ -853,7 +893,7 @@ font-family: Play;
   top: 0;
   bottom: 0;
   z-index: 5;
-}
+} */
 
 .inactive {
   color: #ccc;
