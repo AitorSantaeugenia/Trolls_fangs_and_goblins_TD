@@ -1,0 +1,74 @@
+.slideMin {
+    height: 100%;
+    width: 100%;
+    background-color: #fff;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+  .slideMin:before {
+    content: "";
+    height: 0%;
+    background-color: #fff;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 5;
+    transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -webkit-transition: all 0.5s ease-in-out;
+  }
+  .slide-img-min {
+    width: 40%;
+    float: left;
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    background: aliceblue;
+    align-items: center;
+  }
+  .slide-img-min :before {
+    content: "";
+    height: 0%;
+    background-color: #fff;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 5;
+    transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -webkit-transition: all 0.5s ease-in-out;
+  }
+  .slide-img-min img{
+    max-width: 10rem;
+  }
+  
+  .slide-button-min{
+    margin-top:20px;
+  }
+  .button-left-min {
+    float: left;
+   color: rgb(116 113 113);
+    font-size:20px;
+    cursor:pointer;
+  }
+  .button-right-min {
+    float: right;
+    text-align: right;
+    color: rgb(116 113 113);
+    font-size:20px;
+    cursor:pointer;
+  }   
+  .button-right-min:not(.inactive):hover, .button-left-min:not(.inactive):hover{
+    color:black;
+  }
