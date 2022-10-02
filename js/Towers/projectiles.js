@@ -43,11 +43,11 @@ class projectileTurret {
       if (this.gameDifficulty === "Hell") {
         this.w = 10;
         this.h = 10;
-        this.speed = 10;
+        this.speed = 40;
       } else {
         this.w = 12;
         this.h = 12;
-        this.speed = 10;
+        this.speed = 40;
       }
     } else if (this.turretType === "catapult") {
       if (this.gameDifficulty === "Hell") {
