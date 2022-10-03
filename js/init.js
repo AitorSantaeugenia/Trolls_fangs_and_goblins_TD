@@ -629,51 +629,6 @@ for (element = 0; element < buttonLevel.length; element++) {
     }, 1000);
   });
 }
-// Cheat code gallery -----------------------------------------------------------------------
-let slideCheatC = document.querySelectorAll(".slideCheatC"),
-  buttonCheatC = document.querySelectorAll(".btnAcordionCheat"),
-  currentCheatC = 0;
-
-slideCheatC[currentCheatC].style.zIndex = 2;
-buttonCheatC[0].classList.add("inactive");
-buttonCheatC[buttonCheatC.length - 1].classList.add("inactive");
-buttonCheatC = document.querySelectorAll(".btnAcordionCheat:not(.inactive");
-
-for (element = 0; element < buttonCheatC.length; element++) {
-  buttonCheatC[element].addEventListener("click", function () {
-    for (i = 0; i < slideCheatC.length; i++) {
-      document.querySelectorAll(".slide-img-cheat")[i].classList.add("active");
-      document.querySelectorAll(".slide-button-cheat")[i].style.color =
-        "#00000038;";
-    }
-
-    if (this.classList.contains("button-right-cheat")) {
-      currentCheatC++;
-      if (currentCheatC > slideCheatC.length - 1) {
-        currentCheatC = slideCheatC.length - 1;
-      }
-    }
-    if (this.classList.contains("button-left-cheat")) {
-      currentCheatC--;
-      if (currentCheatC < 0) {
-        currentCheatC = 0;
-      }
-    }
-
-    setTimeout(function () {
-      for (e = 0; e < slideCheatC.length; e++) {
-        slideCheatC[e].style.zIndex = "0";
-      }
-      slideCheatC[currentCheatC].style.zIndex = "2";
-      for (i = 0; i < slideCheatC.length; i++) {
-        document
-          .querySelectorAll(".slide-img-cheat")
-          [i].classList.remove("active");
-        document.querySelectorAll(".slide-button-cheat")[i].style.opacity = "1";
-      }
-    }, 1000);
-  });
-}
 //Remove the classes added previously in the accordion if it closes sudently by clicking the X button, the close button, or ESC key
 function closeAccordion() {
   for (i = 0; i < acc.length; i++) {
