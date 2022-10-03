@@ -83,8 +83,9 @@
       <!-- HIDDEN !!!! - We will implement this later -->
       <!-- Need to think what to do with ranked, if we can't implement it with vanillaJS -->
       <div class="doubleBtnDiv btnUIstartingMenu ">
-        <button id="customGameBtn" class="btn noDrag modalBtn"><img src="./images/loadScreen/otherText/customgame.png"
-            alt="Custom game button" class="smallerImgBtn noDrag"></button>
+        <button id="customGameBtn" class="btn noDrag modalBtn hidden"><img
+            src="./images/loadScreen/otherText/customgame.png" alt="Custom game button"
+            class="smallerImgBtn noDrag"></button>
         <button id="rankedGameBtn" class="btn noDrag modalBtn margin-leftDivBtn hidden"><img
             src="./images/loadScreen/otherText/rankedGame.png" alt="Ranked game button"
             class="smallerImgBtn noDrag"></button>
@@ -776,62 +777,28 @@
       </div>
 
       <button class="accordion">Cheat codes <span class="hover-text-accordion">Click to check
-          levels</span></button>
+          cheat codes</span></button>
       <div class="panel">
         <div class="container">
           <div class="wrapper">
 
             <div class="slideCheatC">
               <div class="slide-img-cheat">
-                <img src="./images/loadScreen/selectLevel/firstLevel.gif" alt="Easy level">
+                <img src="./images/utils/thanos_snap.gif" alt="Cheat codes">
               </div>
 
               <div class="slide-content">
-                <h2 class="slide-content-h2">Easy level</h2>
-                <p>Level to know how to play the game. Nearly impossible to lose the game.</p>
+                <h2 class="slide-content-h2">Cheat codes</h2>
+                <p>Press <b>ENTER</b> while playing to type the cheat code you want.</p>
 
-                <ul class="slide-content-ul">
-                  <li>Lives: 30</li>
-                  <li>Gold: 800</li>
-                  <li>Waves: 4</li>
-                  <li>Bosses: Ragnarök Dragon</li>
+                <ul class="slide-content-ul-cheat">
+                  <li>greedisgood: <span class="slide-content-ul-cheat-span">grants 200 gold</span></li>
+                  <li>hollymolly: <span class="slide-content-ul-cheat-span">grants 1000 gold</span></li>
+                  <li>whosyourdaddy: <span class="slide-content-ul-cheat-span">unlocks the B.F.T</span></li>
+                  <li>ezwin: <span class="slide-content-ul-cheat-span">instant win</span></li>
+                  <li>4lose: <span class="slide-content-ul-cheat-span">instant lose</span></li>
+                  <li>thanos: <span class="slide-content-ul-cheat-span">Oh, snap!, he's just inevitable</span></li>
                 </ul>
-
-                <div class="slide-button-cheat">
-                  <div class="btnAcordionCheat button-left-cheat">
-                    <i class="fa fa-long-arrow-left" aria-hidden="true"></i>
-                  </div>
-                  <div class="btnAcordionCheat button-right-cheat">
-                    <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="slideCheatC">
-              <div class="slide-img-cheat">
-                <img src="./images/loadScreen/selectLevel/secondLevel.gif" alt="Normal level">
-              </div>
-
-              <div class="slide-content">
-                <h2 class="slide-content-h2">Normal level</h2>
-                <p>Harder but not impossible. A wide variety of monsters to hunt.</p>
-
-                <ul class="slide-content-ul">
-                  <li>Lives: 20</li>
-                  <li>Gold: 600</li>
-                  <li>Waves: 5</li>
-                  <li>Bosses: Chimera dragon | Mercenary lord | Hell's commander</li>
-                </ul>
-
-                <div class="slide-button-cheat">
-                  <div class="btnAcordionCheat button-left-cheat">
-                    <i class="fa fa-long-arrow-left" aria-hidden="true"></i>
-                  </div>
-                  <div class="btnAcordionCheat button-right-cheat">
-                    <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
