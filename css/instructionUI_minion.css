@@ -72,3 +72,6 @@
   .button-right-min:not(.inactive):hover, .button-left-min:not(.inactive):hover{
     color:black;
   }
+  .inactive {
+    color: #ccc;
+  }
