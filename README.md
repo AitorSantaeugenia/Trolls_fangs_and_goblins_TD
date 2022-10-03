@@ -9,16 +9,23 @@
 
 ## If you want to play, click here
 
-<div align="center" style="border: 1px solid red">
+<div align="center">
 
 [![Start button](https://user-images.githubusercontent.com/14861253/193635756-324bc802-abc5-4732-a0c8-a6bee51eb34a.png)](https://aitorsantaeugenia.github.io/Trolls_fangs_and_goblins_TD/).
 <br>
 
 [or Here](https://aitorsantaeugenia.github.io/Trolls_fangs_and_goblins_TD/).
 
-</div
+</div>
 
 <br>
+
+<div align="center">
+
+```
+If you want to help solving bugs, refractoring or just adding new features, go ahead.
+```
+</div>
 
 ## What is this about?
 - A tower defense game like Warcraft 3 ROC / TFT in vanilla JavaScript only
@@ -45,6 +52,8 @@
 ---
 
 <code>TO-DO</code>
+- Accordion+gallery slider on instruction menu UI, needs to be responsive
+- Refractor code (and clear functions, classes, comments, minions names)
 - More towers, right now 4 more 
   - AOE++
   - POISON++
@@ -55,8 +64,6 @@
 - Better game balance
 - Bug background when resize
 - Not responsive, but solve some problems that happen when resizing
-- Accordion+gallery slider on instruction menu UI, needs to be responsive
-- Refractor code (and clear functions, classes, comments)
 
 <details>
   <summary><code>Maybe we will implement</code></summary>
