@@ -1,14 +1,29 @@
-# Trolls, fangs and goblins - Tower defense (Warcraft 3 style) v.2.0
+# Trolls, fangs and goblins - Tower defense v.2.0
 
 <code>A tower defense game made in vanilla JavaScript & Canvas</code>
 
+<div align="center">
+
+![Multiple image of levels](https://user-images.githubusercontent.com/14861253/193632986-90237e93-9b04-4f94-bd35-38c4a6542634.gif)
+</div>
+
+## If you want to play, click here
+
+<div align="center" style="border: 1px solid red">
+
+[![Start button](https://user-images.githubusercontent.com/14861253/193635756-324bc802-abc5-4732-a0c8-a6bee51eb34a.png)]().
+
+</div
+
+<br>
+
 ## What is this about?
-- A tower defense game like Warcraft 3 ROC / TFT
+- A tower defense game like Warcraft 3 ROC / TFT in vanilla JavaScript only
 - Place turrets into the canvas, selecting it and clicking where you want to place it.
-- Four maps: Easy, Normal, Hard & Hell
-- A lot of minions & hell minions, with bosses too.
-- Enjoy an amazing soundtrack
-- It's rumored there are some cheats (return key)
+- Four maps: <b>Easy, Normal, Hard & Hell</b>
+- A lot of <b>minions</b> & <b>hell minions</b>, with <b>bosses</b> too.
+- Enjoy an <b>amazing soundtrack</b>
+- It's rumored there are some <b><u>cheats</u></b> (return key)
 
 <details>
   <summary><code>Want to check cheat codes?</code></summary>
@@ -24,10 +39,7 @@
   ```  
 </details>
 
-
 ---
-
-[Try it](https://aitorsantaeugenia.github.io/TD_Project1/) || https://aitorsantaeugenia.github.io/TD_Project1/
 
 <code>TO-DO</code>
 - 2 more towers, maybe a third one
@@ -78,25 +90,48 @@
   - Instruction menu <br>
 </details>
 
+---
 
+<div align="center">
 
 ```
-If you have any suggesitons, plz don't be shy and tell me here on github |or| aitorsantaeugenia@gmail.com
+If you have any suggesitons, tell me here on github |or| aitorsantaeugenia@gmail.com
 ```
+</div>
 
-# In play game
-![In play game](https://user-images.githubusercontent.com/14861253/133678189-1784f8b9-0f65-4119-832f-186190dbdea4.gif)
+# Starting menu showcase
+<div align="center">
 
-# Starting screen
-![Tower defense start](https://user-images.githubusercontent.com/14861253/133671823-983263cc-db41-459a-a088-c77a538801dd.png)
-# Game screen
-![Game screen](https://user-images.githubusercontent.com/14861253/133672081-c2b681bd-a071-4fb1-b11b-ffb85bb87fc6.png)
-# Return key for some cheats
-![Return for cheats](https://user-images.githubusercontent.com/14861253/133672051-823e8365-06d9-475b-8d01-59761b59df77.png)
+![Menu showcase](https://user-images.githubusercontent.com/14861253/193631952-c34ab736-4e26-4f64-a237-14f08c9ad117.gif)
+</div>
+
+# In-game scenario showcase
+<div align="center">
+
+![Game showcase](https://user-images.githubusercontent.com/14861253/193631642-9428f64c-d1be-4023-b25f-8dd26a9bcf6a.gif)
+</div>
+
+# Easter eggs
+<code>He is indeed, inevitable</code>
+
+<div align="center">
+
+![Thanos snap](https://user-images.githubusercontent.com/14861253/193633195-82f51828-d720-4fd9-93ac-009bd099e99c.gif)
+</div>
+
+<code>Better do not lose.</code>
+
+<div align="center">
+
+![Lose screen](https://user-images.githubusercontent.com/14861253/193632223-b74ceea0-e742-43fb-8724-1370567e9a74.gif)
+</div>
 <br>
 
+<div align="center">
+
 ```
-  Done in vanilla Javascript
-  Using canvas
+  Done in vanilla Javascript & Canvas
+  BY-NC-SA
 ```
-BY-NC-SA
+
+</div>
