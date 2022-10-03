@@ -9,7 +9,7 @@
 }
 
 html{
-  background-image: url(./../images/utils/loadingScreen.png);
+  background-image: url(https://aitorsantaeugenia.github.io/Trolls_fangs_and_goblins_TD/images/utils/loadingScreen.png);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 50% 25%;
@@ -162,7 +162,7 @@ html{
   /* justify-content: center; */
   /* border: 1px solid red; */
   margin: 0 auto !important;
-  background-image: url("../images/menuUI/lowerMenuv2.png") !important;
+  background-image: url("https://aitorsantaeugenia.github.io/Trolls_fangs_and_goblins_TD/images/menuUI/lowerMenuv2.png") !important;
   background-repeat: no-repeat;
   background-position: bottom;
   margin-top: -219px !important;
@@ -498,7 +498,7 @@ font-family: Play;
     color: red;
     z-index: 1;
     width: 1200px;
-    background-image: url(../images/menuUI/topUI_reverse_v2_2.png);
+    background-image: url(https://aitorsantaeugenia.github.io/Trolls_fangs_and_goblins_TD/images/menuUI/topUI_reverse_v2_2.png);
     height: 82px;
     background-repeat: no-repeat;
     -webkit-user-drag: none;
