@@ -208,7 +208,6 @@ window.onload = function () {
   //if game started, clickin ESC show us the PAUSE GAME UI
   //if game didn't start, we use ESC to hide instructions/customGameUI, preventing some bugs with the third var gameStarted
   document.addEventListener("keydown", (e) => {
-    console.log(!instructionsGameUI.classList.contains("hidden"));
     //this will prevent to call PAUSE when game is false (like win/lose scenarios)
     let gameStatus = start.checkGameStatus();
     let pauseStatus = start.checkPauseStatus();
@@ -483,6 +482,8 @@ for (i = 0; i < acc.length; i++) {
     acc[1].nextElementSibling.style.display = "none";
     acc[2].classList.remove("active");
     acc[2].nextElementSibling.style.display = "none";
+    acc[3].classList.remove("active");
+    acc[3].nextElementSibling.style.display = "none";
 
     this.classList.add("active");
 
@@ -624,6 +625,51 @@ for (element = 0; element < buttonLevel.length; element++) {
           .querySelectorAll(".slide-img-lvl")
           [i].classList.remove("active");
         document.querySelectorAll(".slide-button-lvl")[i].style.opacity = "1";
+      }
+    }, 1000);
+  });
+}
+// Cheat code gallery -----------------------------------------------------------------------
+let slideCheatC = document.querySelectorAll(".slideCheatC"),
+  buttonCheatC = document.querySelectorAll(".btnAcordionCheat"),
+  currentCheatC = 0;
+
+slideCheatC[currentCheatC].style.zIndex = 2;
+buttonCheatC[0].classList.add("inactive");
+buttonCheatC[buttonCheatC.length - 1].classList.add("inactive");
+buttonCheatC = document.querySelectorAll(".btnAcordionCheat:not(.inactive");
+
+for (element = 0; element < buttonCheatC.length; element++) {
+  buttonCheatC[element].addEventListener("click", function () {
+    for (i = 0; i < slideCheatC.length; i++) {
+      document.querySelectorAll(".slide-img-cheat")[i].classList.add("active");
+      document.querySelectorAll(".slide-button-cheat")[i].style.color =
+        "#00000038;";
+    }
+
+    if (this.classList.contains("button-right-cheat")) {
+      currentCheatC++;
+      if (currentCheatC > slideCheatC.length - 1) {
+        currentCheatC = slideCheatC.length - 1;
+      }
+    }
+    if (this.classList.contains("button-left-cheat")) {
+      currentCheatC--;
+      if (currentCheatC < 0) {
+        currentCheatC = 0;
+      }
+    }
+
+    setTimeout(function () {
+      for (e = 0; e < slideCheatC.length; e++) {
+        slideCheatC[e].style.zIndex = "0";
+      }
+      slideCheatC[currentCheatC].style.zIndex = "2";
+      for (i = 0; i < slideCheatC.length; i++) {
+        document
+          .querySelectorAll(".slide-img-cheat")
+          [i].classList.remove("active");
+        document.querySelectorAll(".slide-button-cheat")[i].style.opacity = "1";
       }
     }, 1000);
   });
