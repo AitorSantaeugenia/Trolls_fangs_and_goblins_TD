@@ -14,10 +14,12 @@ class projectileTurret {
     //load projectiles
     this.img = new Image();
     this.img.type = {
-      sand: "./images/bullets/sandrock.png",
-      catapult: "./images/bullets/rockchain.png",
-      slow: "./images/bullets/snowball.png",
-      flame: "./images/bullets/fireball.png",
+      sand: "https://aitorsantaeugenia.github.io/Trolls_fangs_and_goblins_TD/images/bullets/sandrock.png",
+      catapult:
+        "https://aitorsantaeugenia.github.io/Trolls_fangs_and_goblins_TD/images/bullets/rockchain.png",
+      slow: "https://aitorsantaeugenia.github.io/Trolls_fangs_and_goblins_TD/images/bullets/snowball.png",
+      flame:
+        "https://aitorsantaeugenia.github.io/Trolls_fangs_and_goblins_TD/images/bullets/fireball.png",
     };
     this.img.src = this.img.type[turretType];
     //Width - Height
