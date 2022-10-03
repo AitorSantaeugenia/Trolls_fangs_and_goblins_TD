@@ -82,10 +82,10 @@
 
       <!-- HIDDEN !!!! - We will implement this later -->
       <!-- Need to think what to do with ranked, if we can't implement it with vanillaJS -->
-      <div class="doubleBtnDiv btnUIstartingMenu hidden">
+      <div class="doubleBtnDiv btnUIstartingMenu ">
         <button id="customGameBtn" class="btn noDrag modalBtn"><img src="./images/loadScreen/otherText/customgame.png"
             alt="Custom game button" class="smallerImgBtn noDrag"></button>
-        <button id="rankedGameBtn" class="btn noDrag modalBtn margin-leftDivBtn"><img
+        <button id="rankedGameBtn" class="btn noDrag modalBtn margin-leftDivBtn hidden"><img
             src="./images/loadScreen/otherText/rankedGame.png" alt="Ranked game button"
             class="smallerImgBtn noDrag"></button>
       </div>
@@ -794,7 +794,11 @@
       </div>
     </div>
     <div>
-      Custom Game
+      <p class="instructionsP">Custom Game</p>
+      <p class="instructionsP">Work in progress</p>
+      <p class="instructionsCG">We want to create a "biome" for each map, with each path, so it means 4x3 maps and
+        it's a huge work. Also we need to tweak some scripts if we want to be full customizable (player will be able to
+        chose minions, bosses, waves, lives, towers, etc)</p>
     </div>
     <div>
       <button id="customGameUIStartingBTN" class="btn noDrag modalBtn" style="margin-bottom:20px"><img
