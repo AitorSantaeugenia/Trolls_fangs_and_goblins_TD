@@ -798,6 +798,17 @@ font-family: Play;
   padding: 15px;
 }
 
+.slide-content-ul-cheat{
+  font-size:16px;
+  color:rgb(0 126 34);
+  padding: 15px;
+}
+
+.slide-content-ul-cheat-span{
+  color: #df4e4e;
+  font-size: 14px;
+}
+
 .slide-content-quote{
   font-style: italic;
   color:rgb(116 113 113);
