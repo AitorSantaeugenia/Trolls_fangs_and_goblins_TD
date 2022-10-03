@@ -728,6 +728,7 @@ font-family: Play;
   font-size: 15px;
   transition: 0.4s;
   font-family: 'Permanent Marker', cursive;
+  z-index: 3;
 }
 
 .hover-text-accordion{
@@ -752,7 +753,7 @@ font-family: Play;
 }
 
 .slide-content-h2{
-  font-size:30px;
+  font-size:25px;
   color:rgb(7, 7, 155);
   font-family: 'Permanent Marker', cursive;
   margin-bottom: 10px
