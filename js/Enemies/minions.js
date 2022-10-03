@@ -20,9 +20,9 @@ class Minons extends Enemy {
     this.randomImage = Math.trunc(Math.random() * 15);
     this.img = new Image();
     if (this.gameDifficulty === "Hell") {
-      this.img.src = `./images/enemies/Osprites/${this.randomImage}.png`;
+      this.img.src = `https://aitorsantaeugenia.github.io/Trolls_fangs_and_goblins_TD/images/enemies/Osprites/${this.randomImage}.png`;
     } else {
-      this.img.src = `./images/enemies/sprites/${this.randomImage}.png`;
+      this.img.src = `https://aitorsantaeugenia.github.io/Trolls_fangs_and_goblins_TD/images/enemies/sprites/${this.randomImage}.png`;
     }
 
     this.canvas = document.querySelector("canvas");
