@@ -80,7 +80,9 @@
             alt="Start button" class="smallerImg noDrag"></button>
       </div>
 
-      <div class="doubleBtnDiv btnUIstartingMenu">
+      <!-- HIDDEN !!!! - We will implement this later -->
+      <!-- Need to think what to do with ranked, if we can't implement it with vanillaJS -->
+      <div class="doubleBtnDiv btnUIstartingMenu hidden">
         <button id="customGameBtn" class="btn noDrag modalBtn"><img src="./images/loadScreen/otherText/customgame.png"
             alt="Custom game button" class="smallerImgBtn noDrag"></button>
         <button id="rankedGameBtn" class="btn noDrag modalBtn margin-leftDivBtn"><img
@@ -390,8 +392,6 @@
                 </div>
               </div>
             </div>
-
-
             <div class="slideMin">
               <div class="slide-img-min">
                 <img src="./images/enemies/gifs/Ospirtes/multiple_gif_hell_minions.gif" alt="Hell minions">
@@ -419,24 +419,21 @@
                 </div>
               </div>
             </div>
-
-
             <div class="slideMin">
               <div class="slide-img-min">
-                <img src="./images/towers/freezeTurret.png" alt="Snow Turret">
+                <img src="./images/enemies/gifs/bosses/dragon.gif" alt="Dragon">
               </div>
 
               <div class="slide-content">
-                <h2 class="slide-content-h2">Snow Turret</h2>
-                <p>Slow rate of fire and lowest damage. But slows for one second everything it hits.</p>
+                <h2 class="slide-content-h2">Ragnarök Dragon</h2>
+                <p>A dragon that caused the destruction of an old world. Looks big but it's not that strong.</p>
 
                 <ul class="slide-content-ul">
-                  <li>Damage: 0.5</li>
-                  <li>Range: 255</li>
-                  <li>Rate: 10</li>
-                  <li>Cost: 200</li>
+                  <li>Hit points: 500</li>
+                  <li>Speed: 1.4</li>
+                  <li>Gold given: 50</li>
                 </ul>
-                <span class="slide-content-quote">"Freeze you idiot, you fucking idiot.." - Ty'ron, the great</span>
+                <span class="slide-content-quote">"A parrot, a parrot, ruuun!." - Key'lo, the drinkmaster</span>
 
                 <div class="slide-button-min">
                   <div class="btnAcordionMin button-left-min">
@@ -451,21 +448,192 @@
 
             <div class="slideMin">
               <div class="slide-img-min">
-                <img src="./images/towers/flameTurret.png" alt="BFT Turret">
+                <img src="./images/enemies/gifs/bosses/dragon_boss.gif" alt="Dragon boss">
               </div>
 
               <div class="slide-content">
-                <h2 class="slide-content-h2">B.F.T</h2>
-                <p>Highest damage, highest rate of fire, highest range.
-                  The blueprint of this turret was found under Flagor'ath, the magic volcano.</p>
+                <h2 class="slide-content-h2">Chimera dragon</h2>
+                <p>Big tank dragon from outer worlds. No one saw them flying, so no one know how they came here.
+                  Kill it, it's worth... Or at least try it.</p>
 
                 <ul class="slide-content-ul">
-                  <li>Damage: 35</li>
-                  <li>Range: 450</li>
-                  <li>Rate: 40</li>
-                  <li>Cost: 300</li>
+                  <li>Hit points: 1000</li>
+                  <li>Speed: 1</li>
+                  <li>Gold given: 80</li>
                 </ul>
-                <span class="slide-content-quote">"Power unlocked by witchcraft." - Chee'tah, himself</span>
+                <span class="slide-content-quote">"Yo mama so fat, she can't fly, hahahaha." <br>- Key'lo, already
+                  drunk</span>
+
+                <div class="slide-button-min">
+                  <div class="btnAcordionMin button-left-min">
+                    <i class="fa fa-long-arrow-left" aria-hidden="true"></i>
+                  </div>
+                  <div class="btnAcordionMin button-right-min">
+                    <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="slideMin">
+              <div class="slide-img-min">
+                <img src="./images/enemies/gifs/bosses/lord_2.gif" alt="Lord">
+              </div>
+
+              <div class="slide-content">
+                <h2 class="slide-content-h2">Mercenary lord</h2>
+                <p>Carefully with these. The only thing they know to do is run when everything is going bad. And believe
+                  me, they do and fast.</p>
+
+                <ul class="slide-content-ul">
+                  <li>Hit points: 2000</li>
+                  <li>Speed: 1.8</li>
+                  <li>Gold given: 100</li>
+                </ul>
+                <span class="slide-content-quote">"Do you have shelter for an old friend?." <br>- A mercenary
+                  lord switching sides, again.</span>
+
+                <div class="slide-button-min">
+                  <div class="btnAcordionMin button-left-min">
+                    <i class="fa fa-long-arrow-left" aria-hidden="true"></i>
+                  </div>
+                  <div class="btnAcordionMin button-right-min">
+                    <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="slideMin">
+              <div class="slide-img-min">
+                <img src="./images/enemies/gifs/bosses/lord.gif" alt="Hell's commander">
+              </div>
+
+              <div class="slide-content">
+                <h2 class="slide-content-h2">Hell's commander</h2>
+                <p>Leaders, terrifying, commanders of hell. If you see one, better prepare because it's a sign that the
+                  end is near.</p>
+
+                <ul class="slide-content-ul">
+                  <li>Hit points: 5000</li>
+                  <li>Speed: 1</li>
+                  <li>Gold given: 150</li>
+                </ul>
+                <span class="slide-content-quote">"Lead, travel to the living world, kill, destroy and in the end,
+                  you'll gather information for me." <br>- San'tan, King of hell.</span>
+
+                <div class="slide-button-min">
+                  <div class="btnAcordionMin button-left-min">
+                    <i class="fa fa-long-arrow-left" aria-hidden="true"></i>
+                  </div>
+                  <div class="btnAcordionMin button-right-min">
+                    <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="slideMin">
+              <div class="slide-img-min">
+                <img src="./images/enemies/gifs/bosses/queen.gif" alt="Succubus">
+              </div>
+
+              <div class="slide-content">
+                <h2 class="slide-content-h2">Succubus</h2>
+                <p>Master of lies. Don't believe them. Will try to be your friend, to seduce you and of course, kill
+                  you. In the end you will join the evil army.</p>
+
+                <ul class="slide-content-ul">
+                  <li>Hit points: 800</li>
+                  <li>Speed: 1.4</li>
+                  <li>Gold given: 70</li>
+                </ul>
+                <span class="slide-content-quote">"The reason that hell is full." - Ee'Lashee, the boy
+                  wonder.</span>
+
+                <div class="slide-button-min">
+                  <div class="btnAcordionMin button-left-min">
+                    <i class="fa fa-long-arrow-left" aria-hidden="true"></i>
+                  </div>
+                  <div class="btnAcordionMin button-right-min">
+                    <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="slideMin">
+              <div class="slide-img-min">
+                <img src="./images/enemies/gifs/bosses/king.gif" alt="King of hell">
+              </div>
+
+              <div class="slide-content">
+                <h2 class="slide-content-h2">San'tan, King of hell</h2>
+                <p>The ruler of hell, king of evil. Once he shows up, better be prepared.</p>
+
+                <ul class="slide-content-ul">
+                  <li>Hit points: 10000</li>
+                  <li>Speed: 1</li>
+                  <li>Gold given: 250</li>
+                </ul>
+                <span class="slide-content-quote">"This world is mine." - San'tan, King of hell.</span>
+
+                <div class="slide-button-min">
+                  <div class="btnAcordionMin button-left-min">
+                    <i class="fa fa-long-arrow-left" aria-hidden="true"></i>
+                  </div>
+                  <div class="btnAcordionMin button-right-min">
+                    <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="slideMin">
+              <div class="slide-img-min">
+                <img src="./images/enemies/gifs/bosses/dragon_lord_boss.gif" alt="Gal'roch, hellfire dragon">
+              </div>
+
+              <div class="slide-content">
+                <h2 class="slide-content-h2">Gal'roch, hellfire dragon</h2>
+                <p>The greatest beast in hell. His presence terrifies all humankind.</p>
+
+                <ul class="slide-content-ul">
+                  <li>Hit points: 20000</li>
+                  <li>Speed: 1.2</li>
+                  <li>Gold given: 500</li>
+                </ul>
+                <span class="slide-content-quote">"I'll grab your fangs as a reward." - Thra'llags, the
+                  dragonslayer.</span>
+
+                <div class="slide-button-min">
+                  <div class="btnAcordionMin button-left-min">
+                    <i class="fa fa-long-arrow-left" aria-hidden="true"></i>
+                  </div>
+                  <div class="btnAcordionMin button-right-min">
+                    <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="slideMin">
+              <div class="slide-img-min">
+                <img src="./images/enemies/gifs/bosses/snow_lord.gif" alt="Mo'koo, the ancient winter">
+              </div>
+
+              <div class="slide-content">
+                <h2 class="slide-content-h2">Mo'koo, the ancient winter</h2>
+                <p>He was supposed to be our saviour, the one who could freeze hell. No one knows how he joined the evil
+                  side. Legends says that when he walk causes earthquakes.</p>
+
+                <ul class="slide-content-ul">
+                  <li>Hit points: 25000</li>
+                  <li>Speed: 1</li>
+                  <li>Gold given: 500</li>
+                </ul>
+                <span class="slide-content-quote">"Traitor, traitor!, Your big size won't stop me of stab your mountain
+                  ass.." - Chee'tah, himself.</span>
 
                 <div class="slide-button-min">
                   <div class="btnAcordionMin button-left-min">
@@ -490,78 +658,19 @@
 
             <div class="slideLevel">
               <div class="slide-img-lvl">
-                <img src="./images/enemies/gifs/minions.gif" alt="Minions">
+                <img src="./images/loadScreen/selectLevel/firstLevel.gif" alt="Easy level">
               </div>
 
               <div class="slide-content">
-                <h2 class="slide-content-h2">Sand Turret</h2>
-                <p>Lowest damage turret with a hight rate of fire.
-                  Orcs and other minions run like cowards when they see a bunch of it.</p>
+                <h2 class="slide-content-h2">Easy level</h2>
+                <p>Level to know how to play the game. Nearly impossible to lose the game.</p>
 
                 <ul class="slide-content-ul">
-                  <li>Damage: 5</li>
-                  <li>Range: 450</li>
-                  <li>Rate: 12</li>
-                  <li>Cost: 70</li>
+                  <li>Lives: 30</li>
+                  <li>Gold: 800</li>
+                  <li>Waves: 4</li>
+                  <li>Bosses: Ragnarök Dragon</li>
                 </ul>
-                <span class="slide-content-quote">"Mass this, they will fear." - Ja'var-tar, the builder</span>
-
-                <div class="slide-button-lvl">
-                  <div class="btnAcordionLvl button-left-lvl">
-                    <i class="fa fa-long-arrow-left" aria-hidden="true"></i>
-                  </div>
-                  <div class="btnAcordionLvl button-right-lvl">
-                    <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="slideLevel">
-              <div class="slide-img-lvl">
-                <img src="./images/towers/stoneTurret.png" alt="Stone Turret">
-              </div>
-
-              <div class="slide-content">
-                <h2 class="slide-content-h2">Stone Turret</h2>
-                <p>Lowest fire rate but hits like an asteroid with the largest range of fire.
-                  Villagers thought it could be impossible to fire those big rocks.</p>
-
-                <ul class="slide-content-ul">
-                  <li>Damage: 20</li>
-                  <li>Range: 255</li>
-                  <li>Rate: 8</li>
-                  <li>Cost: 70</li>
-                </ul>
-                <span class="slide-content-quote">"Highly cost, highly efficient." - Gor'Mund, the peddler</span>
-
-                <div class="slide-button-lvl">
-                  <div class="btnAcordionLvl button-left-lvl">
-                    <i class="fa fa-long-arrow-left" aria-hidden="true"></i>
-                  </div>
-                  <div class="btnAcordionLvl button-right-lvl">
-                    <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-
-            <div class="slideLevel">
-              <div class="slide-img-lvl">
-                <img src="./images/towers/freezeTurret.png" alt="Snow Turret">
-              </div>
-
-              <div class="slide-content">
-                <h2 class="slide-content-h2">Snow Turret</h2>
-                <p>Slow rate of fire and lowest damage. But slows for one second everything it hits.</p>
-
-                <ul class="slide-content-ul">
-                  <li>Damage: 0.5</li>
-                  <li>Range: 255</li>
-                  <li>Rate: 10</li>
-                  <li>Cost: 200</li>
-                </ul>
-                <span class="slide-content-quote">"Freeze you idiot, you fucking idiot.." - Ty'ron, the great</span>
 
                 <div class="slide-button-lvl">
                   <div class="btnAcordionLvl button-left-lvl">
@@ -576,21 +685,77 @@
 
             <div class="slideLevel">
               <div class="slide-img-lvl">
-                <img src="./images/towers/flameTurret.png" alt="BFT Turret">
+                <img src="./images/loadScreen/selectLevel/secondLevel.gif" alt="Normal level">
               </div>
 
               <div class="slide-content">
-                <h2 class="slide-content-h2">B.F.T</h2>
-                <p>Highest damage, highest rate of fire, highest range.
-                  The blueprint of this turret was found under Flagor'ath, the magic volcano.</p>
+                <h2 class="slide-content-h2">Normal level</h2>
+                <p>Harder but not impossible. A wide variety of monsters to hunt.</p>
 
                 <ul class="slide-content-ul">
-                  <li>Damage: 35</li>
-                  <li>Range: 450</li>
-                  <li>Rate: 40</li>
-                  <li>Cost: 300</li>
+                  <li>Lives: 20</li>
+                  <li>Gold: 600</li>
+                  <li>Waves: 5</li>
+                  <li>Bosses: Chimera dragon | Mercenary lord | Hell's commander</li>
                 </ul>
-                <span class="slide-content-quote">"Power unlocked by witchcraft." - Chee'tah, himself</span>
+
+                <div class="slide-button-lvl">
+                  <div class="btnAcordionLvl button-left-lvl">
+                    <i class="fa fa-long-arrow-left" aria-hidden="true"></i>
+                  </div>
+                  <div class="btnAcordionLvl button-right-lvl">
+                    <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="slideLevel">
+              <div class="slide-img-lvl">
+                <img src="./images/loadScreen/selectLevel/thirdLevel.gif" alt="Hard level">
+              </div>
+
+              <div class="slide-content">
+                <h2 class="slide-content-h2">Hard level</h2>
+                <p>Less lives, less gold, more minions and stronger bosses.</p>
+
+                <ul class="slide-content-ul">
+                  <li>Lives: 20</li>
+                  <li>Gold: 500</li>
+                  <li>Waves: 7</li>
+                  <li>Bosses: Ragnarök Dragon | Chimera dragon | Mercenary lord | Succubus | Hell's commander | Mo'koo
+                  </li>
+
+                </ul>
+
+                <div class="slide-button-lvl">
+                  <div class="btnAcordionLvl button-left-lvl">
+                    <i class="fa fa-long-arrow-left" aria-hidden="true"></i>
+                  </div>
+                  <div class="btnAcordionLvl button-right-lvl">
+                    <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="slideLevel">
+              <div class="slide-img-lvl">
+                <img src="./images/loadScreen/selectLevel/fourthLevel.gif" alt="Hell level">
+              </div>
+
+              <div class="slide-content">
+                <h2 class="slide-content-h2">Hell level</h2>
+                <p>Hardest level of the game. Every evil creature is there.</p>
+
+                <ul class="slide-content-ul">
+                  <li>Lives: 10</li>
+                  <li>Gold: 500</li>
+                  <li>Waves: 10</li>
+                  <li>Bosses: All</li>
+                </ul>
+
+                <span class="slide-content-quote-lvl">Evil minions get stronger in this place.</span>
 
                 <div class="slide-button-lvl">
                   <div class="btnAcordionLvl button-left-lvl">
@@ -604,6 +769,7 @@
             </div>
 
           </div>
+
         </div>
       </div>
     </div>
@@ -613,7 +779,10 @@
           class="smallerImgExitBtn noDrag"></button><br>
     </div>
   </div>
+
+  </div>
   <!-- CUSTOM GAME MENU UI -->
+  <!-- We will implement this later, there is a lot of work creating 3x4 maps-->
   <div id="customGameUI" class="hidden">
     <div class="closeIcoX">
       <img src="./images/menuUI/icons/close_ico.png" alt="Close button" class="xButtonClose noDrag"
@@ -635,6 +804,7 @@
     </div>
   </div>
   <!-- Ranked GAME MENU UI -->
+  <!-- We will implement this later, or maybe not, we don't care about ranked if we can't do it with vanillaJS -->
   <div id="rankedGameUI" class="hidden">
     <div class="closeIcoX">
       <img src="./images/menuUI/icons/close_ico.png" alt="Close button" class="xButtonClose noDrag"
