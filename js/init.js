@@ -47,6 +47,7 @@ window.onload = function () {
   const restartButtonFromPause = document.getElementById("restartPauseBtn");
   //exit button
   const exitButtonFromPause = document.getElementById("toMenuPauseBtn");
+  const instructionsPauseBtn = document.getElementById("instructionsPauseBtn");
 
   //STARTING MENU - buttons
   //instructions button in starting Menu
@@ -237,6 +238,7 @@ window.onload = function () {
         gameStarted === "true")
     ) {
       if (e.code === "Escape") {
+        instructionsGameUI.classList.add("hidden");
         start.pauseGame();
       }
     }
@@ -354,6 +356,10 @@ window.onload = function () {
   }
   //instructions game menu
   instructionButton.addEventListener("click", function () {
+    instructionsGameUI.classList.remove("hidden");
+  });
+
+  instructionsPauseBtn.addEventListener("click", function () {
     instructionsGameUI.classList.remove("hidden");
   });
 
