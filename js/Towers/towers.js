@@ -16,7 +16,8 @@ class Turret {
     this.selectionTurret = false;
     // IMG
     this.img = new Image();
-    this.img.src = "./images/towers/sandTurret.png";
+    this.img.src =
+      "https://aitorsantaeugenia.github.io/Trolls_fangs_and_goblins_TD/images/towers/sandTurret.png";
 
     //we add canvas
     this.canvas = document.getElementById("canvas");
@@ -125,7 +126,8 @@ class CatapultTurret extends Turret {
     this.gameDifficulty = mode;
 
     this.img = new Image();
-    this.img.src = "./images/towers/stoneTurret.png";
+    this.img.src =
+      "https://aitorsantaeugenia.github.io/Trolls_fangs_and_goblins_TD/images/towers/stoneTurret.png";
   }
 }
 
@@ -144,7 +146,8 @@ class SlowTurret extends Turret {
     this.gameDifficulty = mode;
 
     this.img = new Image();
-    this.img.src = "./images/towers/freezeTurret.png";
+    this.img.src =
+      "https://aitorsantaeugenia.github.io/Trolls_fangs_and_goblins_TD/images/towers/freezeTurret.png";
   }
 }
 
@@ -162,6 +165,7 @@ class FlameTurret extends Turret {
     this.gameDifficulty = mode;
 
     this.img = new Image();
-    this.img.src = "./images/towers/flameTurret.png";
+    this.img.src =
+      "https://aitorsantaeugenia.github.io/Trolls_fangs_and_goblins_TD/images/towers/flameTurret.png";
   }
 }
