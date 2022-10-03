@@ -50,7 +50,6 @@
     -webkit-transition: all 0.5s ease-in-out;
   }
   .slide-img-lvl img{
-    max-width: 10rem;
     max-height: 10rem;
   }
   
@@ -72,4 +71,14 @@
   }   
   .button-right-lvl:not(.inactive):hover, .button-left-lvl:not(.inactive):hover{
     color:black;
+  }
+  .inactive {
+    color: #ccc;
+  }
+
+  .slide-content-quote-lvl{
+    font-style: italic;
+    color:rgb(141, 17, 17);
+    font-size:13px;
+    margin-bottom:10px;
   }
