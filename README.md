@@ -113,13 +113,20 @@ If you have any suggesitons, tell me here on github |or| aitorsantaeugenia@gmail
 
 # Easter eggs
 <code>He is indeed, inevitable</code>
-
+<details>
+  <summary><code>Why this cheatcode?</code></summary>
+  I wanted to do some fun cheat codes (more are coming), and I remembered the Google easter egg they did with Thanos. So I found the gauntlet they used and tried my "own" animation.
+</details><br>
 <div align="center">
 
 ![Thanos snap](https://user-images.githubusercontent.com/14861253/193633195-82f51828-d720-4fd9-93ac-009bd099e99c.gif)
 </div>
 
 <code>Better do not lose.</code>
+<details>
+  <summary><code>Why this easteregg?</code></summary>
+  I was trying to do something for the ending screen on losing the game. But I didn't like the audio or the animations.. So I browse reddit, and... voilá.
+</details><br>
 
 <div align="center">
 
