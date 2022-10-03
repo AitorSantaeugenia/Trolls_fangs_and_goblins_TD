@@ -15,8 +15,10 @@ class StartGame {
     this.audio1 = "";
     this.audio2 = document.getElementById("victoryMusic");
     this.audio3 = document.getElementById("defeatMusic");
-    this.audio4 = "./sounds/GameSounds/jobdone.mp3";
-    this.audio5 = "./sounds/GameSounds/liveless.mp3";
+    this.audio4 =
+      "https://aitorsantaeugenia.github.io/Trolls_fangs_and_goblins_TD/sounds/GameSounds/jobdone.mp3";
+    this.audio5 =
+      "https://aitorsantaeugenia.github.io/Trolls_fangs_and_goblins_TD/sounds/GameSounds/liveless.mp3";
     this.audio6 = document.getElementById("moreGoldSound");
     this.audio7 = document.getElementById("thanosInevitable");
 
@@ -27,9 +29,11 @@ class StartGame {
     this.framesCounter = 0;
 
     this.loser = new Image();
-    this.loser.src = "./../../images/utils/defeat.png";
+    this.loser.src =
+      "https://aitorsantaeugenia.github.io/Trolls_fangs_and_goblins_TD/images/utils/defeat.png";
     this.winner = new Image();
-    this.winner.src = "./../../images/utils/victory.png";
+    this.winner.src =
+      "https://aitorsantaeugenia.github.io/Trolls_fangs_and_goblins_TD/images/utils/victory.png";
     this.endGameMenuDiv = document.getElementById("endGameMenu");
     this.restartTextCd = document.getElementById("restartingTimerText");
     this.soundOn = document.getElementById("yesSound");
@@ -64,7 +68,8 @@ class StartGame {
     this.downloadTimer = "";
     this.placeHolderImg = new Image();
     this.castleImage = new Image();
-    this.castleImage.src = "../../images/utils/hell_castle.png";
+    this.castleImage.src =
+      "https://aitorsantaeugenia.github.io/Trolls_fangs_and_goblins_TD/images/utils/hell_castle.png";
     this.towersInPath = new Turret();
 
     //we specify the range of the turret here instead of tower.js
@@ -111,7 +116,8 @@ class StartGame {
         [1200, 350],
       ]; // Path1
       //path floor
-      this.pathFloor = "./images/terrain/grass.png";
+      this.pathFloor =
+        "https://aitorsantaeugenia.github.io/Trolls_fangs_and_goblins_TD/images/terrain/grass.png";
       this.board = new Waypoint(this.context, this.path, 20, this.pathFloor);
       //size of turrets & hitbox
       this.turretSizeW = 60;
@@ -122,7 +128,8 @@ class StartGame {
       this.campfireX = 455;
       this.campfireY = 490;
       //background img
-      this.canvas.style.backgroundImage = "url(./images/maps/mapOne.png)";
+      this.canvas.style.backgroundImage =
+        "url(https://aitorsantaeugenia.github.io/Trolls_fangs_and_goblins_TD/images/maps/mapOne.png)";
       //selecting songtrack
       this.audio1 = document.getElementById("backgroundMusic");
       this.divisorCampfire = 1;
@@ -141,7 +148,8 @@ class StartGame {
         [1200, 255.5],
       ];
       //path floor
-      this.pathFloor = "./images/terrain/stone.png";
+      this.pathFloor =
+        "https://aitorsantaeugenia.github.io/Trolls_fangs_and_goblins_TD/images/terrain/stone.png";
       this.board = new Waypoint(this.context, this.path, 20, this.pathFloor);
       this.turretSizeW = 40;
       this.turretSizeH = 50;
@@ -151,7 +159,8 @@ class StartGame {
       this.campfireX = 740;
       this.campfireY = 490;
       //background img
-      this.canvas.style.backgroundImage = "url(./images/maps/mapTwoSpooky.png)";
+      this.canvas.style.backgroundImage =
+        "url(https://aitorsantaeugenia.github.io/Trolls_fangs_and_goblins_TD/images/maps/mapTwoSpooky.png)";
       //selecting songtrack
       this.audio1 = document.getElementById("twistedTreelineSong");
       this.divisorCampfire = 1;
@@ -180,7 +189,8 @@ class StartGame {
         [1200, 250],
       ];
       //path floor
-      this.pathFloor = "./images/terrain/iceBox.png";
+      this.pathFloor =
+        "https://aitorsantaeugenia.github.io/Trolls_fangs_and_goblins_TD/images/terrain/iceBox.png";
       this.board = new Waypoint(this.context, this.path, 20, this.pathFloor);
       this.turretSizeW = 40;
       this.turretSizeH = 50;
@@ -191,7 +201,7 @@ class StartGame {
       this.campfireY = 170;
       //background img
       this.canvas.style.backgroundImage =
-        "url(./images/maps/mapThreeSnowBiome.png)";
+        "url(https://aitorsantaeugenia.github.io/Trolls_fangs_and_goblins_TD/images/maps/mapThreeSnowBiome.png)";
       //selecting songtrack
       this.audio1 = document.getElementById("backgroundMusic");
       this.divisorCampfire = 2;
@@ -213,7 +223,8 @@ class StartGame {
         [1200, 400],
       ];
       //path floor
-      this.pathFloor = "./images/terrain/lava.png";
+      this.pathFloor =
+        "https://aitorsantaeugenia.github.io/Trolls_fangs_and_goblins_TD/images/terrain/lava.png";
       this.board = new Waypoint(this.context, this.path, 20, this.pathFloor);
       this.turretSizeW = 30;
       this.turretSizeH = 40;
@@ -221,7 +232,8 @@ class StartGame {
       this.minonWidth = 30;
       this.minionHeight = 30;
       //background img
-      this.canvas.style.backgroundImage = "url(./images/maps/mapFourHell.png)";
+      this.canvas.style.backgroundImage =
+        "url(https://aitorsantaeugenia.github.io/Trolls_fangs_and_goblins_TD/images/maps/mapFourHell.png)";
       //selecting songtrack
       this.audio1 = document.getElementById("pothSong");
       this.divisorCampfire = 4;
@@ -237,7 +249,8 @@ class StartGame {
         [1200, 350],
       ];
       //path floor
-      this.pathFloor = "./images/terrain/grass.png";
+      this.pathFloor =
+        "https://aitorsantaeugenia.github.io/Trolls_fangs_and_goblins_TD/images/terrain/grass.png";
       this.board = new Waypoint(this.context, this.path, 20, this.pathFloor);
       //default size of turrets
       this.turretSizeW = 60;
@@ -248,7 +261,8 @@ class StartGame {
       this.campfireX = 455;
       this.campfireY = 490;
       //background img
-      this.canvas.style.backgroundImage = "url(./images/maps/mapOne.png)";
+      this.canvas.style.backgroundImage =
+        "url(https://aitorsantaeugenia.github.io/Trolls_fangs_and_goblins_TD/images/maps/mapOne.png)";
       //selecting songtrack
       this.audio1 = document.getElementById("backgroundMusic");
       this.divisorCampfire = 1;
@@ -450,16 +464,20 @@ class StartGame {
     if (this.turretSelected && this.userGold >= 70) {
       if (this.turretSelected === "sand") {
         turretRangeIs = this.getTurretRange(this.turretSelected);
-        this.placeHolderImg.src = "../../images/towers/sandTurret.png";
+        this.placeHolderImg.src =
+          "https://aitorsantaeugenia.github.io/Trolls_fangs_and_goblins_TD/images/towers/sandTurret.png";
       } else if (this.turretSelected === "catapult") {
         turretRangeIs = this.getTurretRange(this.turretSelected);
-        this.placeHolderImg.src = "../../images/towers/stoneTurret.png";
+        this.placeHolderImg.src =
+          "https://aitorsantaeugenia.github.io/Trolls_fangs_and_goblins_TD/images/towers/stoneTurret.png";
       } else if (this.turretSelected === "slow") {
         turretRangeIs = this.getTurretRange(this.turretSelected);
-        this.placeHolderImg.src = "../../images/towers/freezeTurret.png";
+        this.placeHolderImg.src =
+          "https://aitorsantaeugenia.github.io/Trolls_fangs_and_goblins_TD/images/towers/freezeTurret.png";
       } else if (this.turretSelected === "flame") {
         turretRangeIs = this.getTurretRange(this.turretSelected);
-        this.placeHolderImg.src = "../../images/towers/flameTurret.png";
+        this.placeHolderImg.src =
+          "https://aitorsantaeugenia.github.io/Trolls_fangs_and_goblins_TD/images/towers/flameTurret.png";
       }
 
       //draw the range of the turret
@@ -1263,7 +1281,8 @@ function updateGuantlet() {
 }
 
 function drawGuantlet() {
-  thanos.src = "./../../images/effects/thanos_snap.png";
+  thanos.src =
+    "https://aitorsantaeugenia.github.io/Trolls_fangs_and_goblins_TD/images/effects/thanos_snap.png";
 
   var canvas = document.getElementById("canvas");
   var context = canvas.getContext("2d");
