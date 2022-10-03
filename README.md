@@ -1,5 +1,10 @@
 # Trolls, fangs and goblins - Tower defense v.2.0
 
+<div align="center">
+
+![Menu showcase](https://aitorsantaeugenia.github.io/Trolls_fangs_and_goblins_TD/images/loadScreen/trolls_fangs_goblins_tittle.png)
+</div>
+
 <code>A tower defense game made in vanilla JavaScript & Canvas</code>
 
 <div align="center">
