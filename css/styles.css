@@ -532,6 +532,13 @@ font-family: Play;
   width:400px;
 }
 
+#uiTopMenuThird > p{
+  font-family: 'Permanent Marker',normal;
+  font-size:20px;
+  margin-top: 5px;
+  text-align: center;
+}
+
 #cheatCodesText{
   font-family: 'Permanent Marker',normal;
   font-size:20px;
