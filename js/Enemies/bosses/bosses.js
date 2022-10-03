@@ -19,7 +19,7 @@ class Dragon extends Minons {
 
     // img
     this.img = new Image();
-    this.img.src = `./../../../images/enemies/bosses/dragon_boss.png`;
+    this.img.src = `https://aitorsantaeugenia.github.io/Trolls_fangs_and_goblins_TD/images/enemies/bosses/dragon_boss.png`;
     this.img.currentLoopIndex = 0;
     this.img.frames = 3;
   }
@@ -46,7 +46,7 @@ class DragonBoss extends Minons {
 
     // img
     this.img = new Image();
-    this.img.src = `./../../../images/enemies/bosses/dragon_boss_2.png`;
+    this.img.src = `https://aitorsantaeugenia.github.io/Trolls_fangs_and_goblins_TD/images/enemies/bosses/dragon_boss_2.png`;
     this.img.currentLoopIndex = 0;
     this.img.frames = 3;
   }
@@ -73,7 +73,7 @@ class DragonLordBoss extends Minons {
 
     // img
     this.img = new Image();
-    this.img.src = `./../../../images/enemies/bosses/dragon_boss_lord.png`;
+    this.img.src = `https://aitorsantaeugenia.github.io/Trolls_fangs_and_goblins_TD/images/enemies/bosses/dragon_boss_lord.png`;
     this.img.currentLoopIndex = 0;
     this.img.frames = 3;
   }
@@ -100,7 +100,7 @@ class Lord extends Minons {
 
     // img
     this.img = new Image();
-    this.img.src = `./../../../images/enemies/bosses/lord_2.png`;
+    this.img.src = `https://aitorsantaeugenia.github.io/Trolls_fangs_and_goblins_TD/images/enemies/bosses/lord_2.png`;
     this.img.currentLoopIndex = 0;
     this.img.frames = 3;
   }
@@ -127,7 +127,7 @@ class LordBoss extends Minons {
 
     // img
     this.img = new Image();
-    this.img.src = `./../../../images/enemies/bosses/lord.png`;
+    this.img.src = `https://aitorsantaeugenia.github.io/Trolls_fangs_and_goblins_TD/images/enemies/bosses/lord.png`;
     this.img.currentLoopIndex = 0;
     this.img.frames = 3;
   }
@@ -154,7 +154,7 @@ class King extends Minons {
 
     // img
     this.img = new Image();
-    this.img.src = `./../../../images/enemies/bosses/king.png`;
+    this.img.src = `https://aitorsantaeugenia.github.io/Trolls_fangs_and_goblins_TD/images/enemies/bosses/king.png`;
     this.img.currentLoopIndex = 0;
     this.img.frames = 3;
   }
@@ -181,7 +181,7 @@ class QueenBoss extends Minons {
 
     // img
     this.img = new Image();
-    this.img.src = `./../../../images/enemies/bosses/queen_boss.png`;
+    this.img.src = `https://aitorsantaeugenia.github.io/Trolls_fangs_and_goblins_TD/images/enemies/bosses/queen_boss.png`;
     this.img.currentLoopIndex = 0;
     this.img.frames = 3;
   }
@@ -208,7 +208,7 @@ class SnowBoss extends Minons {
 
     // img
     this.img = new Image();
-    this.img.src = `./../../../images/enemies/bosses/snow_lord_boss.png`;
+    this.img.src = `https://aitorsantaeugenia.github.io/Trolls_fangs_and_goblins_TD/images/enemies/bosses/snow_lord_boss.png`;
     this.img.currentLoopIndex = 0;
     this.img.frames = 3;
   }
