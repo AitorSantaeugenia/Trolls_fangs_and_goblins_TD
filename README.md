@@ -11,7 +11,7 @@
 
 <div align="center">
 
-[![Start button](https://user-images.githubusercontent.com/14861253/193635756-324bc802-abc5-4732-a0c8-a6bee51eb34a.png)](https://aitorsantaeugenia.github.io/Trolls_fangs_and_goblins_TD/).
+[![Start button](https://user-images.githubusercontent.com/14861253/193691083-1e088077-50e8-441a-aab6-86a25f7cd800.png)](https://aitorsantaeugenia.github.io/Trolls_fangs_and_goblins_TD/)
 <br>
 
 [or Here](https://aitorsantaeugenia.github.io/Trolls_fangs_and_goblins_TD/).
