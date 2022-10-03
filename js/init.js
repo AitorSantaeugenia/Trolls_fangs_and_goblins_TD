@@ -208,6 +208,7 @@ window.onload = function () {
   //if game started, clickin ESC show us the PAUSE GAME UI
   //if game didn't start, we use ESC to hide instructions/customGameUI, preventing some bugs with the third var gameStarted
   document.addEventListener("keydown", (e) => {
+    console.log(!instructionsGameUI.classList.contains("hidden"));
     //this will prevent to call PAUSE when game is false (like win/lose scenarios)
     let gameStatus = start.checkGameStatus();
     let pauseStatus = start.checkPauseStatus();
@@ -226,19 +227,35 @@ window.onload = function () {
       closeAccordion();
     }
 
-    //we do this, because now we can click ESC while in pause menu to continue playing but preventing (pressing ESC)
-    //when winning or losing the game, AAAAND we also added gameStarted to prevent hitting ESC on starting menu while game is not playing
-    //this prevents us some bugs
+    //we do this because we want to press ESC to exit instructions menu UI when game is not started (in game menu), but also because
+    //we want to use ESC to close instructions menu IU in pause menu while playing, and if the instruction menu UI is hidden while playing
+    //and we press ESC, it will just toggle the pause menu (from show to hide)
+    //so we can use ESC key to both close instruction menu and exiting the pause menu while playing (and also exiting the instruction UI menu at start)
     if (
-      (gameStatus === "true" &&
-        pauseStatus === "false" &&
-        gameStarted === "true") ||
-      (gameStatus === "false" &&
-        pauseStatus === "true" &&
-        gameStarted === "true")
+      gameStatus === "true" &&
+      pauseStatus === "false" &&
+      gameStarted === "true"
     ) {
       if (e.code === "Escape") {
-        instructionsGameUI.classList.add("hidden");
+        start.pauseGame();
+      }
+    } else if (
+      gameStatus === "false" &&
+      pauseStatus === "true" &&
+      gameStarted === "true" &&
+      !instructionsGameUI.classList.contains("hidden")
+    ) {
+      instructionsGameUI.classList.add("hidden");
+      closePanel();
+
+      closeAccordion();
+    } else if (
+      gameStatus === "false" &&
+      pauseStatus === "true" &&
+      gameStarted === "true" &&
+      instructionsGameUI.classList.contains("hidden")
+    ) {
+      if (e.code === "Escape") {
         start.pauseGame();
       }
     }
