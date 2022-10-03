@@ -1,69 +1,84 @@
-# Tower defense (Warcraft 3 style)
-- Tower defense game like Warcraft 3 ROC / TFT
-- Place turrets into the canvas, selecting it and clicking where you want it.
-- There are 3 waves of 10-20 minions x wave
+# Trolls, fangs and goblins - Tower defense (Warcraft 3 style) v.2.0
+
+<code>A tower defense game made in vanilla JavaScript & Canvas</code>
+
+## What is this about?
+- A tower defense game like Warcraft 3 ROC / TFT
+- Place turrets into the canvas, selecting it and clicking where you want to place it.
+- Four maps: Easy, Normal, Hard & Hell
+- A lot of minions & hell minions, with bosses too.
 - Enjoy an amazing soundtrack
-- It's rumored there are some cheats (return key and type it)..
-```
-  whosyourdaddy - best turret unlocked
+- It's rumored there are some cheats (return key)
+
+<details>
+  <summary><code>Want to check cheat codes?</code></summary>
+  Press enter/return key while you are in game. Type the cheat code you want.
+  
+  ```javascript
   greedisgood - 200 gold
   hollymolly - 1000 gold
+  whosyourdaddy - best turret unlocked, the B.F.T
   ezwin - instant win
   4lose - instant lose
   thanos - snap?
-```
+  ```  
+</details>
+
+
+---
+
 [Try it](https://aitorsantaeugenia.github.io/TD_Project1/) || https://aitorsantaeugenia.github.io/TD_Project1/
 
-# TO-DO
-- Create HARD and HELL maps backgrounds
-- Change IMG menu with new maps
-- Boss round and enemies with different stats (class enemy)
-- 2 more towers 
+<code>TO-DO</code>
+- 2 more towers, maybe a third one
   - AOE
   - POISON
-- Chose levels (4 levels), if you start with first level > 2º > 3º > 4º.
-  - Lvl 1 - Easy - 5 waves
-  - Lvl 2 - Easy with con. - 10 waves with boss*wave/final boss
-    - New path, new map, new tema, new enemies with boss.
-  - Lvl 3 - Hard - 15 waves with boss*wave/final boss
-    - New path, new map, new tema, new enemies with boss.
-  - Lvl 4 - Nightmare - 50 waves (or change this to Lvl3 and make a DIY lvl) with boss*wave/final boss
-    - New path, new map, new theme, new enemies with boss.
-- Instruction menu
-- Custom game menu
-- MSG when introducing a cheatcode
+- Custom game menu - Created but hidden right now
+- Biomes map for custom game 
+  - We want you to create a map with each "biome" (normal, hell, spooky, snow) with all paths, so that means 4x3 maps, lot of work
+- MSG when introducing a cheatcode, done but needs a fix
 - Better game balance
 - Bug background when resize
 - Not responsive, but solve some problems that happen when resizing
 - Refractor code (and clear functions, classes, comments)
 
-Maybe:
-- Better buttons / better sound on || off button
-- Create ranked with nick+points
-- Create ranked map, infinity map
-- Add points system
-- x100 x minions killed (300 if it's boss)
-- x100 after x min played
-- Show ranked in endgame
-- how do you turn this on (maybe, too much frames)
-- Drops of coins
+<details>
+  <summary><code>Maybe we will implement</code></summary>
+  - Better buttons / better sound on || off button <br>
+  - Create ranked with nick+points - if no vanillaJS, don't <br>
+  - Create ranked map, infinity map <br>
+  - Add points system <br>
+  - x100 x minions killed (300 if it's boss) <br>
+  - x100 after x min played <br>
+  - Show ranked in endgame <br>
+  - how do you turn this on (maybe, too much frames) <br>
+  - Drops of coins <br>
+</details>
 
-- ~~Create hell map path~~
-- ~~Fix sound bugs (gameOver, winGame)~~V
-- ~~If ESC, pause game and show menu"options"~~
-- ~~Centered vw & vh canvas~~
-- ~~Background transitions for menu ??~~ || Nope
-- ~~Better menu for sound on/off~~
-- ~~Better bottom UI~~
-- ~~Restart button (lvl restart)~~
-- ~~Cheat button explanation~~
-- ~~Change width+height map (minions+path) on selecting lvl~~
-- ~~Modal for menu selection~
-- ~~When pause the game if it is muted, keep muted after continue~~
-- ~~If we are muted and restart the game, keep muted after it~~
-- ~~If we are muted in endgame Menu and we restart, keep muted~~
-- ~~Show DIV with opacity when win/lose (same as pause menu)~~
-- ~~If endgame, stop frameanimaterequests~~
+<details>
+  <summary><code>Already implemented</code></summary>
+  - Create hell map path <br>
+  - Fix sound bugs (gameOver, winGame) <br>
+  - If ESC, pause game and show menu"options" <br>
+  - Centered vw & vh canvas <br>
+  - Better menu for sound on/off <br>
+  - Better bottom UI <br>
+  - Restart button (lvl restart) <br>
+  - Cheat button explanation <br>
+  - Change width+height map (minions+path) on selecting lvl <br>
+  - Modal for menu selection~ <br>
+  - When pause the game if it is muted, keep muted after continue <br>
+  - If we are muted and restart the game, keep muted after it <br>
+  - If we are muted in endgame Menu and we restart, keep muted <br>
+  - Show DIV with opacity when win/lose (same as pause menu) <br>
+  - If endgame, stop frameanimaterequests <br>
+  - Create HARD and HELL maps backgrounds <br>
+  - Change IMG menu with new maps <br>
+  - Boss round and enemies <br>
+  - Instruction menu <br>
+</details>
+
+
 
 ```
 If you have any suggesitons, plz don't be shy and tell me here on github |or| aitorsantaeugenia@gmail.com
