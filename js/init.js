@@ -454,7 +454,15 @@ let i;
 
 for (i = 0; i < acc.length; i++) {
   acc[i].addEventListener("click", function () {
-    this.classList.toggle("active");
+    acc[0].classList.remove("active");
+    acc[0].nextElementSibling.style.display = "none";
+    acc[1].classList.remove("active");
+    acc[1].nextElementSibling.style.display = "none";
+    acc[2].classList.remove("active");
+    acc[2].nextElementSibling.style.display = "none";
+
+    this.classList.add("active");
+
     let panel = this.nextElementSibling;
     if (panel.style.display === "contents") {
       panel.style.display = "none";
