@@ -45,9 +45,9 @@
 ---
 
 <code>TO-DO</code>
-- 2 more towers, maybe a third one
-  - AOE
-  - POISON
+- More towers, right now 4 more 
+  - AOE++
+  - POISON++
 - Custom game menu - Created but hidden right now
 - Biomes map for custom game 
   - We want you to create a map with each "biome" (normal, hell, spooky, snow) with all paths, so that means 4x3 maps, lot of work
@@ -55,6 +55,7 @@
 - Better game balance
 - Bug background when resize
 - Not responsive, but solve some problems that happen when resizing
+- Accordion+gallery slider on instruction menu UI, needs to be responsive
 - Refractor code (and clear functions, classes, comments)
 
 <details>
